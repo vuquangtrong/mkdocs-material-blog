@@ -1,0 +1,106 @@
+{% extends "page.html" %}
+
+{% block page_styles %}
+  {{ super() }}
+  <style>
+
+    /* Make tags group look clear */
+    .md-typeset details {
+      padding: 0;
+      border-left: none;
+    }
+
+    .md-typeset summary::before {
+      display: none;
+    }
+
+    .md-typeset summary {
+      border-left: none;
+      margin: 0;
+      padding: .4rem 0.5rem .4rem 0.5rem;
+    }
+
+  </style>
+{% endblock %}
+
+{% block page_content %}
+  <!-- Get all tags -->
+  {# store all tags in tubes (tag, [pages]) #}
+  {% set tags=[] %}
+  
+  {# scan all pages #}
+  {% for page in pages %}
+
+    {# if page has tags #}
+    {% if page.page.meta.tags %}
+
+      {# go through each tag #}
+      {% for tag in page.page.meta.tags %}
+
+        {# if has tags #}
+        {% if tags|length %}
+
+          {# track if tag exists or not #}
+          {% set ns = namespace(found=False) %}    
+          
+          {# scan in recored tags #}
+          {% for item in tags %}
+            {% set _tag, _pages = item %}
+
+            {# if tag is already in the list #}
+            {% if tag == _tag %}
+              {% set ns.found = True %}
+              {# append current page to the tag #}
+              {{ _pages.append(page.page) or "" }}
+            {% endif %}
+          
+          {% endfor %}
+
+          {% if not ns.found %}
+            {# add new tag with current page #}
+            {{ tags.append((tag, [page.page])) or "" }}
+          {% endif %}
+        
+        {# empty tag list #}
+        {% else %}
+          {# add new tag with current page #}
+          {{ tags.append((tag, [page.page])) or "" }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  
+  <!-- Create view -->
+  {% for item in tags %}
+    {% set _tag, _pages = item %}
+
+    <details id={{_tag}}>
+      <summary class="tag-{{loop.index % 7}}">
+        {{ _tag }} ({{ _pages|count }})<a class="headerlink" href="#{{ _tag }}">⚓︎</a>
+      </summary>
+
+      <ul>
+        {% for page in _pages %}
+          <li>
+            {# {{ page.__dict__ }} #}
+            <a href="{{ page.canonical_url }}">{{ page.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </details>
+  {% endfor %}
+
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+
+  <!-- open tag when called -->
+  <script type="application/javascript">
+    function openTag() {
+      var hash = location.hash.substring(1);
+      if(hash) var details = document.getElementById(hash);
+      if(details && details.tagName.toLowerCase() === 'details') details.open = true;
+    }
+  </script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+
+{% block page_styles %}
+
+  <!-- Additional styles for pages -->
+  <style>
+    /* Hide table of contents */
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--secondary {
+        display: none;
+      }
+    }
+
+    /* Hide navigation */
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary {
+        display: none;
+      }
+    }
+
+    /* Center the content area */
+    @media screen and (min-width: 76.25em) {
+      .md-content {
+          margin-left: auto;
+          margin-right: auto;
+      }
+    }
+
+    @media screen and (max-width: 76.1875em) and (min-width: 60em) {
+      .md-content {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block disqus %}
+  <!-- Remove Disqus on the pages -->
+{% endblock %}

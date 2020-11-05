@@ -1,0 +1,118 @@
+site_name: Blogging with Material for Mkdocs
+site_url: http://localhost:8000
+site_author: vuquangtrong@gmail.com
+site_description: Write your blog in technical documentation style!
+
+copyright: '© 2020 <a href="https://www.codeinsideout.com/">Code Inside Out</a>'
+
+theme:
+  name: material
+  custom_dir: overrides
+  # palette:
+    # scheme: default
+    # primary: indigo
+    # accent: indigo
+  # font:
+    # text: Roboto
+    # code: Roboto Mono
+  # language: en
+  # direction: ltr
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  features:
+    # - navigation.instant
+    - navigation.tabs
+
+extra_css:
+  - stylesheets/colors.css
+  - stylesheets/progressbar.css
+  - stylesheets/kbd.css
+  - stylesheets/blog.css
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/jquery-3.4.1.min.js
+  - javascripts/extra.js
+
+plugins:
+  - search:
+  - awesome-pages:
+      collapse_single_pages: true
+
+markdown_extensions:
+  - kbdextension:
+      brackets_css: button # [[button]]
+      enable_parens: true
+      parens_css: menu # ((menu))
+      enable_braces: true
+      braces_css: action # {{action}} or {{ "{{action}}" }} when using marcro plugin
+  - markdown_captions:
+  - custom-span-class:
+  - customblocks:
+  - abbr:
+  - attr_list:
+  - def_list:
+  # - fenced_code: # replaced by pymdownx.superfences
+  - footnotes:
+  - md_in_html:
+  - tables:
+  - admonition:
+  # - sane_lists: # cause some weird render when using pymdownx
+  # - nl2br: # cause some weird render when using pymdownx, can use \n with pymdownx.escapeall extension
+  - meta:
+  - toc:
+      permalink: ⚓︎
+      slugify: !!python/name:pymdownx.slugs.uslugify
+      toc_depth: 3 # from h2 to h3 only
+  - pymdownx.snippets:
+  - pymdownx.details:
+  - pymdownx.superfences:
+  - pymdownx.highlight:
+      # linenums: true
+      # linenums_style: table
+  - pymdownx.inlinehilite:
+  - pymdownx.keys:
+  - pymdownx.tabbed:
+  - pymdownx.caret:
+  - pymdownx.mark:
+  - pymdownx.tilde:
+  - pymdownx.critic:
+      mode: view
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      # clickable_checkbox: true
+  - pymdownx.progressbar:
+      # level_class: true
+      # add_classes: ''
+      # progress_increment: 20
+  - pymdownx.saneheaders:
+  - pymdownx.escapeall:
+      hardbreak: true
+      nbsp: true
+  - pymdownx.magiclink:
+  - pymdownx.smartsymbols:
+
+# google_analytics:
+  # - UA-XXXXXXXX-X
+  # - auto
+
+extra:
+  # disqus: 'your-id'
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/vuquangtrong
+    - icon: fontawesome/brands/facebook
+      link: https://facebook.com/trongvq
+
+nav:
+  - index.md
+  - Projects:
+    - projects.md
+  - ...
+  - About: 
+    - about.md
+  - Tags: 
+    - tags.md

@@ -1,0 +1,27 @@
+/* use with kbdextension */
+
+.md-typeset kbd {
+    padding: 0 0.5em;
+    font-size: .80em;
+    box-shadow: unset;
+}
+
+.md-typeset kbd[class^=key] {
+    color: white;
+    background-color: dimgray;
+}
+
+.md-typeset kbd.menu {
+    color: dodgerblue;
+    border: 1px dotted  dodgerblue;
+}
+
+.md-typeset kbd.button {
+    color: white;
+    background-color: dodgerblue;
+}
+
+.md-typeset kbd.action {
+    color: indigo;
+    border-bottom: 1px dotted  dodgerblue;
+}

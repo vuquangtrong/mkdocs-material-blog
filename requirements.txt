@@ -1,0 +1,7 @@
+mkdocs-material
+mkdocs-awesome-pages-plugin
+mkdocs-exclude
+kbdextension
+markdown-captions
+markdown-customblocks
+mdx-custom-span-class
