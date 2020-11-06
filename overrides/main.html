@@ -54,6 +54,38 @@
     
     <!-- Page Styles -->
     {% block page_styles %}
+      <style>
+        /* back to top */
+        #back-to-top {
+          display: flex;
+          background-color: #FF9800;
+          width: 48px;
+          height: 48px;
+          text-align: center;
+          border-radius: 0.5em;
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          transition: background-color .3s, opacity .5s, visibility .5s;
+          opacity: 0.4;
+          visibility: hidden;
+          z-index: 1000;
+        }
+
+        #back-to-top:hover {
+          opacity: 1;
+        }
+
+        #back-to-top.show {
+          visibility: visible;
+        }
+
+        #back-top-top-indicator {
+          height: 1.5em;
+          margin: auto;
+          color: white;
+        }
+      </style>
     {% endblock %}
 
     <!-- Page Content -->
@@ -75,8 +107,10 @@
 
   <!-- Add some space before comments -->
   <div style="height: 10vh;"></div>
-
-  {{ super() }}
+  
+  <div id="disqus_section">
+    {{ super() }}
+  </div>
 
 {% endblock %}
 
@@ -98,4 +132,26 @@
       })
     </script>
   {% endif %}
+{% endblock %}
+
+<!-- Back to top script -->
+{% block scripts %}
+  {{ super() }}
+  
+  <script type="text/javascript">
+    var backToTop = $('#back-to-top');
+
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > 100) {
+        backToTop.addClass('show');
+      } else {
+        backToTop.removeClass('show');
+      }
+    });
+
+    backToTop.on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0}, '1000');
+    });
+  </script>
 {% endblock %}

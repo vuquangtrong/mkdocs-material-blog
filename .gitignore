@@ -129,3 +129,6 @@ env.bat
 install.bat
 run.bat
 build.bat
+
+# material src
+src/

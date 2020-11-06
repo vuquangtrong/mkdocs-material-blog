@@ -1,6 +1,7 @@
-{% extends "page.html" %}
+{% extends "main.html" %}
 
 {% block page_styles %}
+  {{ super() }}
 {% endblock %}
 
 <!-- Content -->
@@ -8,7 +9,7 @@
 
   <p style="margin-top: 0;">
     Here listed all articles in the my blog. I hope you can find something useful here.
-    The left panel is grouped in categories. You can quickly find for a word in search by pressing <kbd class="key-s">S</kbd> too.
+    The left panel is grouped in categories. You can bring up the Search engine anytime by pressing the <kbd class="key-s">S</kbd> key too.
   </p>
 
   <h3>Features posts:</h3>
@@ -56,4 +57,8 @@
 
   {% endfor %}
 
+{% endblock %}
+
+{% block disqus %}
+  <!-- Remove Disqus on the pages -->
 {% endblock %}

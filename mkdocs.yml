@@ -8,6 +8,9 @@ copyright: '© 2020 <a href="https://www.codeinsideout.com/">Code Inside Out</a>
 theme:
   name: material
   custom_dir: overrides
+  features:
+    # - navigation.instant # some js can not re-run after changing between pages
+    - navigation.tabs
   # palette:
     # scheme: default
     # primary: indigo
@@ -19,9 +22,6 @@ theme:
   # direction: ltr
   logo: assets/logo.png
   favicon: assets/favicon.ico
-  features:
-    # - navigation.instant
-    - navigation.tabs
 
 extra_css:
   - stylesheets/colors.css
@@ -38,7 +38,14 @@ plugins:
   - search:
   - awesome-pages:
       collapse_single_pages: true
-
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+        remove_comments: true
+  - exclude:
+      glob:
+        - "*/unpublished/*"
+  
 markdown_extensions:
   - kbdextension:
       brackets_css: button # [[button]]
@@ -81,6 +88,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - pymdownx.tasklist:
       custom_checkbox: true
       # clickable_checkbox: true
@@ -106,6 +116,8 @@ extra:
       link: https://github.com/vuquangtrong
     - icon: fontawesome/brands/facebook
       link: https://facebook.com/trongvq
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/vqtrong
 
 nav:
   - index.md

@@ -1,6 +1,6 @@
 ---
 title: Writing Syntax
-description: Quick reference to supported syntax for faster Writing and beautiful Output
+description: Quick reference of supported syntax for faster Writing and beautiful Output
 tags:
     - markdown
 date: 2020/30/01
@@ -935,7 +935,7 @@ markdown_extensions:
   - pymdownx.escapeall:
 ```
 
-There are two special escapes among all of these escapes though: escaping "space" characters and escaping "newline" characters. If [[nbsp]] is enabled, an escaped space {==\\ ==} will be converted into a non-breaking space: `&nbsp;`. If hardbreak is enabled, an escaped newline {==\\n==} will be converted to a hard break `<br>`. The advantage of hardbreak is that you can visually see the hard break opposed to Markdown's default method of two spaces at the end of a line.
+There are two special escapes among all of these escapes though: escaping "space" characters and escaping "newline" characters. In `mkdocs.yml`, if `pymdownx.escapeall.nbsp` is enabled, an escaped space {==\\ ==} will be converted into a non-breaking space: `&nbsp;`. If `pymdownx.escapeall.hardbreak` is enabled, an escaped newline {==\\n==} will be converted to a hard break `<br>`. The advantage of hardbreak is that you can visually see the hard break opposed to Markdown's default method of two spaces at the end of a line.
 
 ####  Usage
 

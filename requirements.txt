@@ -1,6 +1,7 @@
 mkdocs-material
-mkdocs-awesome-pages-plugin
 mkdocs-exclude
+mkdocs-awesome-pages-plugin
+mkdocs-minify-plugin
 kbdextension
 markdown-captions
 markdown-customblocks

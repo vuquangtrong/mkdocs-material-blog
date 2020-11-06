@@ -3,6 +3,8 @@ Blogging with Material for MkDocs
 Write your blog in techincal documentation style.
 
 
+Preview site: [Code Inside Out](https://www.codeinsideout.com/)
+
 # Features
 - Backed with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) for quickly create your static site from a set of Markdown files:
   - customizable

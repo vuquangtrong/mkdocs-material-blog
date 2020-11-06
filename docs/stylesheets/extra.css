@@ -76,6 +76,11 @@
     background-color: transparent;
 }
 
+/* emoji */
+.md-typeset span.twemoji {
+    vertical-align: middle;
+}
+
 /* for custom blocks */
 .videowrapper {
     position: relative;
@@ -93,33 +98,3 @@
     height: 100%;
 }
 
-/* back to top */
-#back-to-top {
-    display: flex;
-    background-color: #FF9800;
-    width: 48px;
-    height: 48px;
-    text-align: center;
-    border-radius: 0.5em;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    transition: background-color .3s, opacity .5s, visibility .5s;
-    opacity: 0.4;
-    visibility: hidden;
-    z-index: 1000;
-}
-
-#back-to-top:hover {
-    opacity: 1;
-}
-
-#back-to-top.show {
-    visibility: visible;
-}
-
-#back-top-top-indicator {
-    height: 1.5em;
-    margin: auto;
-    color: white;
-}
