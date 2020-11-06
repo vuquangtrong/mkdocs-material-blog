@@ -1,7 +1,9 @@
 mkdocs-material
 mkdocs-exclude
 mkdocs-awesome-pages-plugin
+mkdocs-git-revision-date-plugin
 mkdocs-minify-plugin
+mkdocs-redirects
 kbdextension
 markdown-captions
 markdown-customblocks

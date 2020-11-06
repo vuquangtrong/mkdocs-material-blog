@@ -25,9 +25,8 @@
     height: 32px;
 }
 
-/* remove margin from the first element in the page */
-.md-content__inner *:first-child {
-    margin-top: 0;
+.md-content {
+    margin-bottom: 15px;
 }
 
 /* h2 header should be seen clearly */
@@ -81,6 +80,39 @@
     vertical-align: middle;
 }
 
+/* footer social links*/
+.md-footer-links {
+    margin-bottom: 1rem;
+}
+
+.md-footer-social {
+    padding: 0 !important;
+    text-align: right;
+}
+
+.md-footer-social a {
+    margin-left: 0.5em;
+}
+
+.md-footer-social__link {
+    height: unset;
+}
+
+.md-footer-social__link svg {
+    width: 32px;
+    max-height: 1.6rem;
+}
+/* repository */
+.md-source__repository {
+    font-weight: unset;
+}
+
+/* last update date */
+.md-source-date {
+    flex-direction: row;
+    margin-right: .5rem;
+}
+
 /* for custom blocks */
 .videowrapper {
     position: relative;
@@ -98,3 +130,29 @@
     height: 100%;
 }
 
+@media print {
+    /* hide some stuff */
+    #back-to-top,
+    #disqus_section {
+        visibility: hidden !important;
+    }
+
+    /* do not braek progress graphic */
+    .progress {
+        page-break-inside: avoid !important;
+    }
+
+    /* expand tab content */
+    .md-typeset .tabbed-set {
+        border: none !important;
+    }
+
+    .md-typeset .tabbed-set>input:checked+label {
+        border: none !important;
+    }
+
+    .md-typeset .tabbed-set>label {
+        color: unset !important;
+        padding-left: 0 !important;  
+    }
+}

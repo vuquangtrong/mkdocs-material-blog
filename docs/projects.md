@@ -9,6 +9,9 @@ if you are interested, feel free to ask me for more details.
 
 Here are some featured ones:
 
+* [Blogging with Material for MkDocs](https://github.com/vuquangtrong/mkdocs-material-blog) \
+  is the theme I am using for this blog, which has some modification to support blogging like homepage, list of posts, and tags.
+
 * [Simplify Theme](https://www.codeinsideout.com/simplify-theme/) \
   for [Pelican](https://docs.getpelican.com/) static site generator. It was used for this blog once.
 

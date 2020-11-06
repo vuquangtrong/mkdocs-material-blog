@@ -1,9 +1,13 @@
 site_name: Blogging with Material for Mkdocs
-site_url: http://localhost:8000
+site_url: http://localhost:8000/
 site_author: vuquangtrong@gmail.com
 site_description: Write your blog in technical documentation style!
 
 copyright: '© 2020 <a href="https://www.codeinsideout.com/">Code Inside Out</a>'
+
+# repo_name: your repo name
+# repo_url: your repo full link
+# edit_uri: ""
 
 theme:
   name: material
@@ -22,7 +26,9 @@ theme:
   # direction: ltr
   logo: assets/logo.png
   favicon: assets/favicon.ico
-
+  # icon:
+    # repo: fontawesome/brands/github
+  
 extra_css:
   - stylesheets/colors.css
   - stylesheets/progressbar.css
@@ -45,7 +51,8 @@ plugins:
   - exclude:
       glob:
         - "*/unpublished/*"
-  
+  - git-revision-date:
+
 markdown_extensions:
   - kbdextension:
       brackets_css: button # [[button]]
@@ -72,6 +79,7 @@ markdown_extensions:
       slugify: !!python/name:pymdownx.slugs.uslugify
       toc_depth: 3 # from h2 to h3 only
   - pymdownx.snippets:
+      check_paths: true
   - pymdownx.details:
   - pymdownx.superfences:
   - pymdownx.highlight:

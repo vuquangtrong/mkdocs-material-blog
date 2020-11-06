@@ -146,42 +146,49 @@
 {% endblock %}
 
 <!-- Content -->
-{% block page_content %}
-
-<!-- Introduction -->
-<div class="intro">
-  <div class="intro-text">
-    <h1 class="intro-text-content text-white">
-      <span class="text-small"><span class="text-tiny">Welcome to</span></span><br/>
-      <span class="glow">{{ config.site_name }}</span><br/>
+{% block content %}
+  <!-- override all -->
+  
+  {% block page_content %}
+    <div class="intro">
+      <div class="intro-text">
+        <h1 class="intro-text-content text-white">
+          <span class="text-small"><span class="text-tiny">Welcome to</span></span><br/>
+          <span class="glow">
+            <span class="twemoji text-orange" style="display: none;">{% include ".icons/fontawesome/solid/code.svg" %}</span>
+            {{ config.site_name }} 
+          </span><br/>
+          <!--
+          <span class="text-tiny text-yellow">{{ config.site_description }}</span>
+          -->
       <span class="text-tiny text-yellow">{{ config.site_description }}</span>
-    </h1>
-  </div>
-
-  <div class="intro-links">
-    <div class="intro-links__inner">
-      <div class="intro-buttons text-medium">
-        <a class="btn btn-primary mt-2 mx-1 text-white" href="/projects">Projects</a>
-        <a class="btn btn-danger mt-2 mx-1 text-white" href="/blog">Blog</a>
-        <a class="btn btn-success mt-2 mx-1 text-white" href="/about">About</a>
+        </h1>
       </div>
 
-      <div class="intro-social mt-3">
-        {% for social in config.extra.social %}
-          {% set title = social.name %}
-          {% if not title and "//" in social.link %}
-            {% set _,url = social.link.split("//") %}
-            {% set title = url.split("/")[0] %}
-          {% endif %}
-          <a href="{{ social.link }}" target="_blank" rel="noopener" title="{{ title | e }}" class="mx-1 text-light-gray">
-            <span class="twemoji">
-              {% include ".icons/" ~ social.icon ~ ".svg" %}
-            </span>
-          </a>
-        {% endfor %}
+      <div class="intro-links">
+        <div class="intro-links__inner">
+          <div class="intro-buttons text-medium">
+            <a class="btn btn-primary mt-2 mx-1 text-white" href="/projects">Projects</a>
+            <a class="btn btn-danger mt-2 mx-1 text-white" href="/blog">Blog</a>
+            <a class="btn btn-success mt-2 mx-1 text-white" href="/about">About</a>
+          </div>
+
+          <div class="intro-social mt-3">
+            {% for social in config.extra.social %}
+              {% set title = social.name %}
+              {% if not title and "//" in social.link %}
+                {% set _,url = social.link.split("//") %}
+                {% set title = url.split("/")[0] %}
+              {% endif %}
+              <a href="{{ social.link }}" target="_blank" rel="noopener" title="{{ title | e }}" class="mx-1 text-light-gray">
+                <span class="twemoji">
+                  {% include ".icons/" ~ social.icon ~ ".svg" %}
+                </span>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
+  {% endblock %}
 {% endblock %}

@@ -49,58 +49,65 @@
 
 {% endblock %}
 
+{% block styles %}
+  {{ super() }}
+
+  <!-- Page Styles -->
+  {% block page_styles %}
+  <style>
+    /* back to top */
+    #back-to-top {
+      display: flex;
+      float: right;
+      background-color: #FF9800;
+      width: 48px;
+      height: 48px;
+      text-align: center;
+      border-radius: 24px;
+      position: sticky;
+      bottom: 30px;
+      right: 30px;
+      transition: background-color .3s, opacity .5s, visibility .5s;
+      opacity: 0.4;
+      visibility: hidden;
+      z-index: 1000;
+    }
+
+    #back-to-top:hover {
+      opacity: 1;
+    }
+
+    #back-to-top.show {
+      visibility: visible;
+    }
+
+    #back-top-top-indicator {
+      height: 1.5em;
+      margin: auto;
+      color: white;
+    }
+  </style>
+  {% endblock %}
+
+{% endblock %}
+
 <!-- Content -->
 {% block content %}
-    
-    <!-- Page Styles -->
-    {% block page_styles %}
-      <style>
-        /* back to top */
-        #back-to-top {
-          display: flex;
-          background-color: #FF9800;
-          width: 48px;
-          height: 48px;
-          text-align: center;
-          border-radius: 0.5em;
-          position: fixed;
-          bottom: 30px;
-          right: 30px;
-          transition: background-color .3s, opacity .5s, visibility .5s;
-          opacity: 0.4;
-          visibility: hidden;
-          z-index: 1000;
-        }
 
-        #back-to-top:hover {
-          opacity: 1;
-        }
-
-        #back-to-top.show {
-          visibility: visible;
-        }
-
-        #back-top-top-indicator {
-          height: 1.5em;
-          margin: auto;
-          color: white;
-        }
-      </style>
-    {% endblock %}
-
-    <!-- Page Content -->
-    {% block page_content %}
-      {{ page.content }}
-    {% endblock %}
-
-    <!-- Back to top -->
-    <a id="back-to-top">
-      <span class="twemoji" id="back-top-top-indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
-        </svg>
-      </span>
+  {% if page.edit_url %}
+    <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-content__button md-icon">
+      {% include ".icons/material/pencil.svg" %}
     </a>
+  {% endif %}
+
+  {% if not "\x3ch1" in page.content %}
+    <h1>{{ page.title | default(config.site_name, true)}}</h1>
+  {% endif %}
+
+  <!-- Page Content -->
+  {% block page_content %}
+    {{ page.content }}
+  {% endblock %}
 {% endblock %}
 
 {% block disqus %}
@@ -111,6 +118,15 @@
   <div id="disqus_section">
     {{ super() }}
   </div>
+
+  <!-- Back to top -->
+  <a id="back-to-top">
+    <span class="twemoji" id="back-top-top-indicator">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
+      </svg>
+    </span>
+  </a>
 
 {% endblock %}
 
