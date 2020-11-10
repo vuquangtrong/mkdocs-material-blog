@@ -1,7 +1,12 @@
 site_name: Blogging with Material for Mkdocs
 site_url: http://localhost:8000/
 site_author: vuquangtrong@gmail.com
-site_description: Write your blog in technical documentation style!
+site_description: >-
+  Write your blog in technical documentation style!
+site_main_topics: >-
+  "Easy to write a post",
+  "Tags and Quick Search",
+  "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Awesome!"
 
 copyright: '© 2020 <a href="https://www.codeinsideout.com/">Code Inside Out</a>'
 

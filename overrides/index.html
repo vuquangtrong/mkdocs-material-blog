@@ -158,10 +158,9 @@
             <span class="twemoji text-orange" style="display: none;">{% include ".icons/fontawesome/solid/code.svg" %}</span>
             {{ config.site_name }} 
           </span><br/>
-          <!--
-          <span class="text-tiny text-yellow">{{ config.site_description }}</span>
-          -->
-      <span class="text-tiny text-yellow">{{ config.site_description }}</span>
+          <span class="text-tiny" style="color: yellow;">{{ config.site_description }}</span><br/>
+          <!-- add space to reserve a line -->
+          <span style="margin-left: -0.2em;">&nbsp;</span><span class="text-tiny typed" style="color: yellow;"></span>
         </h1>
       </div>
 
@@ -191,4 +190,29 @@
       </div>
     </div>
   {% endblock %}
+{% endblock %}
+
+<!-- Typed script -->
+{% block scripts %}
+
+  {{ super() }}
+
+  <script src="{{ 'javascripts/typed.js' | url }}"></script>
+  
+  <script type="text/javascript">
+    var typed = $(".typed");
+
+    $(function() {
+        typed.typed({
+            strings: [
+              {{ config.site_main_topics }}
+            ],
+            showCursor: false,
+            typeSpeed: 20,
+            backSpeed: 0,
+            backDelay: 1000,
+            loop: true,
+        });
+    });
+  </script>
 {% endblock %}

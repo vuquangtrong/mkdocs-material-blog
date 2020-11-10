@@ -10,9 +10,9 @@ Hi,
 which has all of benefits from Material for MkDocs and provides some extra pages:
 
 - Add [Landing page](index.md) which shows your homepage
-- Add [Blog page](blog/index.md) which has featured posts
+- Add [Blog page](posts/index.md) which has featured posts
 - Add [Tags pages](tags.md) for quickly find related posts
-- Enable many [useful extensions](blog/syntax/index.md) for Markdown, help you to write content quickly with additional elements like callouts, tabs, syntax highlight, code copy.
+- Enable many [useful extensions](posts/syntax/index.md) for Markdown, help you to write content quickly with additional elements like callouts, tabs, syntax highlight, code copy.
 - Material for MkDocs theme
     - Customizable
     - Searchable
