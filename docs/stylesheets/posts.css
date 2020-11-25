@@ -1,0 +1,36 @@
+.featured-post {
+    border: 1px solid lightgray;
+    border-radius: 0.25em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+}
+
+.featured-post:hover {
+    border: 1px solid skyblue;
+    transform: scale(1.01);
+    box-shadow: 0 .125em .25em rgba(0,0,0,.075) !important;
+}
+
+.featured-post .title {
+    margin-top: 0;
+}
+
+.featured-post .description {
+    margin-top: 0;
+}
+
+.featured-post .info {
+    flex-direction: row;
+    font-size: 0.8em;
+}
+
+.featured-post .info .extra {
+    float: left;
+    color: gray;
+}
+
+.featured-post .info .tags {
+    float: right;
+}

@@ -1,62 +1,43 @@
+# Copyright (c) 2020 Vũ Quang Trọng <vuquangtrong@gmail.com>
+
 site_name: Blogging with Material for Mkdocs
-site_url: http://localhost:8000/
+site_url: http://localhost:8000/ # must have the trailing slash
 site_author: vuquangtrong@gmail.com
 site_description: >-
   Write your blog in technical documentation style!
-site_main_topics: >-
-  "Easy to write a post",
-  "Tags and Quick Search",
-  "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Awesome!"
 
-copyright: '© 2020 <a href="https://www.codeinsideout.com/">Code Inside Out</a>'
-
-# repo_name: your repo name
-# repo_url: your repo full link
-# edit_uri: ""
+copyright: >- # can use HTML text, but should be on one line
+  © 2020 <a href="https://www.codeinsideout.com/">Code Inside Out</a>
 
 theme:
   name: material
   custom_dir: overrides
+  font:
+    text: Roboto
+    code: Roboto Mono
   features:
-    # - navigation.instant # some js can not re-run after changing between pages
     - navigation.tabs
-  # palette:
-    # scheme: default
-    # primary: indigo
-    # accent: indigo
-  # font:
-    # text: Roboto
-    # code: Roboto Mono
-  # language: en
-  # direction: ltr
   logo: assets/logo.png
   favicon: assets/favicon.ico
-  # icon:
-    # repo: fontawesome/brands/github
-  
-extra_css:
-  - stylesheets/colors.css
-  - stylesheets/progressbar.css
-  - stylesheets/kbd.css
-  - stylesheets/blog.css
-  - stylesheets/extra.css
-
-extra_javascript:
-  - javascripts/jquery-3.4.1.min.js
-  - javascripts/extra.js
 
 plugins:
   - search:
+  - exclude:
+  - markdown-filter:
+  - macros: # before change the default block marks {{}}, 
+            # please check other plugin which relies on jinja in markdown
+      j2_block_start_string: '{[%'
+      j2_block_end_string: '%]}'
+      j2_variable_start_string: '{['
+      j2_variable_end_string: ']}'
   - awesome-pages:
       collapse_single_pages: true
+  # - redirects:
+      # redirect_maps:
   - minify:
       minify_html: true
       htmlmin_opts:
         remove_comments: true
-  - exclude:
-      glob:
-        - "*/unpublished/*"
-  - git-revision-date:
 
 markdown_extensions:
   - kbdextension:
@@ -64,7 +45,8 @@ markdown_extensions:
       enable_parens: true
       parens_css: menu # ((menu))
       enable_braces: true
-      braces_css: action # {{action}} or {{ "{{action}}" }} when using marcro plugin
+      braces_css: action # {{action}} or
+                         # {{ "{{action}}" }} when use mkdocs-macros-plugin with default {{}}
   - markdown_captions:
   - custom-span-class:
   - customblocks:
@@ -76,8 +58,9 @@ markdown_extensions:
   - md_in_html:
   - tables:
   - admonition:
-  # - sane_lists: # cause some weird render when using pymdownx
-  # - nl2br: # cause some weird render when using pymdownx, can use \n with pymdownx.escapeall extension
+  # - sane_lists: # cause some weird renders when use with pymdownx
+  # - nl2br: # cause some weird render when use with pymdownx, 
+             # can use \n with pymdownx.escapeall extension
   - meta:
   - toc:
       permalink: ⚓︎
@@ -89,15 +72,13 @@ markdown_extensions:
   - pymdownx.superfences:
   - pymdownx.highlight:
       # linenums: true
-      # linenums_style: table
   - pymdownx.inlinehilite:
-  - pymdownx.keys:
+  # - pymdownx.keys: # ++key++ syntax is hard to read in markdown, use kbdextension instead
   - pymdownx.tabbed:
   - pymdownx.caret:
   - pymdownx.mark:
   - pymdownx.tilde:
   - pymdownx.critic:
-      mode: view
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -106,11 +87,7 @@ markdown_extensions:
           - overrides/.icons
   - pymdownx.tasklist:
       custom_checkbox: true
-      # clickable_checkbox: true
   - pymdownx.progressbar:
-      # level_class: true
-      # add_classes: ''
-      # progress_increment: 20
   - pymdownx.saneheaders:
   - pymdownx.escapeall:
       hardbreak: true

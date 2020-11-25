@@ -2,10 +2,10 @@
 title: Projects
 description: Listed here are some of my projects
 template: page.html
+usercontent: true
 ---
 
-I have published some of my projects on https://github.com/vuquangtrong, \
-if you are interested, feel free to ask me for more details.
+I have published some of my projects on [:fontawesome-brands-github: vuquangtrong](https://github.com/vuquangtrong), if you are interested, feel free to ask me for more details.
 
 Here are some featured ones:
 

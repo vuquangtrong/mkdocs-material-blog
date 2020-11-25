@@ -1,64 +1,46 @@
-{% extends "main.html" %}
+{% extends "newbase.html" %}
 
 {% block page_styles %}
-  {{ super() }}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ 'stylesheets/posts.css' | url }}">
 {% endblock %}
 
-<!-- Content -->
 {% block page_content %}
-
-  <p style="margin-top: 0;">
+    <p>
     Here listed all articles in the my blog. I hope you can find something useful here.
     The left panel is grouped in categories. You can bring up the Search engine anytime by pressing the <kbd class="key-s">S</kbd> key too.
-  </p>
+    </p>
 
-  <h3>Features posts:</h3>
+    <h3>Features posts:</h3>
 
-  {% for item in pages %}
-
-    {% if item.src_path.startswith('posts') %}
-
-      {% set page = item.page %}
-
-      {% if page.meta and page.meta.featured %}
-        <div class="card mb-2 shadow-sm">
-          <div class="card-body">
-
-            <h4 class="card-title">
-              <a class="card-link" href="{{ page.canonical_url }}">{{ page.title }}</a>
-            </h4>
-
-            <p class="text-medium">{{ page.meta.description }}</p>
-
-            <div class="flex-row text-small">
-
-              <div class="float-left">
-                {% if page.meta and page.meta.date %}
-                  {% set date = page.meta.date %}
-                {% else %}
-                  {% set date = 'unknown' %}
-                {% endif %}
-                <span class="text-grey text-medium">post on <span class="text-green">{{ date }}</span></span>
-              </div>
-
-              <div class="float-right">
-                {% if page.meta and page.meta.tags %}
-                {% for tag in page.meta.tags %}
-                <span><a class="tag tag-{{loop.index % 7}}" href="/tags/#{{tag}}">{{tag}}</a></span>
-                {% endfor %}
-                {% endif %}
-              </div>
-
+    <!-- Scan all pages and get list of pages in posts folder -->
+    {% for item in pages %}
+        {% if item.src_path.startswith('posts') %}
+            {% set page = item.page %}
+            {% if page.meta and page.meta.featured %}
+            <!-- Generate a post -->
+            <div class="featured-post">
+                <h4 class="title">
+                    <a class="link" href="{{ page.canonical_url }}">{{ page.title }}</a>
+                </h4>
+                <p class="description">{{ page.meta.description }}</p>
+                <div class="info">
+                    <div class="extra"></div>
+                    <div class="tags">
+                        {% if page.meta and page.meta.tags %}
+                            {% for tag in page.meta.tags %}
+                                <span><a class="tag tag-{{loop.index % 7}}" href="/tags/#{{tag}}">{{tag}}</a></span>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      {% endif %}
-    {% endif %}
-
-  {% endfor %}
-
+            {% endif %}
+        {% endif %}
+    {% endfor %}
 {% endblock %}
 
-{% block disqus %}
-  <!-- Remove Disqus on the pages -->
+{% block page_scripts %}
+    {{ super() }}
+    <script type="application/javascript" src="{{ 'javascripts/posts.js' | url }}"></script>
 {% endblock %}

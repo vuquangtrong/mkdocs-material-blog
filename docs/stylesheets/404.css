@@ -1,0 +1,15 @@
+/* announcement is center of the page */
+.md-typeset {
+    text-align: center;
+}
+
+.md-typeset 
+h1 {
+    color: red;
+}
+
+/* make text bigger */
+.md-typeset 
+p {
+    font-size: 1.3em;
+}

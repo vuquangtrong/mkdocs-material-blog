@@ -1,0 +1,11 @@
+/* always center the main content */
+.md-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 76.25em) {
+    .md-sidebar {
+        display: none
+    }
+}

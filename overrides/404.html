@@ -1,14 +1,18 @@
 {% extends "page.html" %}
 
-<!-- Content block -->
-{% block content %}
-  <div style="text-align: center;">
-    <h1 style="color: red;">Oops! Something went wrong.</h1>
-    <p style="font-size: 1.2em;">
-      We couldn't hanlde your request. <br>
-      Please go back to the <a href="/">Home page</a>, or press <span class="keys"><kbd class="key-s">S</kbd></span> to search on this site.
-    </p>
-  </div>
+{% block page_styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ 'stylesheets/404.css' | url }}">
 {% endblock %}
 
+{% block page_content %}
+    <h1>Oops! Something went wrong!</h1>
+    <p>We couldn't hanlde your request. <br>
+    Please go back to the <a href="{{ config.site_url }}">{{ config.site_name }}</a> homepage, <br>
+    or press <kbd class="button"> S </kbd> to search on this site.</p>
+{% endblock %}
 
+{% block page_scripts %}
+    {{ super() }}
+    <script type="application/javascript" src="{{ 'javascripts/404.js' | url }}"></script>
+{% endblock %}

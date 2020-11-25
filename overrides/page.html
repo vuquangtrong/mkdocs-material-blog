@@ -1,41 +1,22 @@
-{% extends "main.html" %}
+{% extends "newbase.html" %}
 
 {% block page_styles %}
-  {{ super() }}
-  
-  <!-- Additional styles for pages -->
-  <style>
-    /* Hide table of contents */
-    @media screen and (min-width: 76.25em) {
-      .md-sidebar--secondary {
-        display: none;
-      }
-    }
-
-    /* Hide navigation */
-    @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary {
-        display: none;
-      }
-    }
-
-    /* Center the content area */
-    @media screen and (min-width: 76.25em) {
-      .md-content {
-          margin-left: auto;
-          margin-right: auto;
-      }
-    }
-
-    @media screen and (max-width: 76.1875em) and (min-width: 60em) {
-      .md-content {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  </style>
+    {{ super() }}
+    <link rel="stylesheet" href="{{ 'stylesheets/page.css' | url }}">
 {% endblock %}
 
+{% block page_content %}
+    <!-- Use user content from markdown file when usercontent is true -->
+    {% if page.meta and page.meta.usercontent %}
+        {{ page.content }}
+    {% endif %}
+{% endblock %}
+
+<!-- Remove Disqus on pages -->
 {% block disqus %}
-  <!-- Remove Disqus on the pages -->
+{% endblock %}
+
+{% block page_scripts %}
+    {{ super() }}
+    <script type="application/javascript" src="{{ 'javascripts/page.js' | url }}"></script>
 {% endblock %}

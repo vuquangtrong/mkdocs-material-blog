@@ -1,218 +1,55 @@
 {% extends "page.html" %}
 
 {% block page_styles %}
-  {{ super() }}
-
-  <!-- Make the index page clean -->
-  <style>
-    /* Set background image */
-    body {
-      background: 
-        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), 
-        url("assets/images/index.jpg"); 
-        /* url("https://source.unsplash.com/random"); */
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center center;
-      background-repeat: no-repeat;
-    }
-    
-    /* Header should be transparent */
-    .md-header {
-      background-color: transparent;
-    }
-  
-    .md-header[data-md-state=shadow] {
-      background-color: transparent;
-      box-shadow: none;
-    }
-    
-    /* Search box looks better */
-    .md-search__input {
-      background-color: transparent;
-    }
-    
-    /* Navigation looks better */
-    .md-tabs {
-      background-color: transparent;
-      font-size: 1.2em;
-    }
-
-    /* Footer looks better */
-    .md-footer {
-      background-color: transparent;
-    }
-
-    /* remove footer social links */
-    .md-footer-social {
-      display: none;
-    }
-
-    /* text effect */
-    .glow {
-      text-shadow: 0 0 20px #fff, 0 0 50px #2196f3;
-    }
-    
-    /* tweak main content layout */
-    .md-main {
-      display: flex;
-    }
-
-    .md-main__inner {
-      height: unset;
-      flex-grow: 1;
-    }
-
-    .md-content {
-      padding-left: 1em;
-      padding-right: 1em;
-    }
-
-    .md-content__inner {
-      height: 100%;
-    }
-
-    .intro {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .intro-text {
-      flex-grow: 1;
-      position: relative;
-    }
-
-    .intro-text-content {
-      position: absolute;
-      bottom: 0;
-    }
-
-    .intro-links {
-      flex-grow: 1;
-      margin-left: -0.25em;
-    }
-
-    .intro-links svg:hover {
-      color: #cddc39;
-    }
-
-    @media screen and (max-width: 44.9375em) {
-      .intro-text {
-        flex-grow: 2;
-      }
-
-      .intro-links {
-        flex-grow: 1;
-      }
-    }
-
-    @media screen and (max-width: 23.9375em) {
-      .intro-text {
-        flex-grow: 3;
-      }
-
-      h1.intro-text-content {
-        font-size: 1.8em;
-      }
-
-      .intro-links {
-        flex-grow: 1;
-      }
-    }
-    
-    @media screen and (max-width: 19.9375em) {
-      .md-content {
-        padding-left: 0.25em;
-        padding-right: 0.25em;
-      }
-
-      h1.intro-text-content {
-        font-size: 1.6em;
-      }
-    }
-
-    /* social icons */
-    .intro-social span.twemoji svg {
-      width: 32px;
-      height: 32px;
-      max-height: unset;
-    }
-    
-  </style>
+    {{ super() }}
+    <link rel="stylesheet" href="{{ 'stylesheets/index.css' | url }}">
 {% endblock %}
 
-<!-- Content -->
-{% block content %}
-  <!-- override all -->
-  
-  {% block page_content %}
-    <div class="intro">
-      <div class="intro-text">
-        <h1 class="intro-text-content text-white">
-          <span class="text-small"><span class="text-tiny">Welcome to</span></span><br/>
-          <span class="glow">
-            <span class="twemoji text-orange" style="display: none;">{% include ".icons/fontawesome/solid/code.svg" %}</span>
-            {{ config.site_name }} 
-          </span><br/>
-          <span class="text-tiny" style="color: yellow;">{{ config.site_description }}</span><br/>
-          <!-- add space to reserve a line -->
-          <span style="margin-left: -0.2em;">&nbsp;</span><span class="text-tiny typed" style="color: yellow;"></span>
-        </h1>
-      </div>
+{% block page_content %}
+    <div class="padding-up"></div>
+    <section class="section">    
+        <div class="section-content">
+            <div class="intro"> 
+                <span>Welcome to</span>
+                <h1 class="glow-pulse site-title">
+                    {{ config.site_name }}
+                    <span>&nbsp;&nbsp;</span>
+                </h1>
+                {% if page.meta.typed %}
+                <span style="margin-left: -0.2em;">&nbsp;</span><span class="glow-pulse site-typed typed" style="color: yellow;"></span>        
+                {% endif %}
+            </div>
 
-      <div class="intro-links">
-        <div class="intro-links__inner">
-          <div class="intro-buttons text-medium">
-            <a class="btn btn-primary mt-2 mx-1 text-white" href="/projects">Projects</a>
-            <a class="btn btn-danger mt-2 mx-1 text-white" href="/blog">Blog</a>
-            <a class="btn btn-success mt-2 mx-1 text-white" href="/about">About</a>
-          </div>
+            <div class="button-links">  
+                <a class="btn btn-primary" href="{{ config.site_url }}projects">Projects</a>
+                <a class="btn btn-danger" href="{{ config.site_url }}posts">Blog</a>
+                <a class="btn btn-success" href="{{ config.site_url }}about">About</a>
+            </div>
 
-          <div class="intro-social mt-3">
-            {% for social in config.extra.social %}
-              {% set title = social.name %}
-              {% if not title and "//" in social.link %}
-                {% set _,url = social.link.split("//") %}
-                {% set title = url.split("/")[0] %}
-              {% endif %}
-              <a href="{{ social.link }}" target="_blank" rel="noopener" title="{{ title | e }}" class="mx-1 text-light-gray">
-                <span class="twemoji">
-                  {% include ".icons/" ~ social.icon ~ ".svg" %}
-                </span>
-              </a>
-            {% endfor %}
-          </div>
+            <div class="button-social">
+                {% for social in config.extra.social %}
+                    {% set title = social.name %}
+                    {% if not title and "//" in social.link %}
+                        {% set _,url = social.link.split("//") %}
+                        {% set title = url.split("/")[0] %}
+                    {% endif %}
+                    <a href="{{ social.link }}" target="_blank" rel="noopener" title="{{ title | e }}" class="mx-1 text-light-gray">
+                        <span class="twemoji">
+                            {% include ".icons/" ~ social.icon ~ ".svg" %}
+                        </span>
+                    </a>
+                {% endfor %}
+              </div>
         </div>
-      </div>
-    </div>
-  {% endblock %}
+    </section>
+    <div class="padding-down"></div>
 {% endblock %}
 
-<!-- Typed script -->
-{% block scripts %}
-
-  {{ super() }}
-
-  <script src="{{ 'javascripts/typed.js' | url }}"></script>
-  
-  <script type="text/javascript">
-    var typed = $(".typed");
-
-    $(function() {
-        typed.typed({
-            strings: [
-              {{ config.site_main_topics }}
-            ],
-            showCursor: false,
-            typeSpeed: 20,
-            backSpeed: 0,
-            backDelay: 1000,
-            loop: true,
-        });
-    });
-  </script>
+{% block page_scripts %}
+    {{ super() }}
+    <script type="application/javascript" src="{{ 'javascripts/index.js' | url }}"></script>
+    {% if page.meta.typed %}
+        <script type="application/javascript" src="{{ 'javascripts/typed.js' | url }}"></script>
+        {% include 'index_typed.html' %}
+    {% endif %}
 {% endblock %}

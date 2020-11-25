@@ -124,11 +124,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# utils commands
-env.bat 
-install.bat
-run.bat
-build.bat
-
-# material src
-src/
+# references
+/ref

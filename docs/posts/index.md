@@ -1,6 +1,9 @@
 ---
-title: Featured Posts
-template: "posts.html"
+title: Blog
+description: Listed of posts and their brief information
+template: posts.html
 ---
 
-<!-- content is in the posts.html template -->
+<!--
+Please see the posts.html file in ../overrides
+-->

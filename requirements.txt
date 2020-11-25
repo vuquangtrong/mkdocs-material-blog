@@ -1,7 +1,9 @@
+python-frontmatter
 mkdocs-material
+mkdocs-markdown-filter
 mkdocs-exclude
 mkdocs-awesome-pages-plugin
-mkdocs-git-revision-date-plugin
+mkdocs-macros-plugin
 mkdocs-minify-plugin
 mkdocs-redirects
 kbdextension

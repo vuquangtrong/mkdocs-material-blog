@@ -1,27 +1,23 @@
 ---
-title: 'About'
-description: 'Blogging with Material for Mkdocs - write your blog in technical documentation style'
+title: About
 template: page.html
+usercontent: true
 ---
 
 Hi, 
 
-!! text-blue | Blogging with Material for Mkdocs !! is an addititonal package for [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, 
-which has all of benefits from Material for MkDocs and provides some extra pages:
+My name is Vũ Quang Trọng,
 
-- Add [Landing page](index.md) which shows your homepage
-- Add [Blog page](posts/index.md) which has featured posts
-- Add [Tags pages](tags.md) for quickly find related posts
-- Enable many [useful extensions](posts/syntax/index.md) for Markdown, help you to write content quickly with additional elements like callouts, tabs, syntax highlight, code copy.
-- Material for MkDocs theme
-    - Customizable
-    - Searchable
-    - Mobile-friendly
-    - Support 40+ languages
-    - Setup in 5 minutes
+[Code Inside Out](https://www.codeinsideout.com/) is my personal blog in which I take notes about what I've learned, and what I'm interested in.
 
-A preview for you is the page <https://www.codeinsideout.com/>. \
-Hope you find this theme as a good base to bring up your site to share your knowlegde.
+I am working in Embedded Automotive field, mainly focusing on In Vehicle Infortainment (IVI) and Advanced Driver-Assistance Systems (ADAS). I also do some personal projects for my sweet home, and some others as my freelance jobs.
 
-Let's be awesome ^^
-{: .text-orange}
+I cannot remember all of them in details, so I need somewhere to write down, I also need them searchable to quicky jump to what I want. That's the reason for me to start blogging. Hope you can find something helpful here too.
+
+Let's code ^^
+
+<style>
+    .md-typeset p {
+    text-align: justify;
+}
+</style>

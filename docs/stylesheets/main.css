@@ -1,0 +1,183 @@
+/* align text */
+.md-typeset p {
+    text-align: justify;
+}
+
+/* emoji */
+.md-typeset span.twemoji {
+    vertical-align: middle;
+}
+
+/* add row and column layout */
+.md-typeset .row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.md-typeset .row .col {
+    width: 100%;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+
+.md-typeset .row .col:first-child {
+    margin-left: 0;
+    margin-right: 0.25em;
+}
+
+.md-typeset .row .col:last-child {
+    margin-left: 0.25em;
+    margin-right: 0;
+}
+
+/* header should look more clearly */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+    color: black !important;
+    font-weight: 400;
+}
+
+/* highlight code */
+.md-typeset code {
+    color: var(--md-code-hl-special-color);
+}
+
+/* unwrap code */
+.md-typeset pre,
+.md-typeset code,
+.codehilitetable .linenos, 
+.highlighttable .linenos {
+    white-space: pre-wrap;
+    font-size: .9em;
+    padding: 0;
+    background-color: unset;
+
+}
+
+.codehilitetable .linenos, 
+.highlighttable .linenos {
+    margin-right: 0.5em;
+}
+
+.codehilitetable .linenodiv, 
+.highlighttable .linenodiv {
+    box-shadow: unset;
+}
+
+.md-typeset pre>code {
+    padding: 0;
+}
+
+.md-typeset>.codehilite, 
+.md-typeset>.highlight {
+    margin: unset;
+}
+
+.codehilite .hll, 
+.highlight .hll {
+    margin: 0;
+    padding: 0;
+}
+
+/* unwrap blocks */
+.md-typeset .admonition, 
+.md-typeset details {
+    font-size: .9em;
+    margin: 0 0 1.5em 0;
+    padding: 0 0 0 0.6rem;
+    box-shadow: unset;
+    background-color: unset;
+}
+
+/* align element in blocks */
+html .md-typeset .admonition>:first-child:not(.admonition-title),
+html .md-typeset details>:first-child:not(summary) {
+    margin-top: 0;
+}
+
+html .md-typeset .admonition>:not(.admonition-title), 
+html .md-typeset details>:not(summary) {
+    margin-top: 0.5em;
+}
+
+html .md-typeset .admonition>:last-child, 
+html .md-typeset details>:last-child {
+    margin-bottom: 0.25em;
+}
+
+.md-typeset .admonition-title, 
+.md-typeset summary {
+    padding: 0.2rem 0rem 0.2rem 2rem;
+    margin: 0 0rem 0 -0.8rem;
+}
+
+.md-typeset .admonition-title::before, 
+.md-typeset summary::before {
+    top: 0.3rem
+}
+
+.md-typeset .admonition-title::after, 
+.md-typeset summary::after {
+    top: 0.3rem
+}
+
+/* format the figure caption */
+.md-typeset figcaption {
+    color: darkslateblue;
+}
+
+/* make tables fill width */
+.md-typeset__table {
+    display: block;
+}
+
+.md-typeset table:not([class]) {
+    display: table;
+    font-size: .9em;
+    box-shadow: unset;
+}
+
+/* change table style */
+.md-typeset table:not([class]) th {
+    color: unset;
+    background-color: rgba(0,176,255,.1);
+    font-weight: 700;
+    border-top: .05rem solid var(--md-default-fg-color--lightest) !important;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    padding: 0.25em 1em;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    border-top: none;
+    border-right: none;
+    border-left: .05rem solid var(--md-default-fg-color--lightest);
+    border-bottom: .05rem solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset table:not([class]) th:last-child,
+.md-typeset table:not([class]) td:last-child {
+    border-right: .05rem solid var(--md-default-fg-color--lightest);
+}
+
+/* sidebar */
+.md-nav__title {
+    display: none !important;
+}
+
+.md-nav__link {
+    opacity: 0.3;
+}
+
+.md-nav__link:hover {
+    opacity: 1;
+}
+
+.md-nav__link.md-nav__link--active {
+    opacity: 1;
+}
