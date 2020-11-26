@@ -324,6 +324,17 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 | `GET`       | :material-check:     Fetch resource  |
 | `PUT`       | :material-check-all: Update resource |
 | `DELETE`    | :material-close:     Delete resource |
+
+| Column 1     | Column 2 | Column 3 |
+| :----------: | -------- | -------- |
+| expanded               || expanded |
+| not expanded |          |          |
+| expanded             |~~|          |
+| expanded     | ~~       |          |
+| expanded     | a cell   |          |
+| _          _ | a cell   |          |
+| a cell       | a cell   | _      _ |
+
 ```
 
 ##### rendered:
@@ -342,6 +353,16 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 | `GET`    | :material-check:     Fetch resource  |
 | `PUT`    | :material-check-all: Update resource |
 | `DELETE` | :material-close:     Delete resource |
+
+| Column 1     | Column 2 | Column 3 |
+| :----------: | -------- | -------- |
+| expanded               || expanded |
+| not expanded |          |          |
+| expanded             |~~|          |
+| expanded     | ~~       |          |
+| expanded     | a cell   |          |
+| _          _ | a cell   |          |
+| a cell       | a cell   | _      _ |
 
 ## Actions
 The KBD Extension is an inline processor for adding markdown syntax for inline `<kbd>` tags.

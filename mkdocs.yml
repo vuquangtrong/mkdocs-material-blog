@@ -15,6 +15,9 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+    content:
+      text: Merriweather
+      code: Roboto Mono
   features:
     - navigation.tabs
   logo: assets/logo.png
@@ -23,6 +26,8 @@ theme:
 plugins:
   - search:
   - exclude:
+      glob:
+        - "draft/*"
   - markdown-filter:
   - macros: # before change the default block marks {{}}, 
             # please check other plugin which relies on jinja in markdown
@@ -32,8 +37,8 @@ plugins:
       j2_variable_end_string: ']}'
   - awesome-pages:
       collapse_single_pages: true
-  # - redirects:
-      # redirect_maps:
+  - redirects:
+      redirect_maps:
   - minify:
       minify_html: true
       htmlmin_opts:
@@ -57,6 +62,7 @@ markdown_extensions:
   - footnotes:
   - md_in_html:
   - tables:
+  - cell_row_span:
   - admonition:
   # - sane_lists: # cause some weird renders when use with pymdownx
   # - nl2br: # cause some weird render when use with pymdownx, 
@@ -93,7 +99,7 @@ markdown_extensions:
       hardbreak: true
       nbsp: true
   - pymdownx.magiclink:
-  - pymdownx.smartsymbols:
+  # - pymdownx.smartsymbols:
 
 # google_analytics:
   # - UA-XXXXXXXX-X

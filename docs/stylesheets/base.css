@@ -165,6 +165,87 @@ mark {
     height: 24px;
 }
 
+/* control width */
+.w100 {
+    max-width: 100% !important;
+}
+
+.w95 {
+    max-width: 95% !important;
+}
+
+.w90 {
+    max-width: 90% !important;
+}
+
+.w85 {
+    max-width: 85% !important;
+}
+
+.w80 {
+    max-width: 80% !important;
+}
+
+.w75 {
+    max-width: 75% !important;
+}
+
+.w70 {
+    max-width: 70% !important;
+}
+
+.w65 {
+    max-width: 65% !important;
+}
+
+.w60 {
+    max-width: 60% !important;
+}
+
+.w55 {
+    max-width: 55% !important;
+}
+
+.w50 {
+    max-width: 50% !important;
+}
+
+.w45 {
+    max-width: 45% !important;
+}
+
+.w40 {
+    max-width: 40% !important;
+}
+
+.w35 {
+    max-width: 35% !important;
+}
+
+.w30 {
+    max-width: 30% !important;
+}
+
+.w25 {
+    max-width: 25% !important;
+}
+
+.w20 {
+    max-width: 20% !important;
+}
+
+.w15 {
+    max-width: 15% !important;
+}
+
+.w10 {
+    max-width: 10% !important;
+}
+
+.w5 {
+    max-width: 5% !important;
+}
+
 /* printing */
 @media print {
     /* hide non-print elements */
@@ -173,10 +254,31 @@ mark {
         visibility: hidden !important;
     }
 
+    /* force break */
+    .new-page {
+        page-break-after: always !important;
+    }
+
+    /*
+    .md-typeset h2 {
+        page-break-before: always !important;
+    }
+    */
+    
+    .md-typeset .admonition, 
+    .md-typeset details {
+        page-break-inside: unset !important;
+    }
+    
     /* dont break */
     .admonition-title,
     .progress {
         page-break-inside: avoid !important;
+    }
+
+    /* work-around for chrome issue in rendering header repeatedly */
+    thead { 
+        display: table-row-group; 
     }
 
     /* expand tabs */
@@ -201,46 +303,5 @@ mark {
         border-bottom: 0.5px dotted lightgray;
         padding-bottom: 1em;
         margin-bottom: 0.5em;
-    }
-
-    /* control width */
-    .w100 {
-        max-width: 100% !important;
-    }
-
-    .w90 {
-        max-width: 90% !important;
-    }
-
-    .w80 {
-        max-width: 80% !important;
-    }
-
-    .w70 {
-        max-width: 70% !important;
-    }
-
-    .w60 {
-        max-width: 60% !important;
-    }
-
-    .w50 {
-        max-width: 50% !important;
-    }
-
-    .w40 {
-        max-width: 40% !important;
-    }
-
-    .w30 {
-        max-width: 30% !important;
-    }
-
-    .w20 {
-        max-width: 20% !important;
-    }
-
-    .w10 {
-        max-width: 10% !important;
     }
 }

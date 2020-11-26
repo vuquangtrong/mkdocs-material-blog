@@ -8,7 +8,27 @@
 {% endblock %}
 
 {% block page_content %}
-    {{ page.content }}
+    <div class="page-content">
+        {{ page.content }}
+        <!-- Show reference sources -->
+        {% if page.meta and page.meta.refers %}
+            <!-- Add some space before comments -->
+            <div style="height: 5vh;"></div>
+            <div class="reference">
+                <h2>References</h2>
+                {% if config.extra.refer_copyright %}
+                    <small><em>{{ config.extra.refer_copyright }}</em></small>
+                {% endif %}
+                <ul>
+                {% for ref_name, ref_link in page.meta.refers.items() %}
+                    <li>
+                        <strong>{{ ref_name }}</strong>, <a href="{{ ref_link }}">{{ ref_link }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
 
 {% block page_scripts %}

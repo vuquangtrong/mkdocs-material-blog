@@ -4,6 +4,7 @@
     padding: 0 0.5em;
     font-size: .80em;
     box-shadow: unset;
+    display: unset;
 }
 
 .md-typeset kbd[class^=key] {

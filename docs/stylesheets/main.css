@@ -1,5 +1,6 @@
 /* align text */
-.md-typeset p {
+.md-typeset p,
+.md-typeset li {
     text-align: justify;
 }
 
@@ -89,6 +90,7 @@
     padding: 0 0 0 0.6rem;
     box-shadow: unset;
     background-color: unset;
+    page-break-inside: unset;
 }
 
 /* align element in blocks */
@@ -125,6 +127,8 @@ html .md-typeset details>:last-child {
 
 /* format the figure caption */
 .md-typeset figcaption {
+    font-size: 0.9em;
+    margin: 0 auto;
     color: darkslateblue;
 }
 
