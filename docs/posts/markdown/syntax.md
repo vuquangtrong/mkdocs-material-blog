@@ -14,13 +14,13 @@ In a markdown file, if you add `metadata` in YAML format at the begining of the 
 
 It is recommended to have at least 3 fields `title`, `description`, and `tags`, in each post.
 
-```yaml
+``` yaml
 ---
 title: Lorem ipsum dolor sit amet
 description: Nullam urna elit, malesuada eget finibus ut, ac tortor.
 tags:
-  - tag1
-  - tag2
+    - tag1
+    - tag2
 ---
 ```
 
@@ -39,6 +39,7 @@ Writing a paragraph is very straight forward. You just write down your sentences
 * You can add emphasis by making text **bold** or _italic_:
     *  To bold text, add two asterisks or underscores before and after a word or phrase
     *  To italicize text, add one asterisk or underscore before and after a word or phrase.
+
 * To create a blockquote, add a `>` in front of a paragraph.
 
 Here is an example:
@@ -66,7 +67,7 @@ Beside standard marks to emphasize text as **bold** or _italic_, extended markdo
 ::: row
     ::: col
         ##### Markdown:
-        ```md
+        ``` md
         * ==This was marked==
         * ^^This was inserted^^
         * ~~This was deleted~~
@@ -194,7 +195,7 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 
 === "Default title"
 
-    ```md
+    ``` md
     !!! note
         Default title
     ```
@@ -204,7 +205,7 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 
 === "Custom title"
 
-    ```md
+    ``` md
     !!! tip "Custom title"
         Custom title
     ```
@@ -214,7 +215,7 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 
 === "No title"
 
-    ```md
+    ``` md
     !!! info ""
         No title
     ```
@@ -229,7 +230,7 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 
 === "More content"
 
-    ```md
+    ``` md
     !!! success
         Embedded code
 
@@ -247,7 +248,7 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
     !!! success
         Embedded code
 
-        ```python
+        ``` python
         def bubble_sort(items):
             for i in range(len(items)):
                 for j in range(len(items) - 1 - i):
@@ -287,7 +288,7 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 
 === "Collapsed"
 
-    ```md
+    ``` md
     ??? note
         Details
     ```
@@ -297,7 +298,7 @@ To add an image, add an exclamation mark (`!`), followed by alt text in brackets
 
 === "Expanded"
 
-    ```md
+    ``` md
     ???+ note
         Expanded details
     ```
@@ -376,12 +377,14 @@ will be wrapped with an HTML `<kbd>` tag with different classes.
 
 ::: row
     ::: col
-        ```md
+        ##### markdown:
+        ``` md
         [[Ctrl]]+[[Alt]]+[[Del]] or [[Details]]
         ((Save)) or ((Run > Run As))
         {{Double click}} or {{Long press}}
         ```
     ::: col
+        ##### rendered:
         [[Ctrl]]+[[Alt]]+[[Del]] or [[Details]] \
         ((Save)) or ((Run > Run As)) \
         {{Double click}} or {{Long press}}
@@ -427,7 +430,7 @@ will be wrapped with an HTML `<kbd>` tag with different classes.
 
 === "Inline"
 
-    ```md
+    ``` md
     The `#!python range()` function is used to generate a sequence of numbers.
     The `#!cpp int main(void)` function is the entry point of user application.
     ```

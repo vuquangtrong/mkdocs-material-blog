@@ -1,28 +1,22 @@
 /* use with kbdextension */
 
-.md-typeset kbd {
-    padding: 0 0.5em;
-    font-size: .80em;
-    box-shadow: unset;
-    display: unset;
-}
-
 .md-typeset kbd[class^=key] {
     color: white;
     background-color: dimgray;
 }
 
 .md-typeset kbd.menu {
-    color: dodgerblue;
-    border: 1px dotted  dodgerblue;
+    color: teal;
+    border: 1px solid  teal;
+    font-weight: 700;
 }
 
 .md-typeset kbd.button {
-    color: white;
-    background-color: dodgerblue;
+    color: dodgerblue;
+    border: 1px solid  dodgerblue;
 }
 
 .md-typeset kbd.action {
     color: indigo;
-    border-bottom: 1px dotted  dodgerblue;
+    border: 1px solid  indigo;
 }

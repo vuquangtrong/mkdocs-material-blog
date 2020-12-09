@@ -73,8 +73,8 @@ body {
 /* text effect */
 .glow {
     text-shadow: 
-        0 0  0px #ffffff, 
-        0 0 80px #58aff7; 
+        0 0  0px white, 
+        0 0 80px lightyellow; 
 }
 
 .glow-pulse {
@@ -83,9 +83,9 @@ body {
 
 @keyframes glow-pulse {
     from { text-shadow: 
-             0 0  0px #ffffff; }
+             0 0  0px white; }
     to { text-shadow: 
-             0 0 80px #58aff7; }
+             0 0 80px lightyellow; }
 }
 
 /* set up layout */

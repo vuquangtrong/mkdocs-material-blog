@@ -4,8 +4,15 @@
     margin-right: auto;
 }
 
+/* fix layout */
 @media screen and (min-width: 76.25em) {
     .md-sidebar {
         display: none
+    }
+}
+
+@media screen and (max-width: 76.1875em) and (min-width: 60em) {
+    .md-content {
+        max-width: unset;
     }
 }

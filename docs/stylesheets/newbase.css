@@ -1,0 +1,193 @@
+/* back-to-top button */
+#back-to-top {
+    display: flex;
+    float: right;
+    background-color: #FF9800;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    border-radius: 24px;
+    position: sticky;
+    bottom: 30px;
+    right: 30px;
+    opacity: 0.4;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    opacity: 1;
+}
+
+#back-to-top.show {
+    visibility: visible;
+}
+
+#back-top-top-indicator {
+    height: 1.5em;
+    margin: auto;
+    color: white;
+}
+
+/* some buttons */
+.btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .25em .5em;
+    line-height: 1.6;
+    font-size: 0.9em;
+    border-radius: .25em;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+/* some tags */
+.tag {
+    display: inline-block;
+    padding: .25em .4em;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em; 
+}
+
+.tag-0 {
+    color: #004085 !important;
+    background-color:#cce5ff !important;
+}
+
+.tag-1 {
+    color:#155724 !important;
+    background-color:#d4edda !important;
+}
+
+.tag-2 {
+    color:#721c24 !important;
+    background-color: #f8d7da !important;
+}
+
+.tag-3 {
+    color:#856404 !important;
+    background-color:#fff3cd !important;
+}
+
+.tag-4 {
+    color:#0c5460 !important;
+    background-color:#d1ecf1 !important;
+}
+
+.tag-5 {
+    color:#1b1e21 !important;
+    background-color:#d6d8d9 !important;
+}
+
+.tag-6 {
+    color:#383d41 !important;
+    background-color:#e2e3e5 !important;
+}
+
+/* control width */
+.w100 {
+    max-width: 100% !important;
+}
+
+.w95 {
+    max-width: 95% !important;
+}
+
+.w90 {
+    max-width: 90% !important;
+}
+
+.w85 {
+    max-width: 85% !important;
+}
+
+.w80 {
+    max-width: 80% !important;
+}
+
+.w75 {
+    max-width: 75% !important;
+}
+
+.w70 {
+    max-width: 70% !important;
+}
+
+.w65 {
+    max-width: 65% !important;
+}
+
+.w60 {
+    max-width: 60% !important;
+}
+
+.w55 {
+    max-width: 55% !important;
+}
+
+.w50 {
+    max-width: 50% !important;
+}
+
+.w45 {
+    max-width: 45% !important;
+}
+
+.w40 {
+    max-width: 40% !important;
+}
+
+.w35 {
+    max-width: 35% !important;
+}
+
+.w30 {
+    max-width: 30% !important;
+}
+
+.w25 {
+    max-width: 25% !important;
+}
+
+.w20 {
+    max-width: 20% !important;
+}
+
+.w15 {
+    max-width: 15% !important;
+}
+
+.w10 {
+    max-width: 10% !important;
+}
+
+.w5 {
+    max-width: 5% !important;
+}

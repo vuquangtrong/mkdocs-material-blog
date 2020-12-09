@@ -1,6 +1,6 @@
 ---
-title: Blog
-description: Listed of posts and their brief information
+title: Featured posts
+description: Listed here all highlighted posts and their brief information in my blog
 template: posts.html
 ---
 

@@ -1,0 +1,59 @@
+/* printing */
+@media print {
+    /* hide non-print elements */
+    #back-to-top,
+    #disqus_section {
+        visibility: hidden !important;
+    }
+
+    /* force break */
+    .new-page {
+        page-break-after: always !important;
+    }
+
+    /*
+    .md-typeset h2 {
+        page-break-before: always !important;
+    }
+    */
+    
+    .md-typeset .admonition, 
+    .md-typeset details {
+        page-break-inside: unset !important;
+    }
+    
+    /* dont break */
+    .admonition-title,
+    .progress {
+        page-break-inside: avoid !important;
+    }
+
+    /* work-around for chrome issue in rendering header repeatedly */
+    thead { 
+        display: table-row-group; 
+    }
+
+    /* expand tabs */
+    .md-typeset .tabbed-set {
+        border: none !important;
+    }
+
+    .md-typeset .tabbed-set>input:checked+label {
+        border: none !important;
+    }
+
+    .md-typeset .tabbed-set>label {
+        color: unset !important;
+        padding-left: 0 !important;  
+    }
+
+    .md-typeset .tabbed-content {
+        box-shadow: none !important;
+    }
+
+    .md-typeset .tabbed-content:not(:last-child) {
+        border-bottom: 0.5px dotted lightgray;
+        padding-bottom: 1em;
+        margin-bottom: 0.5em;
+    }
+}

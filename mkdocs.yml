@@ -13,15 +13,18 @@ theme:
   name: material
   custom_dir: overrides
   font:
-    text: Roboto
+    text: Noto Serif
     code: Roboto Mono
-    content:
-      text: Merriweather
-      code: Roboto Mono
+    # content:
+      # text: Noto Serif
+      # code: Roboto Mono
   features:
     - navigation.tabs
   logo: assets/logo.png
   favicon: assets/favicon.ico
+
+extra_css:
+  - stylesheets/root.css
 
 plugins:
   - search:
@@ -71,7 +74,7 @@ markdown_extensions:
   - toc:
       permalink: ⚓︎
       slugify: !!python/name:pymdownx.slugs.uslugify
-      toc_depth: 3 # from h2 to h3 only
+      toc_depth: 4 # from h2 to h4 only
   - pymdownx.snippets:
       check_paths: true
   - pymdownx.details:

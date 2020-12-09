@@ -7,129 +7,6 @@ mark {
     color: darkblue;
 }
 
-/* remove spare space */
-.md-main__inner {
-    margin-top: 0;
-}
-
-/* add space after the back-to-top button */
-.md-content {
-    padding-bottom: 30px;
-}
-
-#back-to-top {
-    display: flex;
-    float: right;
-    background-color: #FF9800;
-    width: 48px;
-    height: 48px;
-    text-align: center;
-    border-radius: 24px;
-    position: sticky;
-    bottom: 30px;
-    right: 30px;
-    transition: background-color .3s, opacity .5s, visibility .5s;
-    opacity: 0.4;
-    visibility: hidden;
-    z-index: 1000;
-}
-
-#back-to-top:hover {
-    opacity: 1;
-}
-
-#back-to-top.show {
-    visibility: visible;
-}
-
-#back-top-top-indicator {
-    height: 1.5em;
-    margin: auto;
-    color: white;
-}
-
-/* some buttons */
-.btn {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    border: 1px solid transparent;
-    padding: .25em .5em;
-    line-height: 1.6;
-    font-size: 0.9em;
-    border-radius: .25em;
-}
-
-.btn-success {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.btn-danger {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
-.btn-info {
-    color: #fff;
-    background-color: #17a2b8;
-    border-color: #17a2b8;
-}
-
-/* some tags */
-.tag {
-    display: inline-block;
-    padding: .25em .4em;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25em; 
-}
-
-.tag-0 {
-    color: #004085 !important;
-    background-color:#cce5ff !important;
-}
-
-.tag-1 {
-    color:#155724 !important;
-    background-color:#d4edda !important;
-}
-
-.tag-2 {
-    color:#721c24 !important;
-    background-color: #f8d7da !important;
-}
-
-.tag-3 {
-    color:#856404 !important;
-    background-color:#fff3cd !important;
-}
-
-.tag-4 {
-    color:#0c5460 !important;
-    background-color:#d1ecf1 !important;
-}
-
-.tag-5 {
-    color:#1b1e21 !important;
-    background-color:#d6d8d9 !important;
-}
-
-.tag-6 {
-    color:#383d41 !important;
-    background-color:#e2e3e5 !important;
-}
-
 /* Make logo look better */
 .md-nav__title .md-nav__button.md-logo img, 
 .md-nav__title .md-nav__button.md-logo svg {
@@ -153,6 +30,11 @@ mark {
     color: yellow;
 }
 
+/* add space after the back-to-top button */
+.md-content {
+    padding-bottom: 30px;
+}
+
 /* Merge footer and footer-meta background */
 .md-footer-meta {
     background-color: transparent;
@@ -165,143 +47,89 @@ mark {
     height: 24px;
 }
 
-/* control width */
-.w100 {
-    max-width: 100% !important;
+/* highlight code */
+.md-typeset code,
+.md-typeset .admonition-title code, 
+.md-typeset summary code {
+    color: var(--md-code-hl-special-color);
 }
 
-.w95 {
-    max-width: 95% !important;
+/* highlight key */
+.md-typeset kbd {
+    padding: 0 0.5em;
+    box-shadow: unset;
+    display: unset;
+    vertical-align: unset;
+    background-color: unset;
+    color: dodgerblue;
+    border: 1px solid  dodgerblue;
 }
 
-.w90 {
-    max-width: 90% !important;
+/* format the figure caption */
+.md-typeset figcaption {
+    font-size: 0.9em;
+    margin: 0 auto 2em;
+    color: darkslateblue;
 }
 
-.w85 {
-    max-width: 85% !important;
+/* filename before a code block */
+.file {
+    margin-bottom: -1.25em !important;
+    padding-left: 1.1764705882em;
+    font-size: 0.8em;
+    background: lightyellow;
+    color: darkred;
 }
 
-.w80 {
-    max-width: 80% !important;
+/* increase text size */
+/*
+.md-typeset .admonition, 
+.md-typeset details,
+.md-typeset code,
+.codehilitetable .linenos, 
+.highlighttable .linenos {
+    font-size: 0.9em;
+}
+*/
+
+/* modify definition */
+.md-typeset dd {
+    margin: 0 0 1.5em 1.875em;
 }
 
-.w75 {
-    max-width: 75% !important;
+/* modify admonition */
+.md-typeset .admonition, 
+.md-typeset details {
+    border-left: none;
+    box-shadow: none;
+    background-color: var(--md-code-bg-color);
 }
 
-.w70 {
-    max-width: 70% !important;
+/* add output block */
+.md-typeset details.output {
+    margin-top: -2em;
+    margin-left: unset;
+    margin-right: unset;
+    margin-bottom: unset;
+    padding: 0;
+    border-left: none;
+    box-shadow: none;
+    background-color: var(--md-code-bg-color);
 }
 
-.w65 {
-    max-width: 65% !important;
+.md-typeset details.output > summary {
+    margin: unset;
+    padding: 0.4rem 0;
+    font-weight: unset;
+    border-left: none;
+    background-color: var(--md-code-bg-color);
+    color: darkred;
 }
 
-.w60 {
-    max-width: 60% !important;
+.md-typeset details.output > summary::before {
+    display: none;
 }
 
-.w55 {
-    max-width: 55% !important;
-}
-
-.w50 {
-    max-width: 50% !important;
-}
-
-.w45 {
-    max-width: 45% !important;
-}
-
-.w40 {
-    max-width: 40% !important;
-}
-
-.w35 {
-    max-width: 35% !important;
-}
-
-.w30 {
-    max-width: 30% !important;
-}
-
-.w25 {
-    max-width: 25% !important;
-}
-
-.w20 {
-    max-width: 20% !important;
-}
-
-.w15 {
-    max-width: 15% !important;
-}
-
-.w10 {
-    max-width: 10% !important;
-}
-
-.w5 {
-    max-width: 5% !important;
-}
-
-/* printing */
-@media print {
-    /* hide non-print elements */
-    #back-to-top,
-    #disqus_section {
-        visibility: hidden !important;
-    }
-
-    /* force break */
-    .new-page {
-        page-break-after: always !important;
-    }
-
-    /*
-    .md-typeset h2 {
-        page-break-before: always !important;
-    }
-    */
-    
-    .md-typeset .admonition, 
-    .md-typeset details {
-        page-break-inside: unset !important;
-    }
-    
-    /* dont break */
-    .admonition-title,
-    .progress {
-        page-break-inside: avoid !important;
-    }
-
-    /* work-around for chrome issue in rendering header repeatedly */
-    thead { 
-        display: table-row-group; 
-    }
-
-    /* expand tabs */
-    .md-typeset .tabbed-set {
-        border: none !important;
-    }
-
-    .md-typeset .tabbed-set>input:checked+label {
-        border: none !important;
-    }
-
-    .md-typeset .tabbed-set>label {
-        color: unset !important;
-        padding-left: 0 !important;  
-    }
-
-    .md-typeset .tabbed-content {
-        box-shadow: none !important;
-    }
-
-    .md-typeset .tabbed-content:not(:last-child) {
-        border-bottom: 0.5px dotted lightgray;
-        padding-bottom: 1em;
-        margin-bottom: 0.5em;
-    }
+.md-typeset details.output > :nth-child(2) {
+    margin-top: -2em;
 }
