@@ -1,3 +1,7 @@
+.new-span {
+    font-style: unset;
+}
+
 /* native elements */
 strong,
 em,
@@ -132,4 +136,9 @@ mark {
 
 .md-typeset details.output > :nth-child(2) {
     margin-top: -2em;
+}
+
+/* add no-header table */
+.table-no-header table thead {
+    display: none;
 }

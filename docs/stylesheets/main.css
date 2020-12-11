@@ -3,17 +3,18 @@
 }
 
 /* headers */
+.md-typeset h1 {
+    color: unset;
+}
+
 .md-typeset h2 {
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-    padding: 0.25em 0;
-    margin: 2em 0 1em;
+    border-bottom: 1px solid;
+    padding-bottom: 0.25em;
 }
 
 .md-typeset h3 {
-    /* border-top: 1px solid grey; */
-    border-bottom: 1px dashed grey;
-    padding: 0.25em 0;
+    border-bottom: 1px dashed;
+    padding-bottom: 0.25em;
 }
 
 /* emoji */

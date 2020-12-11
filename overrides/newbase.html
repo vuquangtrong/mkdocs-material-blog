@@ -47,9 +47,9 @@
     {% set title = config.site_name %}
 
     {% if page and page.meta and page.meta.title %}
-        {% set title = title ~ " - " ~ page.meta.title %}
+        {% set title = page.meta.title ~ " - " ~ title %}
     {% elif page and page.title and not page.is_homepage %}
-        {% set title = title ~ " - " ~ page.title | striptags %}
+        {% set title = page.title | striptags ~ " - " ~ title  %}
     {% endif %}
 
     <!-- Get the description -->
@@ -60,21 +60,18 @@
     {% endif %}
 
     <!-- Get the banner image -->
-    {% set banner = 'assets/images/banner.png' %}
+    {% set banner_image = config.site_url ~ 'assets/images/banner.png' %}
 
     {% if page and page.meta and page.meta.banner %}
-        {% set banner = page.meta.banner %}    
+        {% set banner_image = page.canonical_url ~ page.meta.banner %}    
     {% endif %}
-
-    <!-- The image needs to have an absolute URL -->
-    {% set image = config.site_url ~ banner %}
 
     <!-- Open graph meta tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ title }}" />
     <meta property="og:description" content="{{ description }}" />
     <meta property="og:url" content="{{ page.canonical_url }}" />
-    <meta property="og:image" content="{{ image }}" />
+    <meta property="og:image" content="{{ banner_image }}" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1080" />
     <meta property="og:image:height" content="568" />
@@ -92,6 +89,8 @@
 {% block styles %}
     {{ super() }}
     <link rel="stylesheet" href="{{ 'stylesheets/base.css' | url }}">
+    <link rel="stylesheet" href="{{ 'stylesheets/newbase.css' | url }}">
+    <link rel="stylesheet" href="{{ 'stylesheets/print.css' | url }}">
     {% block page_styles %}
     {% endblock %}
 {% endblock %}
@@ -105,7 +104,7 @@
     <!-- Add some space before comments -->
     <div style="height: 5vh;"></div>
     <!-- Add id for printing control -->
-    <div id="disqus_section">
+    <div id="disqus-section">
         {{ super() }}
     </div>
     <!-- Back to top -->

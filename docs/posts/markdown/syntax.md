@@ -6,11 +6,9 @@ tags:
 featured: true
 ---
 
-# Markdown Syntax
-
 ## Metadata
 
-In a markdown file, if you add `metadata` in YAML format at the begining of the file, it will be used to create `page.meta` object. Metadata is not shown in the page content, but it is used in rendering template to HTML.
+In a markdown file, if you add `metadata` in YAML format at the beginning of the file, it will be used to create `page.meta` object. Metadata is not shown in the page content, but it is used in rendering template to HTML.
 
 It is recommended to have at least 3 fields `title`, `description`, and `tags`, in each post.
 

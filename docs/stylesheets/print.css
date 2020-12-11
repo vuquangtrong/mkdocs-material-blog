@@ -1,8 +1,9 @@
 /* printing */
 @media print {
     /* hide non-print elements */
+    .screen-only,
     #back-to-top,
-    #disqus_section {
+    #disqus-section {
         visibility: hidden !important;
     }
 

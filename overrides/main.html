@@ -9,7 +9,18 @@
 
 {% block page_content %}
     <div class="page-content">
+        <!-- title -->
+        <h1>{{page.title}}</h1>
+        {% if page.meta and page.meta.tags %}
+            <p class="screen-only">
+            {% for tag in page.meta.tags %}
+                <span><a class="tag tag-{{loop.index % 7}}" href="/tags/#{{tag}}">{{tag}}</a></span>
+            {% endfor %}
+            </p>
+        {% endif %}
+        <!-- content -->
         {{ page.content }}
+        
         <!-- Show reference sources -->
         {% if page.meta and page.meta.refers %}
             <!-- Add some space before comments -->
