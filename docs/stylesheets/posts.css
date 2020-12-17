@@ -1,3 +1,13 @@
+/* remove top space */
+.md-content__inner::before {
+    display: none;
+}
+
+.md-content__inner>:first-child {
+    margin-top: 0;
+}
+
+/* blog item */
 .featured-post {
     border: 1px solid lightgray;
     border-radius: 0.25em;

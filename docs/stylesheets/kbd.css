@@ -7,16 +7,16 @@
 
 .md-typeset kbd.menu {
     color: teal;
-    border: 1px solid  teal;
+    border: 1px solid  rgba(0,128,128,0.25);
     font-weight: 700;
 }
 
 .md-typeset kbd.button {
     color: dodgerblue;
-    border: 1px solid  dodgerblue;
+    border: 1px solid rgba(30,144,255,0.25);
 }
 
 .md-typeset kbd.action {
     color: indigo;
-    border: 1px solid  indigo;
+    border: 1px solid  rgba(75,0,130,0.25);
 }

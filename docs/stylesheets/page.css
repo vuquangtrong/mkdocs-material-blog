@@ -4,6 +4,15 @@
     margin-right: auto;
 }
 
+/* remove top space */
+.md-content__inner::before {
+    display: none;
+}
+
+.md-content__inner>:first-child {
+    margin-top: 0;
+}
+
 /* fix layout */
 @media screen and (min-width: 76.25em) {
     .md-sidebar {
