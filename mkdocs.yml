@@ -38,14 +38,18 @@ plugins:
       j2_block_end_string: '%]}'
       j2_variable_start_string: '{['
       j2_variable_end_string: ']}'
+  - mermaid2:
+      arguments:
+          # theme: 'dark'
+          securityLevel: 'loose'
   - awesome-pages:
       collapse_single_pages: true
   - redirects:
       redirect_maps:
-  - minify:
-      minify_html: true
-      htmlmin_opts:
-        remove_comments: true
+  # - minify:
+      # minify_html: true
+      # htmlmin_opts:
+        # remove_comments: true
 
 markdown_extensions:
   - kbdextension:

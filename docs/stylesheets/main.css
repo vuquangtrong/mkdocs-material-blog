@@ -17,9 +17,11 @@
     margin: 0 2rem;
 }
 
+/*
 .screen-only + :not(h2):not(h3) {
     margin-top: 2em;
 }
+*/
 
 /*
 .page-content p,
@@ -31,6 +33,11 @@
 /* font */
 .md-typeset {
     font-size: 0.75rem;
+}
+
+/* tags */
+.tags {
+    text-align: right;
 }
 
 /* headers */

@@ -11,19 +11,23 @@
     <div class="page-content">
         <!-- title -->
         <h1 style="margin-bottom: 0;">{{page.title}}</h1>
+        <!--
         {% if page.meta and page.meta.description %}
         <p>
             {{page.meta.description}}
         </p>
         {% endif %}
+        -->
         {% if page.meta and page.meta.tags %}
-            <p class="screen-only">
+            <p class="tags screen-only">
             {% for tag in page.meta.tags %}
                 <span><a class="tag tag-{{loop.index % 7}}" href="/tags/#{{tag}}">{{tag}}</a></span>
             {% endfor %}
             </p>
         {% endif %}
+        <!--
         <br/>
+        -->
         <!-- content -->
         {{ page.content }}
         

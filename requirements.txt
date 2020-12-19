@@ -6,6 +6,7 @@ mkdocs-awesome-pages-plugin
 mkdocs-macros-plugin
 mkdocs-minify-plugin
 mkdocs-redirects
+mkdocs-mermaid2-plugin
 kbdextension
 markdown-captions
 markdown-customblocks
