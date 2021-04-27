@@ -1,58 +1,188 @@
-{% extends "newbase.html" %}
+{#
+Copyright (c) 2021 Vũ Quang Trọng, vuquangtrong@gmail.com
+#}
+{% from "partials/random-colors.html" import random_color %}
+{% extends "base.html" %}
 
-{% block page_styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{ 'stylesheets/kbd.css' | url }}">
-    <link rel="stylesheet" href="{{ 'stylesheets/progressbar.css' | url }}">
-    <link rel="stylesheet" href="{{ 'stylesheets/main.css' | url }}">
+{% set extracopyright %}
+    </div>
+    <div style="color: var(--md-footer-fg-color--lighter);">
+        using
+        <a href="https://github.com/vuquangtrong/mkdocs-material-blog" target="_blank" rel="noopener">
+            MkDocs Material Blog
+        </a>
+        theme
+    </div>
+</div>
+{% endset %}
+
+{% block htmltitle %}
+    {% if page and page.meta and page.meta.title_full %}
+        <title>{{ page.meta.title_full | striptags }} - {{ config.site_name }}</title>
+    {% elif page and page.meta and page.meta.title %}
+        <title>{{ page.meta.title | striptags }} - {{ config.site_name }}</title>
+    {% else %}
+        <title>{{ page.title | striptags }} - {{ config.site_name }}</title>
+    {% endif %}
 {% endblock %}
 
-{% block page_content %}
-    <div class="page-content">
-        <!-- title -->
-        <h1 style="margin-bottom: 0;">{{page.title}}</h1>
-        <!--
-        {% if page.meta and page.meta.description %}
-        <p>
-            {{page.meta.description}}
-        </p>
+{% block extrahead %}
+    {% set title = config.site_name %}
+    {% if page and page.meta and page.meta.title_full %}
+        {% set title = config.site_name ~ " - " ~ page.meta.title_full | striptags %}
+    {% elif page and page.meta and page.meta.title %}
+        {% set title = config.site_name ~ " - " ~ page.meta.title | striptags %}
+    {% else %}
+        {% set title = config.site_name ~ " - " ~ page.title | striptags %}
+    {% endif %}
+    
+    {% set image = config.site_url ~ 'assets/banner.jpg' %}
+    {% if page and page.meta and page.meta.banner %}
+        {% set image = page.canonical_url ~ page.meta.banner %}
+    {% endif %}
+        {% set description = config.site_description %}
+    {% if page and page.meta and page.meta.description %}
+        {% set description = page.meta.description %}
+    {% endif %}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ page.canonical_url }}">
+    <meta property="og:image" content="{{ image }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="568">
+{% endblock %}
+
+{% block site_nav %}
+    {% if nav %}
+        {% if page and page.meta and page.meta.hide %}
+            {% set hidden = "hidden" if "navigation" in page.meta.hide %}
         {% endif %}
-        -->
-        {% if page.meta and page.meta.tags %}
-            <p class="tags screen-only">
-            {% for tag in page.meta.tags %}
-                <span><a class="tag tag-{{loop.index % 7}}" href="/tags/#{{tag}}">{{tag}}</a></span>
-            {% endfor %}
-            </p>
-        {% endif %}
-        <!--
-        <br/>
-        -->
-        <!-- content -->
-        {{ page.content }}
-        
-        <!-- Show reference sources -->
-        {% if page.meta and page.meta.refers %}
-            <!-- Add some space before comments -->
-            <div style="height: 5vh;"></div>
-            <div class="reference">
-                <h2>References</h2>
-                {% if config.extra.refer_copyright %}
-                    <small><em>{{ config.extra.refer_copyright }}</em></small>
-                {% endif %}
-                <ul>
-                {% for ref_name, ref_link in page.meta.refers.items() %}
-                    <li>
-                        <strong>{{ ref_name }}</strong>, <a href="{{ ref_link }}">{{ ref_link }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
+
+        <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" {{ hidden }}>
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    {% include "partials/nav.html" %}
+                    {% if not page.is_homepage %}
+                        <div class="tag-cloud-nav">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div style="font-weight:700; font-size:.7rem; margin:0 0.6rem;">
+                                <label>Tag cloud</label>
+                            </div>
+                            <div style="padding: 0.4rem 0.6rem;">
+                                {% include "partials/tag-cloud.html" %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
+        </div>
+     {% endif %}
+
+    {% if page.is_homepage %}
+        <div class="md-sidebar md-sidebar--secondary">
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    <div style="font-weight:700; font-size:.7rem; margin:0 0.6rem;">
+                        <label>Tag cloud</label>
+                    </div>
+                    <div style="padding: 0.4rem 0.6rem;">
+                        {% include "partials/tag-cloud.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if page.toc and not "toc.integrate" in features %}
+        {% if page and page.meta and page.meta.hide %}
+            {% set hidden = "hidden" if "toc" in page.meta.hide %}
+        {% endif %}
+        <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" {{ hidden }}>
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    {% include "partials/toc.html" %}
+                    {% if not page.is_homepage %}
+                        <div class="tag-cloud-toc">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div style="font-weight:700; font-size:.7rem; margin:0 0.6rem;">
+                                <label>Tag cloud</label>
+                            </div>
+                            <div style="padding: 0.4rem 0.6rem;">
+                                {% include "partials/tag-cloud.html" %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if page.edit_url %}
+        <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-content__button md-icon">
+        {% include ".icons/material/pencil.svg" %}
+        </a>
+    {% endif %}
+    <div class="page-cover">
+        {% if not "\x3ch1" in page.content %}
+            {% set title = page.title %}
+            {% if page and page.meta and page.meta.title_full %}
+                {% set title = page.meta.title_full %}
+            {% elif page and page.meta and page.meta.title %}
+                {% set title = page.meta.title %}
+            {% endif %}
+            <h1 class="page-title">{{ title | d(config.site_name, true) }}</h1>
+            {% if page and page.meta and page.meta.description %}
+                <p class="page-description">{{ page.meta.description }}</p>
+            {% endif %}
+            {% if page and page.meta and page.meta.tags %}
+                <p>
+                    {% for tag in page.meta.tags %}
+                    <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
+                    <span class="tag-name" style="color:{{ random_color() }};">
+                        #{{ tag }}
+                    </span>
+                    </a>
+                    {% endfor %}
+                </p>
+            {% endif %}
+            {% if not page.is_homepage %}
+                {% if page and page.meta %}
+                    {% if page.meta.git_revision_date_localized or page.meta.revision_date %}
+                        {% import "partials/language.html" as lang with context %}
+                        {% set label = lang.t("source.revision.date") %}
+                        <p class="md-source-date">
+                            <hr class="print-only">
+                            <small>
+                                {% if page.meta.git_revision_date_localized %}
+                                    {{ label }}: {{ page.meta.git_revision_date_localized }}<br/>
+                                {% elif page.meta.revision_date %}
+                                    {{ label }}: {{ page.meta.revision_date }}
+                                {% endif %}
+                            </small>
+                        </p>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
         {% endif %}
     </div>
-{% endblock %}
 
-{% block page_scripts %}
-    {{ super() }}
-    <script type="application/javascript" src="{{ 'javascripts/main.js' | url }}"></script>
+    {% if not page.is_homepage %}
+        <div class="btn-actions screen-only">
+            <p></p>
+        </div>
+        <div class="toc print-only">
+            <h2>Table of Content</h2>
+           {% include "partials/toc.html" %}
+        </div>
+    {% endif %}
+    
+    {{ page.content }}
 {% endblock %}

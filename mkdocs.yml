@@ -1,133 +1,134 @@
-# Copyright (c) 2020 Vũ Quang Trọng <vuquangtrong@gmail.com>
+# Copyright (c) 2021 Vũ Quang Trọng <vuquangtrong@gmail.com>
 
-site_name: Blogging with Material for Mkdocs
-site_url: http://localhost:8000/ # must have the trailing slash
-site_author: vuquangtrong@gmail.com
+site_name: Code Inside Out
+site_url: https://www.codeinsideout.com/ # must have the trailing slash
+site_author: vqtrong
+site_email: vuquangtrong@gmail.com
 site_description: >-
-  Write your blog in technical documentation style!
+    Interesting stuff in Embedded Systems and IoT Applications.
+    From hardwares to cloud applications. Step by step.
+site_description_full: >-
+    Interesting stuff in Embedded Systems and IoT Applications.<br/>
+    From hardwares to cloud applications. Step by step.<br/>
+    (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
+site_keywords: embedded systems application programming
 
-copyright: >- # can use HTML text, but should be on one line
-  © 2020 <a href="https://www.codeinsideout.com/">Code Inside Out</a>
+# copyright: © 2021 Code Inside Out
+
+# a hacky workaround as I don't want to replace the template partials\footer.html, 
+# below html code works together with extracopyright in overrides\main.html
+copyright: >-
+    © 2021 Code Inside Out <div style="display:none"><div>
 
 theme:
-  name: material
-  custom_dir: overrides
-  font:
-    text: Noto Serif
-    code: Roboto Mono
-    # content:
-      # text: Noto Serif
-      # code: Roboto Mono
-  features:
-    - navigation.tabs
-  logo: assets/logo.png
-  favicon: assets/favicon.ico
+    name: material
+    custom_dir: overrides
+    palette:
+        primary: white
+    font:
+        text: Noto Serif
+        code: Roboto Mono
+    icon:
+        logo: fontawesome/solid/code
+    favicon: favicon.ico
+    features:
+        - navigation.tabs
+        - navigation.top
+        - header.autohide
 
 extra_css:
-  - stylesheets/root.css
+    - assets/extra.css
 
-plugins:
-  - search:
-  - exclude:
-      glob:
-        - "draft/*"
-  - markdown-filter:
-  - macros: # before change the default block marks {{}}, 
-            # please check other plugin which relies on jinja in markdown
-      j2_block_start_string: '{[%'
-      j2_block_end_string: '%]}'
-      j2_variable_start_string: '{['
-      j2_variable_end_string: ']}'
-  - mermaid2:
-      arguments:
-          # theme: 'dark'
-          securityLevel: 'loose'
-  - awesome-pages:
-      collapse_single_pages: true
-  - redirects:
-      redirect_maps:
-  # - minify:
-      # minify_html: true
-      # htmlmin_opts:
-        # remove_comments: true
+extra_javascript:
+    - assets/extra.js
+
 
 markdown_extensions:
-  - kbdextension:
-      brackets_css: button # [[button]]
-      enable_parens: true
-      parens_css: menu # ((menu))
-      enable_braces: true
-      braces_css: action # {{action}} or
-                         # {{ "{{action}}" }} when use mkdocs-macros-plugin with default {{}}
-  - markdown_captions:
-  - custom-span-class:
-  - customblocks:
-  - abbr:
-  - attr_list:
-  - def_list:
-  # - fenced_code: # replaced by pymdownx.superfences
-  - footnotes:
-  - md_in_html:
-  - tables:
-  - cell_row_span:
-  - admonition:
-  # - sane_lists: # cause some weird renders when use with pymdownx
-  # - nl2br: # cause some weird render when use with pymdownx, 
-             # can use \n with pymdownx.escapeall extension
-  - meta:
-  - toc:
-      permalink: ⚓︎
-      slugify: !!python/name:pymdownx.slugs.uslugify
-      toc_depth: 4 # from h2 to h4 only
-  - pymdownx.snippets:
-      check_paths: true
-  - pymdownx.details:
-  - pymdownx.superfences:
-  - pymdownx.highlight:
-      # linenums: true
-  - pymdownx.inlinehilite:
-  # - pymdownx.keys: # ++key++ syntax is hard to read in markdown, use kbdextension instead
-  - pymdownx.tabbed:
-  - pymdownx.caret:
-  - pymdownx.mark:
-  - pymdownx.tilde:
-  - pymdownx.critic:
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-      options:
-        custom_icons:
-          - overrides/.icons
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.progressbar:
-  - pymdownx.saneheaders:
-  - pymdownx.escapeall:
-      hardbreak: true
-      nbsp: true
-  - pymdownx.magiclink:
-  # - pymdownx.smartsymbols:
+    # official
+    - meta
+    - admonition
+    - attr_list
+    - def_list
+    - sane_lists
+    - tables
+    - md_in_html
+    - footnotes
+    - toc:
+        permalink: ⚓︎
+        slugify: !!python/name:pymdownx.slugs.uslugify
+        toc_depth: 4
 
-# google_analytics:
-  # - UA-XXXXXXXX-X
-  # - auto
+    # pymdownx
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:mermaid2.fence_mermaid
+    - pymdownx.highlight:
+        linenums_style: pymdownx-inline
+    - pymdownx.inlinehilite
+    - pymdownx.tabbed
+    - pymdownx.caret
+    - pymdownx.mark
+    - pymdownx.tilde
+    - pymdownx.critic
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+
+    # undocumented
+    - pymdownx.snippets
+    - pymdownx.saneheaders
+    - pymdownx.smartsymbols
+
+    # 3rd party
+    - markdown_captions
+    - cell_row_span
+    - customblocks
+    - kbdextension:
+        brackets_css: button # [[button]]
+        enable_parens: true
+        parens_css: menu # ((menu))
+        enable_braces: false # conflict with mkdocs-macros-plugin
+        braces_css: action # {{action}}
+
+
+plugins:
+    - search
+    - git-revision-date:
+        as_datetime: true
+    - git-revision-date-localized:
+        enable_creation_date: true
+    - macros
+    - mermaid2
+    - awesome-pages:
+        collapse_single_pages: true        
+    - pdf-with-js:
+        # enable: false
+        filename_use_full_title: false
+        display_header_footer: true
+        header_template: >-
+            <div style="font-size:8px; margin:auto; color:lightgray;">
+                <span class=title></span>
+            </div>
+        footer_template: >-
+            <div style="font-size:8px; margin:auto; color:lightgray;">
+                Page <span class="pageNumber"></span> of <span class="totalPages"></span>
+            </div>
+
+google_analytics:
+    - UA-42618265-2
+    - auto
+
 
 extra:
-  # disqus: 'your-id'
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/vuquangtrong
-    - icon: fontawesome/brands/facebook
-      link: https://facebook.com/trongvq
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/vqtrong
-
-nav:
-  - index.md
-  - Projects:
-    - projects.md
-  - ...
-  - About: 
-    - about.md
-  - Tags: 
-    - tags.md
+    disqus: 'vuquangtrong-github-io'
+    social:
+        - icon: fontawesome/brands/github-alt
+          link: https://github.com/vuquangtrong
+        - icon: fontawesome/brands/facebook-f
+          link: https://facebook.com/trongvq
+        - icon: fontawesome/brands/linkedin-in
+          link: https://www.linkedin.com/in/vqtrong

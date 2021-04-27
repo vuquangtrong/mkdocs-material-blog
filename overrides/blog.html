@@ -1,0 +1,90 @@
+{% from "partials/random-colors.html" import random_color %}
+{% extends "main.html" %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    .md-nav.md-nav--secondary {
+        display: none;
+    }
+    .md-typeset .featured-post {
+        border-radius: 0.25em;
+        padding: .5em 1em;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: .5em;
+        font-size: .9em;
+    }
+    .md-typeset .title {
+        margin: 0;
+    }
+    .md-typeset .description {
+        color: #4f4f4f;
+    }
+    .md-typeset .featured-post small {
+        opacity: 1;
+    }
+    .md-typeset .timestamp {
+        float: left;
+        color: gray;
+    }
+    .md-typeset .tags {
+        float: right;
+    }
+</style>
+{% endblock %}
+
+{% block content %}    
+    {# scan all pages #}
+    {% for p in pages|sort(attribute='page.meta.revision_date', reverse=True) %}
+        {% set pg = p.page %}
+
+        {% if pg.abs_url.startswith('/blog/') and pg.abs_url|length > 6 %}
+            {% set title = pg.title %}
+            {% if pg.meta and pg.meta.title_full %}
+                {% set title = pg.meta.title_full %}
+            {% endif %}
+
+            <div class="featured-post">
+                <h4 class="title">
+                    <a class="link" href="{{ pg.canonical_url }}">{{ title }}</a>
+                </h4>
+                <p class="description" 
+                    {% if not pg.meta.description %}
+                        style="margin-top: 0;"
+                    {% endif %}
+                >
+                    {% if pg.meta.description %}
+                        {{ pg.meta.description }}
+                    {% endif %}
+                </p>
+                <div>
+                    <small class="timestamp">
+                        {% if pg.meta.git_revision_date_localized or pg.meta.revision_date %}
+                            {% import "partials/language.html" as lang with context %}
+                            {% set label = lang.t("source.revision.date") %}
+                            {% if pg.meta.git_revision_date_localized %}
+                                {{ label }}: {{ pg.meta.git_revision_date_localized }}
+                            {% elif pg.meta.revision_date %}
+                                {{ label }}: {{ pg.meta.revision_date }}
+                            {% endif %}
+                        {% endif %}
+                    </small>
+
+                    <small class="tags">
+                        {% if pg.meta.tags %}
+                            {% for tag in pg.meta.tags %}
+                            <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
+                                <span class="tag-name" style="color:{{ random_color() }};">
+                                    #{{ tag }}
+                                </span>
+                            </a>
+                            {% endfor %}
+                        {% endif %}
+                    </small>
+                </div>
+                <hr style="margin-bottom:0;">
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

@@ -1,57 +1,20 @@
-{% extends "page.html" %}
+{% extends "main.html" %}
 
-{% block page_styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{ 'stylesheets/tags.css' | url }}">
+{% block styles %}
+{{ super() }}
+<style>
+    .md-sidebar__inner {
+        display: none;
+    }
+    @media screen and (max-width: 76.1875em) {
+        .md-sidebar {
+            display: none !important;
+        }
+    }
+</style>
 {% endblock %}
 
-{% block page_content %}
-    <!-- Scan all posts to get tags -->
-    {% set tags=[] %}
-    {% for page in pages %}
-        {% if page.page.meta.tags %}
-            {% for tag in page.page.meta.tags %}
-                {% if tags|length %}
-                    {% set ns = namespace(found=False) %}
-                    {% for item in tags %}
-                        {% set _tag, _pages = item %}
-                        {% if tag == _tag %}
-                            {% set ns.found = True %}
-                            <!-- or "" to remove spaces -->
-                            {{ _pages.append(page.page) or "" }}
-                        {% endif %}
-                    {% endfor %}
-
-                    {% if not ns.found %}
-                        <!-- save as {tag, [pages]} -->
-                        {{ tags.append((tag, [page.page])) or "" }}
-                    {% endif %}
-                {% else %}
-                    {{ tags.append((tag, [page.page])) or "" }}
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% endfor %}
-
-    <!-- generate html -->
-    {% for item in tags %}
-        {% set _tag, _pages = item %}
-        <details id={{_tag}}>
-            <summary class="tag-{{loop.index % 7}}">
-                {{ _tag }} ({{ _pages|count }})<a class="headerlink" href="#{{ _tag }}">⚓︎</a>
-            </summary>
-            <ul>
-                {% for page in _pages %}
-                <li>
-                    <a href="{{ page.canonical_url }}">{{ page.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </details>
-    {% endfor %}
-{% endblock %}
-
-{% block scripts %}
-    {{ super() }}
-    <script type="application/javascript" src="{{ 'javascripts/tags.js' | url }}"></script>
+{% block content %}
+    {% include "partials/tag-cloud.html" %}
+    {% include "partials/tag-list-pages.html" %}
 {% endblock %}

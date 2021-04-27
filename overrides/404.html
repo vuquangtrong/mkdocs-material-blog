@@ -1,18 +1,26 @@
-{% extends "page.html" %}
+{% extends "base.html" %}
 
-{% block page_styles %}
+{% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ 'stylesheets/404.css' | url }}">
+    <style>
+        .md-sidebar {
+            display: none;
+        }
+    </style>
 {% endblock %}
 
-{% block page_content %}
-    <h1>Oops! Something went wrong!</h1>
-    <p>We couldn't handle your request. <br>
-    Please go back to the <a href="{{ config.site_url }}">{{ config.site_name }}</a> homepage, <br>
-    or press <kbd>S</kbd> to search on this site.</p>
+{% block content %}
+<div style="text-align: center;">
+    <h1>
+        Oops! Something went wrong!
+    </h1>
+    <h3>
+        We couldn't handle your request.<br>
+        Please go back to the <a href="{{ config.site_url }}">{{ config.site_name }}</a> homepage,<br>
+        or press <kbd>S</kbd> to search on this site.
+    </h3>
+</div>
 {% endblock %}
 
-{% block page_scripts %}
-    {{ super() }}
-    <script type="application/javascript" src="{{ 'javascripts/404.js' | url }}"></script>
+{% block disqus %}
 {% endblock %}

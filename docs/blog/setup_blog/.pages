@@ -1,0 +1,6 @@
+nav:
+    - install_and_configure
+    - markdown_syntax
+    - mkdocs_plugins
+    - customize_theme
+    - print_to_pdf
