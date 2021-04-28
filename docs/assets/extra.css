@@ -165,6 +165,18 @@
     color: darkred;
     margin-bottom: -1.2em;
 }
+.md-typeset .btn-actions a {
+    margin-right: .5em;
+}
+.md-typeset .row {
+    display: flex;
+    flex-direction: row;
+}
+.md-typeset .row .col {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
 .tag {
     white-space: nowrap;
     margin-right: .25em;
@@ -267,7 +279,8 @@
         page-break-after: always;
     }
     .md-typeset .new-page + *,
-    .md-typeset .toc + * {
+    .md-typeset .toc + *,
+    .md-typeset .btn-actions + * {
         margin-top: 0;
     }
     .md-typeset .toc :first-child {
@@ -291,7 +304,9 @@
     .md-typeset .admonition, .md-typeset details {
         page-break-inside: auto;
     }
-    .md-typeset .footnote ~ * {
+    .md-typeset #__comments,
+    .md-typeset #disqus_recommendations,
+    .md-typeset #disqus_thread {
         display: none;
     }
 }

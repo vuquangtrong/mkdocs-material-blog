@@ -30,7 +30,7 @@
 
 {% set most = namespace(count = 0) %}
 
-{% for item in tags %}
+{% for item in tags|shuffle %}
     {% set tag, ps = item %}
     {% if ps|count > most.count %}
         {% set most.count = ps|count %}

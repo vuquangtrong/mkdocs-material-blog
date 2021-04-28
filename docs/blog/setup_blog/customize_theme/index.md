@@ -163,7 +163,7 @@ __Override files__:
     └─ main.html                           # Default page
     ```
 
-    The template file *base.html* {>>original path is .venv\Lib\site-packages\material<<} is the starting point of any site's page. All other page should extend from it.
+    The template file *base.html*, original path is in _.venv\Lib\site-packages\material_, is the starting point of any site's page. All other page should extend from it.
 
     The *main.html* will be used for all markdown pages.
 
@@ -222,7 +222,7 @@ site_description: >-
 site_keywords: embedded systems application programming
 ```
 
-Modify the default content of *docs\index.md* with jinja template {>>which is enabled by [Macro plugin](../mkdocs_plugins/index.md#2-macros)<<} and markdown advanced syntax for attribute lists:
+Modify the default content of *docs\index.md* with jinja template, which is enabled by [Macro plugin](../mkdocs_plugins/index.md#2-macros), and markdown advanced syntax for attribute lists:
 
 ``` md
 {% raw %}
