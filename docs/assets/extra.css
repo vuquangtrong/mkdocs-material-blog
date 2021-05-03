@@ -38,6 +38,11 @@
 .md-sidebar__scrollwrap:hover {
     overflow-y: auto;
 }
+/*
+.md-typeset__scrollwrap {
+    text-align: center;
+}
+*/
 .md-typeset__table {
     padding: 0;
     display: block;
@@ -143,7 +148,7 @@
 .md-typeset table:not([class]) {
     font-size: .9em;
     box-shadow: none;
-    display: table;
+    /* display: table; */
     border-collapse: collapse;
 }
 .md-typeset table:not([class]) th,
@@ -283,9 +288,6 @@
     .md-typeset .btn-actions + * {
         margin-top: 0;
     }
-    .md-typeset .toc :first-child {
-        margin-top: 0;
-    }
     .md-typeset .footnote {
         page-break-before: always;
         color: black;
@@ -308,6 +310,15 @@
     .md-typeset #disqus_recommendations,
     .md-typeset #disqus_thread {
         display: none;
+    }
+    .md-typeset p:empty {
+        display: none;
+    }
+    .md-typeset h1:target:before,
+    .md-typeset h2:target:before,
+    .md-typeset h3:target:before {
+        padding-top: unset;
+        margin-top: unset;
     }
 }
 @page {
