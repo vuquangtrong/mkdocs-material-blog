@@ -106,7 +106,7 @@ plugins:
     - awesome-pages:
         collapse_single_pages: true        
     - pdf-with-js:
-        # enable: false
+        enable: false
         filename_use_full_title: false
         display_header_footer: true
         header_template: >-
@@ -118,13 +118,13 @@ plugins:
                 Page <span class="pageNumber"></span> of <span class="totalPages"></span>
             </div>
 
-google_analytics:
-    - UA-42618265-2
-    - auto
+# google_analytics:
+    # - UA-42618265-2
+    # - auto
 
 
 extra:
-    disqus: 'vuquangtrong-github-io'
+    # disqus: 'vuquangtrong-github-io'
     social:
         - icon: fontawesome/brands/github-alt
           link: https://github.com/vuquangtrong
