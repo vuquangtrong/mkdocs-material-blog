@@ -4,56 +4,55 @@
 
 {# scan all pages #}
 {% for p in pages %}
-    {% if p.page.meta.tags %}
-        {# extract tags if available #}
-        {% for tag in p.page.meta.tags %}
-            {% if tags|length %}
-                {% set ns = namespace(found=False) %} {# read more about scope at https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments #}
-                {# check if tag exists, append to its page list #}
-                {% for item in tags %}
-                    {% set t, ps = item %}
-                    {% if tag == t %}
-                        {% set ns.found = True %}
-                        {{ ps.append(p.page) or "" }} {# use (or "") to not print} #}
-                    {% endif %}
-                {% endfor %}
-                {# if tag doesn't exist, create new page list#}
-                {% if not ns.found %}
-                    {{ tags.append((tag, [p.page])) or "" }}
-                {% endif %}
-            {% else %}
-                {{ tags.append((tag, [p.page])) or "" }}
-            {% endif %}
+  {% if p.page.meta.tags %}
+    {# extract tags if available #}
+    {% for tag in p.page.meta.tags %}
+      {% if tags|length %}
+        {% set ns = namespace(found=False) %}
+        {# read more about scope at 
+        https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments
+        #}
+        {# check if tag exists, append to its page list #}
+        {% for item in tags %}
+          {% set t, ps = item %}
+          {% if tag == t %}
+            {% set ns.found = True %}
+            {{ ps.append(p.page) or "" }} {# use (or "") to not print} #}
+          {% endif %}
         {% endfor %}
-    {% endif %}
-{% endfor %}
-
-{% set most = namespace(count = 0) %}
-
-{% for item in tags|shuffle %}
-    {% set tag, ps = item %}
-    {% if ps|count > most.count %}
-        {% set most.count = ps|count %}
-    {% endif %}
-{% endfor %}
-
-<div class="tag-cloud">
-{% if tags|count %}
-    {% for item in tags %}
-        {% set tag, ps = item %}
-        {% set ratio = ps|count / most.count %}
-        {# create a link with tag name #}
-        {# font size is based on the page count #}
-        <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
-            <span class="tag-name" style="font-size:{{ 0.5+ratio }}rem;color:{{ random_color() }};">
-                {{- tag}}
-            </span>
-            <sup class="tag-count">{{ ps|count}}</sup>
-        </a>
+        {# if tag doesn't exist, create new page list#}
+        {% if not ns.found %}
+          {{ tags.append((tag, [p.page])) or "" }}
+        {% endif %}
+      {% else %}
+        {{ tags.append((tag, [p.page])) or "" }}
+      {% endif %}
     {% endfor %}
-{% else %}
-    <div style="text-align: center;">
-        <h3>No tag found!</h3>
+  {% endif %}
+{% endfor %}
+
+<p class="md-nav" style="margin-bottom: 0.5em;">
+  <label class="md-nav__title">Tag cloud</label>
+</p>
+<div class="tag-cloud-content">
+  {% if tags|count %}
+    {% for item in tags|shuffle %}
+      {% set tag, ps = item %}
+      {# create a link with tag name #}
+      {# font size is based on the page count #}
+      <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
+        <span class="tag-name" style="
+          font-size:{{ 0.6+ps|count*0.1}}rem;
+          color:{{ random_color() }};
+        ">
+          {{- tag -}}
+        </span>
+        <sup class="tag-count">{{- ps|count -}}</sup>
+      </a>
+    {% endfor %}
+  {% else %}
+    <div>
+      <h3>No tag found!</h3>
     </div>
-{% endif %}
+  {% endif %}
 </div>

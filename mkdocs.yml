@@ -1,5 +1,3 @@
-# Copyright (c) 2021 Vũ Quang Trọng <vuquangtrong@gmail.com>
-
 site_name: Code Inside Out
 site_url: https://www.codeinsideout.com/ # must have the trailing slash
 site_author: vqtrong
@@ -7,128 +5,104 @@ site_email: vuquangtrong@gmail.com
 site_description: >-
     Interesting stuff in Embedded Systems and IoT Applications.
     From hardwares to cloud applications. Step by step.
-site_description_full: >-
-    Interesting stuff in Embedded Systems and IoT Applications.<br/>
-    From hardwares to cloud applications. Step by step.<br/>
-    (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
 site_keywords: embedded systems application programming
-
-# copyright: © 2021 Code Inside Out
-
-# a hacky workaround as I don't want to replace the template partials\footer.html, 
-# below html code works together with extracopyright in overrides\main.html
+# a workaround as I don't want to replace the template partials\footer.html,
+# below html code works together with `extracopyright` variable in overrides\main.html
 copyright: >-
     © 2021 Code Inside Out <div style="display:none"><div>
-
 theme:
     name: material
     custom_dir: overrides
     palette:
         primary: white
+        accent: deep orange
     font:
         text: Noto Serif
         code: Roboto Mono
     icon:
         logo: fontawesome/solid/code
-    favicon: favicon.ico
+    favicon: favicon.png
     features:
+        - navigation.instant
         - navigation.tabs
         - navigation.top
         - header.autohide
-
 extra_css:
+    - assets/view-bigimg.css
     - assets/extra.css
-
 extra_javascript:
+    - assets/view-bigimg.js
     - assets/extra.js
-
-
 markdown_extensions:
-    # official
     - meta
+    - pymdownx.superfences
+    - pymdownx.highlight:
+          linenums_style: pymdownx-inline
+    - pymdownx.inlinehilite
     - admonition
     - attr_list
+    - pymdownx.tasklist:
+          custom_checkbox: true
     - def_list
     - sane_lists
-    - tables
-    - md_in_html
-    - footnotes
-    - toc:
-        permalink: ⚓︎
-        slugify: !!python/name:pymdownx.slugs.uslugify
-        toc_depth: 4
-
-    # pymdownx
-    - pymdownx.tasklist:
-        custom_checkbox: true
-    - pymdownx.superfences:
-        custom_fences:
-          - name: mermaid
-            class: mermaid
-            format: !!python/name:mermaid2.fence_mermaid
-    - pymdownx.highlight:
-        linenums_style: pymdownx-inline
-    - pymdownx.inlinehilite
+    - markdown_captions
     - pymdownx.tabbed
+    - tables
     - pymdownx.caret
     - pymdownx.mark
     - pymdownx.tilde
     - pymdownx.critic
+    - md_in_html
     - pymdownx.emoji:
-        emoji_index: !!python/name:materialx.emoji.twemoji
-        emoji_generator: !!python/name:materialx.emoji.to_svg
-
-    # undocumented
-    - pymdownx.snippets
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.escapeall:
+          hardbreak: true
+          nbsp: true
     - pymdownx.saneheaders
+    - smarty:
+          smart_angled_quotes: true
     - pymdownx.smartsymbols
-
-    # 3rd party
-    - markdown_captions
-    - cell_row_span
+    - pymdownx.snippets
     - customblocks
-    - kbdextension:
-        brackets_css: button # [[button]]
-        enable_parens: true
-        parens_css: menu # ((menu))
-        enable_braces: false # conflict with mkdocs-macros-plugin
-        braces_css: action # {{action}}
-
-
+    - footnotes
+    - toc:
+          permalink: ⚓︎
+          slugify: !!python/name:pymdownx.slugs.uslugify
+          toc_depth: 4
+    - cell_row_span
 plugins:
-    - search
-    - git-revision-date:
-        as_datetime: true
-    - git-revision-date-localized:
-        enable_creation_date: true
-    - macros
-    - mermaid2
+    - search # built-in search must be always activated
     - awesome-pages:
-        collapse_single_pages: true        
+          collapse_single_pages: true
+    - section-index # must be after awesome-pages
+    - git-revision-date-localized:
+          enable_creation_date: true
+          type: iso_datetime
     - pdf-with-js:
-        enable: false
-        filename_use_full_title: false
-        display_header_footer: true
-        header_template: >-
-            <div style="font-size:8px; margin:auto; color:lightgray;">
-                <span class=title></span>
-            </div>
-        footer_template: >-
-            <div style="font-size:8px; margin:auto; color:lightgray;">
-                Page <span class="pageNumber"></span> of <span class="totalPages"></span>
-            </div>
-
+        #   enable: false
+          display_header_footer: true
+          header_template: >-
+              <div style="font-size:8px; margin:auto; color:lightgray;">
+                  <span class=title></span>
+              </div>
+          footer_template: >-
+              <div style="font-size:8px; margin:auto; color:lightgray;">
+                  Page <span class="pageNumber"></span> of 
+                  <span class="totalPages"></span>
+              </div>
 # google_analytics:
-    # - UA-42618265-2
-    # - auto
-
-
+# - UA-42618265-2
+# - auto
 extra:
-    # disqus: 'vuquangtrong-github-io'
+    # disqus: "vuquangtrong-github-io"
     social:
         - icon: fontawesome/brands/github-alt
           link: https://github.com/vuquangtrong
+          name: vuquangtrong
         - icon: fontawesome/brands/facebook-f
           link: https://facebook.com/trongvq
+          name: trongvq
         - icon: fontawesome/brands/linkedin-in
           link: https://www.linkedin.com/in/vqtrong
+          name: vqtrong

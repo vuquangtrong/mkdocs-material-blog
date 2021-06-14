@@ -1,20 +1,6 @@
 {% extends "main.html" %}
 
-{% block styles %}
-{{ super() }}
-<style>
-    .md-sidebar__inner {
-        display: none;
-    }
-    @media screen and (max-width: 76.1875em) {
-        .md-sidebar {
-            display: none !important;
-        }
-    }
-</style>
-{% endblock %}
-
-{% block content %}
+{% block page_content %}
     {% include "partials/tag-cloud.html" %}
-    {% include "partials/tag-list-pages.html" %}
+    {% include "partials/tag-page-list.html" %}
 {% endblock %}

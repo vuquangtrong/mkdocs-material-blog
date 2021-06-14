@@ -1,52 +1,20 @@
 ---
-title: Home
-disqus: ""
 hide:
-  - navigation
-  - toc
+    - disqus
 ---
 
 Welcome to
-{.welcome}
 
-# {{ config.site_name }} {.site-name}
+# Code Inside Out
 
-{{ config.site_description_full }}
-{.site-description}
+Interesting stuff in Embedded Systems and IoT Applications.\
+From hardwares to cloud applications. Step by step.
+(ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧
 
 ---
 
-{# 
-    create a list of social buttons
-    use - to remove leading or trailing spaces 
-#}
-{%- if config.extra.social -%}
-    {%- for social in config.extra.social -%}
-        [:{{ social.icon | replace('/', '-') }}:]({{ social.link }}){.md-button}
-    {% endfor %}
-{% endif %}
+There is a huge amount of information on the internet and it will take time to search and find out which is usable. This blog comes to host what I've read and marked as useful to faster look them up again. I also discovered that I learn better when I write about the things that I am learning, and of course, sharing is always better than holding.
 
-<style>
-    .welcome {
-        padding-left: .1em;
-        margin-bottom: 0
-    }
-    .site-name {
-        margin-bottom: .5em !important;
-        color: orangered !important;
-    }
-    .site-description {
-        font-size: large;
-        padding-left: .05em;
-        margin-bottom: 0;
-    }
-    .md-typeset .md-button {
-        font-size: unset;
-        min-width: 3em;
-        text-align: center;
-        padding: .3em 0 0 0;
-        border-radius: .5em;
-        border: 1px solid lightgray;
-        color: unset;
-    }
-</style>
+I hope you can find something interesting here, and feel free to leave a comment or feedback to help me improve this blog.
+
+Happy coding!

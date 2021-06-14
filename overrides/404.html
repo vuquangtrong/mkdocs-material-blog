@@ -1,15 +1,6 @@
-{% extends "base.html" %}
+{% extends "main.html" %}
 
-{% block styles %}
-    {{ super() }}
-    <style>
-        .md-sidebar {
-            display: none;
-        }
-    </style>
-{% endblock %}
-
-{% block content %}
+{% block page_content %}
 <div style="text-align: center;">
     <h1>
         Oops! Something went wrong!
@@ -19,7 +10,4 @@
         or press <kbd>S</kbd> to search on this site.
     </h3>
 </div>
-{% endblock %}
-
-{% block disqus %}
 {% endblock %}

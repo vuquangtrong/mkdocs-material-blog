@@ -1,0 +1,75 @@
+{% set tags=[] %}
+
+{# scan all pages #}
+{% for p in pages %}
+  {% if p.page.meta.tags %}
+    {# extract tags if available #}
+    {% for tag in p.page.meta.tags %}
+      {% if tags|length %}
+        {% set ns = namespace(found=False) %} 
+        {# read more about scope at
+        https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments 
+        #}
+        {# check if tag exists, append to its page list #}
+        {% for item in tags %}
+          {% set t, ps = item %}
+          {% if tag == t %}
+            {% set ns.found = True %}
+            {{ ps.append(p.page) or "" }} {# use (or "") to not print} #}
+          {% endif %}
+        {% endfor %}
+        {# if tag doesn't exist, create new page list#}
+        {% if not ns.found %}
+          {{ tags.append((tag, [p.page])) or "" }}
+        {% endif %}
+      {% else %}
+        {{ tags.append((tag, [p.page])) or "" }}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+<div class="tag-page-list">
+  {% for item in tags %}
+    {% set tag, ps = item %}
+    <details class="note" id={{ tag }}>
+      <summary>
+        {{- tag }} ({{- ps|count -}})
+        <a class="headerlink" href="#{{ tag }}">⚓︎</a>
+      </summary>
+      <ol>
+        {% for p in ps %}
+        <li>
+          <a href="{{ p.canonical_url }}">
+            {%- if p.meta and p.meta.title_full -%}
+              {{- p.meta.title_full -}}
+            {%- elif p.meta and p.meta.title -%}
+              {{- p.meta.title -}}
+            {%- else -%}
+              {{- p.title -}}`
+            {%- endif -%}
+          </a>
+        </li>
+        {% endfor %}
+      </ol>
+    </details>
+  {% endfor %}
+</div>
+
+<!-- expand page list for only selected tag -->
+<script>
+  [...document.getElementsByTagName("details")].forEach((D, _, A) => {
+    D.open = false
+    D.addEventListener("toggle", E =>
+      D.open && A.forEach(d =>
+        d != E.target && (d.open = false)
+      )
+    )
+  }
+  )
+
+  var hash = window.location.hash.substr(1);
+  if (hash) {
+    document.getElementById(hash).open = true;
+  }
+</script>
