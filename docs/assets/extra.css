@@ -354,6 +354,7 @@
 .tag-cloud-content {
     padding: 0 0.6rem;
     margin-bottom: 1em;
+    text-align: center;
 }
 /* print */
 .md-typeset .print-only {

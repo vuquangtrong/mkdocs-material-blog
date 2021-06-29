@@ -29,6 +29,9 @@ You can add your new documents in `docs\blog`.
 
 Run `mkdocs build`, then copy the content in the `site` folder to your website's serving folder.
 
+# Print to PDF
+This function only work when you have Chrome and ChromeDrive installed and configured. For more detail, please visit [Print to PDF plugin](https://www.codeinsideout.com/blog/setup-blog/print-to-pdf/#4-print-to-pdf-plugin).
+
 # License
 
 **MIT License**

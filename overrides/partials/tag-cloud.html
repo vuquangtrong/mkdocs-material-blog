@@ -42,12 +42,12 @@
       {# font size is based on the page count #}
       <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
         <span class="tag-name" style="
-          font-size:{{ 0.6+ps|count*0.1}}rem;
+          font-size:{{ 0.5+ps|count*0.05}}rem;
           color:{{ random_color() }};
         ">
           {{- tag -}}
         </span>
-        <sup class="tag-count">{{- ps|count -}}</sup>
+        <!--<sup class="tag-count">{{- ps|count -}}</sup>-->
       </a>
     {% endfor %}
   {% else %}

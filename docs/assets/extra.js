@@ -40,6 +40,7 @@ function activateExternalLinks() {
 /*pagination links */
 function activatePaginationLinks() {
     var pagination = document.getElementById("pagination");
+    if (pagination) {
     var links = pagination.getElementsByClassName("page-number");
     if (links.length) {
         for (var i = 0; i < links.length; i++) {
@@ -56,6 +57,7 @@ function activatePaginationLinks() {
             });
         }
         links[0].click();
+    }
     }
 }
 /* send changed url, read more at 
