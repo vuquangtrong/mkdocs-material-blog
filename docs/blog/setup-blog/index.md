@@ -126,7 +126,7 @@ Download and install [Visual Studio Code](https://code.visualstudio.com/) - a li
 Useful extensions for writing in Markdown format and editing HTML template:
 
 -   [**Markdown All in One**](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): add keyboard shortcuts, auto completion, edit and format list and table
--   [**Markdown Paste**](https://marketplace.visualstudio.com/items?itemName=telesoho.vscode-markdown-paste-image): paste images, links from the clipboard
+-   [**Markdown Paste**](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image): paste images, links from the clipboard
 -   [**Draw.io Integration**](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio): edit diagrams and svg images
 -   [**Jinja**](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja): highlight Jinja syntax in HTML templates
 -   [**Sublime Text Keymap and Settings Importer**](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings): import keybindings and settings

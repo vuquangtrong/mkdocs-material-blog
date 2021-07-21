@@ -80,7 +80,7 @@ plugins:
           enable_creation_date: true
           type: iso_datetime
     - pdf-with-js:
-        #   enable: false
+          enable: false
           display_header_footer: true
           header_template: >-
               <div style="font-size:8px; margin:auto; color:lightgray;">

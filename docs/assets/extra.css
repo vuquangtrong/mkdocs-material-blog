@@ -285,6 +285,15 @@
 .md-typeset .row .col:last-of-type {
     margin-right: 0;
 }
+.md-typeset .log {
+    margin-top: -1em;
+    font-size: small;
+    border-left: 1px solid lightgray;
+}
+.md-typeset .log code {
+    color: unset;
+    padding-left: 1.5em;
+}
 /* width */
 .w100 {
     width: 100% !important;
