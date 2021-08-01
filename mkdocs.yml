@@ -27,6 +27,8 @@ theme:
         - navigation.tabs
         - navigation.top
         - header.autohide
+        - search.suggest
+        - search.highlight
 extra_css:
     - assets/view-bigimg.css
     - assets/extra.css

@@ -1,5 +1,5 @@
 :root > * {
-    --md-code-hl-color: rgba(255, 255, 0, 0.1);
+    --md-code-hl-color: rgba(255, 255, 0, 0.3);
     --md-typeset-mark-color: var(--md-code-hl-color);
 }
 .md-logo,
@@ -13,7 +13,7 @@
 .md-nav__link.md-nav__link--active {
     color: darkblue;
 }
-.md-search__input {
+.md-search__form {
     background-color: white !important;
 }
 .md-typeset code {
