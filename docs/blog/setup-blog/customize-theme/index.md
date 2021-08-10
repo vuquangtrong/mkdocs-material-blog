@@ -150,7 +150,7 @@ The tag cloud shows all tags in different size and color. The bigger a tag is, t
 
 ### 3.2. List pages of a tag
 
-This section is simple as it just needs to loop through the list of pairs `(tag, pages[])` and create a link to each page. Steps to do that:
+This section is simple as it just needs to loop through the list of pairs `(tag, pages[])` and create a link to each page. Steps to take that:
 
 1. Scan all pages and create a list of pairs `(tag, pages[])`
 
@@ -212,13 +212,13 @@ Visit the [Tags](../../../tags/index.md) to see the result.
 
 ## 4. The recent blog posts
 
-There should be a page showing the recent posts to help users see what is new and updated. With the [Revision Date](../mkdocs-plugins/index.md#3-revision-date) plugin, it is able to use two new meta-dat fields: `git_revision_date_localized`, and `git_creation_date_localized` if the option `enable_creation_date` is `true`.
+There should be a page showing the recent posts to help users see what is new and updated. With the [Revision Date](../mkdocs-plugins/index.md#3-revision-date) plugin, it is able to use two new meta-data fields: `git_revision_date_localized`, and `git_creation_date_localized` if the option `enable_creation_date` is `true`.
 
-Create new `index.md` file inside the `blog` folder. When using the [Section Index](../mkdocs-plugins/index.md#2-section-index) plugin, this index file will be merged to the Blog section, therefore, when user select the Blog label, there is a list of recent posts will be shown.
+Create new `index.md` file inside the `blog` folder. When using the [Section Index](../mkdocs-plugins/index.md#2-section-index) plugin, this index file will be merged to the Blog section, therefore, when user selects the Blog label, there is a list of recent posts will be shown.
 
 This page will use the `blog.html` template in which it scans all posts and check the creation date to make a list of posts. Each post should be displayed in a container and be formatted to show the title, the description (at most 250 character using the `truncate` filter), the creation date, and its tags.
 
-!!! caution nt "\ "
+!!! Caution no-title "\ "
 
     Need to check the page's path to filter blog posts. In my code, I use the `abs_url` and its length to check if a page is in the `blog` directory.
 
@@ -243,7 +243,7 @@ Here is the code to sort all pages in order of creation date, and then filter al
 
 ### 4.1. Create the pagination
 
-When the number of posts goes bigger, the recent post list becomes longer. It's time to brake the long list into pages - the user can click on the page number to see its children posts.
+When the number of posts goes bigger, the recent post list becomes longer. It's time to brake the long list into pages — the user can click on the page number to see its children posts.
 
 This is called "Pagination". How to implement it?
 
@@ -267,7 +267,7 @@ Jinja template has the [`slice` filter](https://jinja.palletsprojects.com/en/3.0
 </div>
 ```
 
-### 4.2. Create a post entry
+### 4.2. Create a post-entry
 
 Each post is wrapped inside a `#!html <div class="post">` and its elements are marked with different classes, such as `post-title`, `post-description`, etc. for applying styles later.
 
@@ -306,7 +306,7 @@ Each post is wrapped inside a `#!html <div class="post">` and its elements are m
 </div>
 ```
 
-Here is a simple styles to make each post display necessary basic information:
+Here is a simple style to make each post display necessary basic information:
 
 ```css
 .md-typeset .post:first-of-type h3 {
@@ -325,7 +325,7 @@ Here is a simple styles to make each post display necessary basic information:
 
 ### 4.3. Create active page
 
-To show the current active page, I use pure css and javascript. The idea is to use the URL hash to detect which page is activated, such as `#page1`.
+To show the current active page, I use pure CSS and JavaScript. The idea is to use the URL hash to detect which page is activated, such as `#page1`.
 
 ```jinja
 <div class="center">
@@ -345,7 +345,7 @@ Then add some styles to the pagination block and its children links:
 \
 **CSS Styles**:
 
-Use `target` keyword to select the selected _page id_, then show only the target element.
+Use `target` keyword to select the selected _page ID_, then show only the target element.
 
 ::: file
 assets\\extra.css
@@ -362,7 +362,7 @@ assets\\extra.css
 ```
 
 \
-**Javascript**
+**JavaScript**
 
 When the page is loaded, a script will run to get all pagination's links, and then add a callback function for click event, that remove `active` class from last activated element and then assign `active` class to the event's source element. Note that the first page is activated by default when the page is loaded.
 
@@ -401,7 +401,7 @@ overrides\\blog.html
 
 ## 5. The main template
 
-The `main.html` file, extending the `base.html` template, will be used for all markdown pages and it is the starting point to add custom template.
+The `main.html` file, extending the `base.html` template, will be used for all markdown pages, and it is the starting point to add custom template.
 
 To override it, add the `main.html` file in the `overrides` folder. Here are things I'm going to do to add more content into a blog post:
 
@@ -431,7 +431,7 @@ To override it, add the `main.html` file in the `overrides` folder. Here are thi
     {% endif %}
     ```
 
-2. Add block to use the [Open Graph protocol](https://ogp.me/) to show the page's information when an user shares a page on a social network
+2. Add block to use the [Open Graph protocol](https://ogp.me/) to show the page's information when a user shares a page on a social network
 
     ```jinja
     {% block htmltitle %}
@@ -800,23 +800,23 @@ Make the content close to the title a bit:
 
 ![Change admonition style](admonition_styles.png)
 
-And tweak the style to show admonitions which has icon but do not have title. The trick is to add left padding to the first letter in the content paragraph , and move the content up by applying a negative top margin:
+And tweak the style to show admonitions which has icon but do not have title. The trick is to add left padding to the first letter in the content paragraph, and move the content up by applying a negative top margin:
 
 ```css
-.md-typeset .admonition.nt > .admonition-title + p::first-letter,
-.md-typeset details.nt > summary + p::first-letter {
+.md-typeset .admonition.no-title > .admonition-title + p::first-letter,
+.md-typeset details.no-title > summary + p::first-letter {
     padding-left: 2.2em;
 }
-.md-typeset .admonition.nt > .admonition-title + *,
-.md-typeset details.nt > summary + * {
+.md-typeset .admonition.no-title > .admonition-title + *,
+.md-typeset details.no-title > summary + * {
     margin-top: -2.1em;
 }
 ```
 
-Use these additional styles, with `.nt` class and an empty title (use `"&nbsp;"` or `"\ "`):
+Use these additional styles, with `.no-title` class and an empty title (use `"&nbsp;"` or `"\ "`):
 
 ```md
-!!! info nt "\ "
+!!! info no-title "\ "
 
     This admonition has an icon as an inline element with the content
 
@@ -833,19 +833,19 @@ Use these additional styles, with `.nt` class and an empty title (use `"&nbsp;"`
     There is no title and no icon
 ```
 
-!!! info nt "\ "
+!!! Info no-title "\ "
 
     This admonition has an icon as an inline element with the content
 
-!!! info
+!!! Info
 
     Default title
 
-!!! info "New title"
+!!! Info "New title"
 
     Content of the admonition
 
-!!! info ""
+!!! Info ""
 
     There is no title and no icon
 
@@ -916,7 +916,7 @@ int main(void) {
 
 ### 8.5. Tables
 
-Table should show cell border and use full width to make the content clear.
+Table should show cell border and use a full width to make the content clear.
 
 ```css
 .md-typeset__scrollwrap {
@@ -943,7 +943,7 @@ Table should show cell border and use full width to make the content clear.
 | Syntax     | Description  |   Test Text |
 | :--------- | :----------: | ----------: |
 | Left align | Center align | Right align |
-| Some texts |  Some texts  |  Some texts |
+| A text     | Another text |  More texts |
 
 ### 8.6. Tabs
 
@@ -1132,7 +1132,7 @@ With [Custom Blocks](../markdown-syntax/index.md#17-custom-block) extension, I c
 
 A column will try to fit 100% of the page width. To set a percentage, use the class `.wXX` for the width of `XX%`. These classes can be applied to other elements too.
 
-And here is an example to create 2 column, a big one is 80% page width:
+And here is an example to create 2 columns, a big one is 80% page width:
 
 ```
 ::: row

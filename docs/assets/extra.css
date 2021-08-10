@@ -143,12 +143,12 @@
 .md-typeset details > summary + * {
     margin-top: 0;
 }
-.md-typeset .admonition.nt > .admonition-title + p::first-letter,
-.md-typeset details.nt > summary + p::first-letter {
+.md-typeset .admonition.no-title > .admonition-title + p::first-letter,
+.md-typeset details.no-title > summary + p::first-letter {
     padding-left: 2.2em;
 }
-.md-typeset .admonition.nt > .admonition-title + *,
-.md-typeset details.nt > summary + * {
+.md-typeset .admonition.no-title > .admonition-title + *,
+.md-typeset details.no-title > summary + * {
     margin-top: -2.1em;
 }
 /* quote */
@@ -385,10 +385,10 @@
     .md-typeset #disqus_thread {
         display: none;
     }
-    .md-typeset .np {
+    .md-typeset .new-page {
         page-break-after: always;
     }
-    .md-typeset .np + *,
+    .md-typeset .new-page + *,
     .md-typeset .toc + *,
     .md-typeset .btn-actions + * {
         margin-top: 0;

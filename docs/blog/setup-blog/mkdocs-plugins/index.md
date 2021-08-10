@@ -40,7 +40,7 @@ It overrides the `nav` sections in the site config file `mkdocs.yml`, and provid
         - summary.md
     ```
 
-    !!! attention nt "\ "
+    !!! Attention no-title "\ "
 
         The pattern is checked against the basename of remaining items - not their whole path, so it can be used to filter files in sub-folders.
 
@@ -84,7 +84,7 @@ In MkDocs, each directory will become a section, and by default, section only co
 
 ![Using the Section Index plugin only, before and after applying](nav_section_index_only.png)
 
-This result is different from using `collapse_single_pages: true` option in the Awesome Pages plugin. If use single page collapsing, Awesome Pages plugin replace the section which has only one child by its child page. Therefore, a directory with `index.md` and some sub-folders will not be processed to merge the `index.md` to the section label of that directory.
+This result is different from using `collapse_single_pages: true` option in the Awesome Pages plugin. If you use single page collapsing, Awesome Pages plugin replace the section which has only one child by its child page. Therefore, a directory with `index.md` and some sub-folders will not be processed to merge the `index.md` to the section label of that directory.
 
 Use both Awesome Pages `collapse_single_pages` option and Section Index will make a better result because both page and title are merged to the section.
 
@@ -108,23 +108,23 @@ plugins:
           type: iso_date
 ```
 
-This plugin create new field in the post's meta-data which content the creation and update date. This information is used to sort the posts by revision date to get recently updated items, as shown in the [Blog](../../index.md) page. Read more in the [Customize theme](../customize-theme/index.md).
+This plugin creates new field in the post's meta-data which content the creation and update date. This information is used to sort the posts by revision date to get recently updated items, as shown in the [Blog](../../index.md) page. Read more in the [Customize theme](../customize-theme/index.md).
 
 ## 4. Print to PDF
 
-To export the posts on this blog, there are plugins which can do it. However, most of them depend on [Weasy Print](http://weasyprint.org/) which in turn depends on many other packages. There is one plugin that does printing in an easy and simple way: use browser to print page by sending print command (like press `Ctrl + S`).
+To export the posts on this blog, there are plugins which can do it. However, most of them depend on [Weasy Print](http://weasyprint.org/) which in turn depends on many other packages. There is one plugin that does print in an easy and simple way: use browser to print page by sending print command (like press `Ctrl + S`).
 
 More detail of installation and configuration the [MkDocs PDF with JS](https://github.com/vuquangtrong/mkdocs-pdf-with-js-plugin) plugin for printing to PDF can be read in [Print to PDF](../print-to-pdf/index.md).
 
 ## 5. Macros
 
-!!! attention "This plugin is no longer used in this site!"
+!!! Attention "This plugin is no longer used in this site!"
 
 [MkDocs Macros](https://mkdocs-macros-plugin.readthedocs.io/en/latest/) is a plugin/framework that makes it easy to produce richer and more beautiful pages. It can do two things:
 
 1. Transform the markdown pages into a [Jinja2 templates](https://jinja.palletsprojects.com) that can use variables, macros and filters.
 
-2. Replace MkDocs plugins for a wide range of tasks: e.g. manipulating the navigation, adding files after the html pages have already been generated etc.
+2. Replace MkDocs plugins for a wide range of tasks: e.g. manipulating the navigation, adding files after the HTML pages have already been generated etc.
 
 Install the plugin:
 
@@ -140,7 +140,7 @@ plugins:
     - macros
 ```
 
-!!! bug "Incomplete data in marco"
+!!! Bug "Incomplete data in macro"
 
     The macro `#!md {{ navigation.pages }}` contains a list of all pages, but the data of each page maybe not complete, such as title or meta-data.
 
@@ -148,9 +148,9 @@ plugins:
 
 ## 6. DrawIO Exporter
 
-!!! attention "This plugin is no longer used in this site!"
+!!! Attention "This plugin is no longer used in this site!"
 
-[DrawIO Exporter](https://github.com/LukeCarrier/mkdocs-drawio-exporter) is a great plugin that exports the `.drawio` diagrams to images at build time and insert them to the document. This plugin can replace the [Mermaid](https://github.com/fralau/mkdocs-mermaid2-plugin) plugin, and it is faster thanks to no javascript needed at runtime. It also helps to enable instant navigation mode of the Material theme.
+[DrawIO Exporter](https://github.com/LukeCarrier/mkdocs-drawio-exporter) is a great plugin that exports the `.drawio` diagrams to images at build time and insert them to the document. This plugin can replace the [Mermaid](https://github.com/fralau/mkdocs-mermaid2-plugin) plugin, and it is faster thanks to no JavaScript needed at runtime. It also helps to enable instant navigation mode of the Material theme.
 
 Install the plugin:
 
@@ -174,7 +174,7 @@ To import a diagram, just use the syntax for inserting an image:
 ![My alt text](my-diagram.drawio)
 ```
 
-The plugin will generate an svg image to a cache folder (default in `docs\drawio-exporter`), and then modify the image source attribute to the generated image.
+The plugin will generate an SVG image to a cache folder (default in `docs\drawio-exporter`), and then modify the image source attribute to the generated image.
 
 If the diagram is a multi-page documents, append the index of the page as an anchor in the URL:
 
@@ -184,7 +184,7 @@ If the diagram is a multi-page documents, append the index of the page as an anc
 
 ![A draw.io diagram](example.drawio.svg)
 
-!!! attention "A limitation"
+!!! Attention "A limitation"
 
     Using [Draw.io Integration](../index.md#12-visual-studio-code) extension in Visual Studio Code, I can save a DrawIO diagram as a `.drawio.svg` file, then use that file directly in the page as an usual image. However this method will not support multiple pages in the drawing:
 
@@ -195,7 +195,7 @@ If the diagram is a multi-page documents, append the index of the page as an anc
 
 ## 7. Mermaid
 
-!!! attention "This plugin is no longer used in this site!"
+!!! Attention "This plugin is no longer used in this site!"
 
 [MkDocs Mermaid2](https://github.com/fralau/mkdocs-mermaid2-plugin) is a plugin to render textual graph description into [Mermaid](https://mermaid-js.github.io/mermaid) graphs (flow charts, sequence diagrams, pie charts, etc.).
 
@@ -213,7 +213,7 @@ plugins:
     - mermaid2
 ```
 
-And configure the codeblock parser for mermaid2 blocks:
+And configure the code block parser for mermaid2 blocks:
 
 ```yaml
 markdown_extensions:

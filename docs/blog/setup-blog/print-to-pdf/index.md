@@ -55,7 +55,7 @@ overrides\\main.html
 </div>
 ```
 
-::: np
+::: new-page
 
 ## 2. The Table of Content page
 
@@ -156,7 +156,7 @@ Tabs labels should be marked in printing as they are selected:
 }
 ```
 
-The disqus section also needs hidden in printing:
+The Disqus section also needs to be hidden in printing:
 
 ```css
 @media print {
@@ -168,10 +168,10 @@ The disqus section also needs hidden in printing:
 }
 ```
 
-Class `.np` is used for force break page in printing:
+Class `.new-page` is used for force break page in printing:
 
 ```css
-.md-typeset .np {
+.md-typeset .new-page {
     page-break-after: always;
 }
 ```
@@ -179,14 +179,14 @@ Class `.np` is used for force break page in printing:
 it is good to used with a custom block:
 
 ```md
-::: np
+::: new-page
 ```
 
 Some elements do not keep the top margin in printing:
 
 ```css
 @media print {
-    .md-typeset .np + *,
+    .md-typeset .new-page + *,
     .md-typeset .toc + *,
     .md-typeset .btn-actions + * {
         margin-top: 0;
@@ -223,7 +223,7 @@ The [MkDocs PDF with JS Plugin][pdfjs][^o] exports documentation in PDF format w
 
 [^o]: originally developed by [smaxtec](https://github.com/smaxtec/mkdocs-pdf-with-js-plugin)
 
-For executing the JavaScript code, ChromeDriver is used, so it is nesseccary to:
+For executing the JavaScript code, ChromeDriver is used, so it is necessary to:
 
 1. Install [Chrome](https://www.google.com/chrome/)
 2. Download [ChromeDriver](https://chromedriver.chromium.org/downloads)
@@ -236,7 +236,7 @@ After that, install the plugin:
 pip install -U git+https://github.com/vuquangtrong/mkdocs-pdf-with-js-plugin.git
 ```
 
-!!! warning nt "\ "
+!!! Warning no-title "\ "
 
     Install the original plugin with `:::bat pip install mkdocs-pdf-with-js-plugin` if don't need a customized version. The following features are not implemented in the original version.
 
@@ -292,9 +292,9 @@ def _add_link(self, soup, page_paths):
 
 ### 4.2. Add header and footer
 
-The command sent to ChromeDriver to print a page is `Page.printToPDF`, read more at [Chrome DevTools Protocol - printToPDF](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF).
+The command sent to ChromeDriver to print a page is `Page.printToPDF`, read more at [Chrome DevTools Protocol — `printToPDF`](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF).
 
-This command needs some params to control the printing, which include:
+This command needs some parameters to control the printing, which include:
 
 _landscape_ : boolean
 : Paper orientation. Defaults to false.
@@ -316,7 +316,7 @@ _headerTemplate_: string
 _footerTemplate_ : string
 : HTML template for the print footer. Should use the same format as the _headerTemplate_.
 
-Those params are initialized in the `__init__` function:
+Those parameters are initialized in the `__init__` function:
 
 ```python
 def __init__(self):
@@ -332,7 +332,7 @@ def __init__(self):
         '</div>'
 ```
 
-and they are used to create print options in in a dictionary variable:
+and they are used to creating print options in a dictionary variable:
 
 ```python
 def _get_print_options(self):
@@ -385,7 +385,7 @@ def on_config(self, config, **kwargs):
     return config
 ```
 
-By doing this, users can add their params to the `pdf-with-js` entry under the `plugins` field in the config file `mkdocs.yml`:
+By doing this, users can add their parameters to the `pdf-with-js` entry under the `plugins` field in the config file `mkdocs.yml`:
 
 ```yaml
 plugins:

@@ -10,7 +10,7 @@ tags:
 
 ## 1. Installation
 
-There are some [static site generators](https://jamstack.org/generators/) written in several languages such as Javascript, Go, Ruby, Python. They also use different template languages, e.g. React, Go, Liquid, Jinja. Among those generators, I'd like to choose an engine based on Python language, because I am familiar with Python, so if I want to modify or add an extension, I can do it myself.
+There are some [static site generators](https://jamstack.org/generators/) written in several languages such as JavaScript, Go, Ruby, Python. They also use different template languages, e.g. React, Go, Liquid, Jinja. Among those generators, I'd like to choose an engine based on Python language, because I am familiar with Python, so if I want to modify or add an extension, I can do it myself.
 
 Python-based site generators include MkDocs, Pelican, Sphinx, etc. MkDocs and Pelican are the most popular ones. I used Pelican few years ago, but recently, I was looking for a way to export blog posts to PDF files for printing and offline sharing, then Material theme for MkDocs which has a clear printing style became my choice.
 
@@ -20,7 +20,7 @@ Python-based site generators include MkDocs, Pelican, Sphinx, etc. MkDocs and Pe
 
 MkDocs runs on [Python 3](https://www.python.org), so download and install it first.
 
-[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is a popular theme for MkDocs. It has a simple UI with [Material color](http://www.materialui.co/colors) palettes. It also brings more features than the base MkDocs: it has webapp mode, flexible settings, and as I mentioned, it has a clear layout and good styles for printing. When installing this Material theme, it will automatically install the MkDocs engine.
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is a popular theme for MkDocs. It has a simple UI with [Material color](http://www.materialui.co/colors) palettes. It also brings more features than the base MkDocs: it has web app mode, flexible settings, and as I mentioned, it has a clear layout and good styles for printing. When installing this Material theme, it will automatically install the MkDocs engine.
 
 #### 1.1.1. Start a new project
 
@@ -45,7 +45,7 @@ Activate the virtual environment:
 
 #### 1.1.2. Install main packages
 
-Update the `pip`, `setuptools` and `wheel` as they're used to install and configure other packages:
+Update the `pip`, `setuptools` and `wheel` as they're used to installing and configuring other packages:
 
 ```cmd
 python -m pip install -U pip setuptools wheel
@@ -53,7 +53,7 @@ python -m pip install -U pip setuptools wheel
 
 > `-U` or `--upgrade` will upgrade the package if it is already installed
 
-Then install the _Material for Mkdocs_ package:
+Then install the _Material for MkDocs_ package:
 
 ```cmd
 pip install -U mkdocs-material
@@ -92,7 +92,7 @@ Run a local server with:
 mkdocs serve
 ```
 
-and preview the site at <http://localhost:8000> to see the default homepage.
+And preview the site at <http://localhost:8000> to see the default homepage.
 
 #### 1.1.5. Write a post
 
@@ -115,23 +115,23 @@ To publish the site, build it first:
 mkdocs build
 ```
 
-then copy all the content in the `site` folder to the website root folder.
+Then copy all the content in the `site` folder to the website root folder.
 
 ### 1.2. Visual Studio Code
 
-Download and install [Visual Studio Code](https://code.visualstudio.com/) - a lightweight but powerful source code editor. It well supports users to write code, documents, notes. This editor also have some extensions to turn it into a full-feature IDE for coding, such as [PlatformIO](https://platformio.org/).
+Download and install [Visual Studio Code](https://code.visualstudio.com/) — a lightweight but powerful source code editor. It well supports users to write code, documents, notes. This editor also have some extensions to turn it into a full-feature IDE for coding, such as [PlatformIO](https://platformio.org/).
 
 ![Write blog posts and preview in a local browser](blog_editing.png)
 
 Useful extensions for writing in Markdown format and editing HTML template:
 
--   [**Markdown All in One**](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): add keyboard shortcuts, auto completion, edit and format list and table
+-   [**Markdown All in One**](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): add keyboard shortcuts, auto-completion, edit and format list and table
 -   [**Markdown Paste**](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image): paste images, links from the clipboard
--   [**Draw.io Integration**](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio): edit diagrams and svg images
+-   [**Draw.io Integration**](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio): edit diagrams and SVG images
 -   [**Jinja**](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja): highlight Jinja syntax in HTML templates
--   [**Sublime Text Keymap and Settings Importer**](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings): import keybindings and settings
+-   [**Sublime Text Key map and Settings Importer**](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings): import keybindings and settings
 -   [**Code Spell Checker**](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): catch common spelling errors
--   [**Prettier - Code formatter**](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): a formatter which supports a lot of languages
+-   [**Prettier — Code formatter**](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): a formatter which supports a lot of languages
 
 ## 2. Configuration
 
@@ -141,7 +141,7 @@ Material for MkDocs is just a start point. It is needed to be customized a littl
 
 Site information consists of the name, the URL, the title, a description and some keywords that are used to get brief information about the content of the site.
 
-These information is configured in the config file `mkdocs.yml` as below:
+This information is configured in the config file `mkdocs.yml` as below:
 
 ```yaml
 site_name: Code Inside Out
@@ -173,14 +173,14 @@ extra:
           name: vqtrong
 ```
 
-::: np
+::: new-page
 
 ### 2.2. Color palette
 
 [Changing color](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/) is to select colors for 2 main groups:
 
--   the primary color which is used for the header, the sidebar, text links and several other components.
--   the accent color which is used to denote elements that can be interacted with, e.g. hovered links, buttons and scroll-bars.
+-   The primary color which is used for the header, the sidebar, text links and several other components.
+-   The accent color which is used to denote elements that can be interacted with, e.g. hovered links, buttons and scroll-bars.
 
 Both of them can be changed in `mkdocs.yml` by choosing a valid color name. As this page is intent to be printed on paper, I choose the white color as the primary look and feel, and the deep orange color for interactive elements.
 
@@ -193,7 +193,7 @@ theme:
 
 ### 2.3. Fonts
 
-Serif fonts[^serif] are widely used for body text because they are considered to be more easier to read than Sans-Serif fonts in print.
+Serif fonts[^serif] are widely used for body text because they are considered to be easier to read than Sans-Serif fonts in print.
 
 [^serif]: https://en.wikipedia.org/wiki/Serif
 
@@ -228,7 +228,7 @@ theme:
     favicon: favicon.png
 ```
 
-To use the included icons in Material theme, refer to [Markdown syntax - Icons and Emojis](markdown-syntax/index.md).
+To use the included icons in Material theme, refer to [Markdown syntax — Icons and Emojis](markdown-syntax/index.md).
 
 ### 2.5. Navigation
 
@@ -240,7 +240,7 @@ When instant loading is enabled, clicks on internal links will be intercepted an
 
 Material for MkDocs is the only MkDocs theme offering this feature.
 
-!!! warning "Dynamic Javascript-enabled elements do not work after AJAX content is loaded"
+!!! Warning "Dynamic JavaScript-enabled elements do not work after AJAX content is loaded"
 
     After an AJAX request is done, the old content is replaced with the new content, causing dynamic content and handlers are destroyed, such as items were selected by javascript query, Mermaid code blocks, disqus comments, registered event for clicking, etc.
 
@@ -252,7 +252,7 @@ When tabs are enabled, top-level sections (first-level directories in the `docs`
 
 #### 2.5.3. Back-to-top button
 
-A back-to-top button can be shown when the user, after scrolling down, starts to scroll up again. It's rendered in the lower right corner of the viewport, and help to go to the top a the page quickly.
+A back-to-top button can be shown when the user, after scrolling down, starts to scroll up again. It's rendered in the lower right corner of the viewport, and help to go to the top of the page quickly.
 
 #### 2.5.4. Hide header bar
 
@@ -281,7 +281,7 @@ markdown_extensions:
 
 ### 2.7. Site analytics
 
-Material for MkDocs natively integrates with [Google Analytics](https://developers.google.com/analytics). Just need to create a new GA property in order to obtain a unique tracking id of the form `UA-XXXXXXXX-X`, add it to mkdocs.yml:
+Material for MkDocs natively integrates with [Google Analytics](https://developers.google.com/analytics). Just need to create a new GA property in order to obtain a unique tracking ID of the form `UA-XXXXXXXX-X`, add it to mkdocs.yml:
 
 ```yaml
 google_analytics:
@@ -293,7 +293,7 @@ google_analytics:
 
 Material for MkDocs is natively integrated with [Disqus](https://disqus.com/), a comment system that provides a wide range of features like social integrations, user profiles, as well as spam and moderation tools.
 
-After setting up the `site_url` in `mkdocs.yml`, Disqus is configured by adding the Disqus shortname:
+After setting up the `site_url` in `mkdocs.yml`, Disqus is configured by adding the Disqus short name:
 
 ```yaml
 extra:
@@ -311,7 +311,7 @@ disqus: ""
 
 ### 2.9. Extra styles and scripts
 
-Add stylesheets and javascript files to the `docs` directory as below structure:
+Add stylesheets and JavaScript files to the `docs` directory as below structure:
 
 ```md hl_lines="4 5"
 .
@@ -399,11 +399,11 @@ The page content is usually wrapped inside the tag `#!html <article class="md-co
     }
     ```
 
-For more stylings, please read more in [Customize theme](#5-customize-theme).
+For more styles, please read more in [Customize theme](#5-customize-theme).
 
 ### 2.10. Override templates
 
-MkDocs allows to override the them by just adding extra files that will replace the original ones when building the site. Create a new folder `overrides` in the project folder to save the overriding files, then enable them in the config file `mkdocs.yml`:
+MkDocs allows to override them by just adding extra files that will replace the original ones when building the site. Create a new folder `overrides` in the project folder to save the overriding files, then enable them in the config file `mkdocs.yml`:
 
 ```yaml
 theme:
@@ -413,7 +413,7 @@ theme:
 
 #### 2.10.1. Override files
 
-The structure in the `overrides` directory must mirror the directory structure of the original theme, as any file in the overrides directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the overrides directory.
+The structure in the `overrides` directory must mirror the directory structure of the original theme, as any file in the overridden directory will replace the file with the same name which is part of the original theme. Besides, further assets may also be put in the overridden directory.
 
 ```sh
 .
@@ -514,7 +514,7 @@ tabs        # Wraps the tabs navigation (if available)
 
 #### 2.10.3. The index page
 
-The [index page](../../index.md) of the website is located at `docs\index.md`. Material theme created a default one then it has to be modified. I'd like to write a brief information about me and why this blog is created:
+The [index page](../../index.md) of the website is located at `docs\index.md`. Material theme created a default one then it has to be modified. I'd like to write brief information about me and why this blog is created:
 
 ```md
 Welcome to
@@ -530,7 +530,7 @@ From hardwares to cloud applications. Step by step.
 
 Whenever a page is not found in a website, the error `404` is return to the requested users. I need to create this special page to display a short message and guide user to search in this blog.
 
-The [404 page](/404) should be created in the `overrides` folder as it will replace the default 404 page of Material theme. Its layout is based on the `base.html`, and the content is a message displayed in the center of the page. The `disqus` comment section is removed. The sidebar should not be visible to display message clearly.
+The [404 page](/404) should be created in the `overrides` folder as it will replace the default 404 pages of Material theme. Its layout is based on the `base.html`, and the content is a message displayed in the center of the page. The `disqus` comment section is removed. The sidebar should not be visible to display message clearly.
 
 ```jinja
 {% extends "main.html" %}
@@ -550,7 +550,7 @@ The [404 page](/404) should be created in the `overrides` folder as it will repl
         <a href="{{ config.site_url }}">
             {{ config.site_name }}
         </a>
-        homepage,<br>
+        homepage, <br>
         or press <kbd>S</kbd> to search on this site.
     </h3>
 </div>
@@ -580,6 +580,6 @@ Read more in [Customize theme](customize-theme/index.md).
 
 ## 6. Print to PDF
 
-For printing or offline reading, the document should be exported to PDF format. A manual method is to print each post by the user browser. There is a plugin to automatically export all site's posts to PDF during the build time, but it needs some configuration to work as I expected. Generated PDF files can be download by clicking on the download button at the beginning of each page.
+For printing or offline reading, the document should be exported to PDF format. A manual method is to print each post by the user browser. There is a plugin to automatically export all site's posts to PDF during the build time, but it needs some configuration to work as I expected. Generated PDF files can be downloaded by clicking on the download button at the beginning of each page.
 
 Read more in [Print to PDF](print-to-pdf/index.md).

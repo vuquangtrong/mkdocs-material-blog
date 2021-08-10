@@ -10,13 +10,13 @@ tags:
 
 ## 1. Instant loading
 
-As mentioned in the Material for Mkdocs guide, this theme supports Instant Loading feature which intercepts internal links and load content via [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) request without fully reloading the page.
+As mentioned in the Material for MkDocs guide, this theme supports Instant Loading feature which intercepts internal links and load content via [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) request without fully reloading the page.
 
 The resulting page is parsed and injected and all event handlers and components are rebound automatically. This means that the site behaves like a Single Page Application, which is especially useful for large documentation sites that come with a massive search index, as the search index will now remain intact in-between document switches.
 
 ==However, using XHR in an AJAX site leads to a problem.==
 
-!!! bug "Dynamic Javascript-enabled elements do not work after AJAX content is loaded."
+!!! Bug "Dynamic JavaScript-enabled elements do not work after AJAX content is loaded."
 
     After an AJAX request is done, the old content is replaced with the new content, causing dynamic content and handlers are destroyed, such as items were selected by javascript query, Mermaid code blocks, disqus comments, registered event for clicking, etc.
 
@@ -134,7 +134,7 @@ function activateExternalLinks() {
 }
 ```
 
-Finally add this function to the re-activation chain:
+Finally, add this function to the re-activation chain:
 
 ::: file
 assets\\extra.js
@@ -238,7 +238,7 @@ DISQUS.reset({
 });
 ```
 
-Checking the template of Material in `partials\integrations\disqus.html`, it gets _page id_ and _page url_ using jinja template:
+Checking the template of Material in `partials\integrations\disqus.html`, it gets _page ID_ and _page URL_ using Jinja template:
 
 ```jinja hl_lines="5-8"
 <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
@@ -259,7 +259,7 @@ Checking the template of Material in `partials\integrations\disqus.html`, it get
 </script>
 ```
 
-Therefore, I can get those information in the same way by adding two `<div>` with data being the _page id_ and _page url_ in the `main.html` template:
+Therefore, I can get this information in the same way by adding two `<div>` with data being the _page ID_ and _page URL_ in the `main.html` template:
 
 ::: file
 main.html
@@ -274,7 +274,7 @@ main.html
 </div>
 ```
 
-Then, I created a function to reset Disqus which extracts _page id_ and _page url_ from above elements, and call to `DISQUS.reset()`:
+Then, I created a function to reset Disqus which extracts _page ID_ and _page URL_ from above elements, and call to `DISQUS.reset()`:
 
 ::: file
 assets\\extra.js
@@ -309,7 +309,7 @@ function resetDisqusPlugin() {
 
 However, there is still a problem:
 
-!!! bug "Disqus is not initialized in some pages"
+!!! Bug "Disqus is not initialized in some pages"
 
     The Disqus section is controlled by:
 
@@ -319,7 +319,7 @@ However, there is still a problem:
 
     If an user visits the first page with no disqus activated, the next page even with disqus included still fails to load disqus as the script `//{{ disqus }}.disqus.com/embed.js` is not loaded.
 
-The solution is enable disqus on all pages, then hide the section on some specific pages. How to do it? Here are steps:
+The solution is enabled Disqus on all pages, then hide the section on some specific pages. How to do it? Here are steps:
 
 1. Remove default Disqus block by extending it with empty content:
 
@@ -369,9 +369,9 @@ The solution is enable disqus on all pages, then hide the section on some specif
     {% endblock %}
     ```
 
-4. All other templates which extends the `main.html` template have to extend the `page_content` block, not the `content` block.
+4. All other templates which extend the `main.html` template have to extend the `page_content` block, not the `content` block.
 
-5. Finally, in the page where I don't want to see disqus section, just add `disqus` to the `hide` attribute in the meta-data section:
+5. Finally, in the page where I don't want to see Disqus section, just add `disqus` to the `hide` attribute in the meta-data section:
 
     ```jinja hl_lines="6"
     ---
