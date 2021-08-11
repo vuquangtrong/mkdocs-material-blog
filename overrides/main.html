@@ -59,16 +59,6 @@ below html code works together with the `copyright` field in mkdocs.yml #}
 {% endblock %}
 
 {% block site_nav %}
-    <style>
-        .tag-cloud-toc {
-            display: none;
-        }
-        @media screen and (max-width: 76.1875em) {
-            .tag-cloud-toc {
-                display: block;
-            }
-        }
-    </style>
     {% if nav %}
         {% if page and page.meta and page.meta.hide %}
             {% set hidden = "hidden" if "navigation" in page.meta.hide %}
@@ -79,9 +69,11 @@ below html code works together with the `copyright` field in mkdocs.yml #}
             <div class="md-sidebar__scrollwrap">
                 <div class="md-sidebar__inner">
                     {% include "partials/nav.html" %}
+                    {#
                     <div class="tag-cloud-nav">
                         {% include "partials/tag-cloud.html" %}
                     </div>
+                    #}
                 </div>
             </div>
         </div>

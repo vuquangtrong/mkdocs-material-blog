@@ -37,7 +37,14 @@ function activateExternalLinks() {
         }
     }
 }
-/*pagination links */
+/* scroll to top */
+function scrollToTop() {
+    // delay a little for css to calculate windows size
+    setTimeout(function () {
+        window.scrollTo(0, 0);
+    }, 100);
+}
+/* pagination links */
 function activatePaginationLinks() {
     var pagination = document.getElementById("pagination");
     if (pagination) {
@@ -54,9 +61,11 @@ function activatePaginationLinks() {
                     );
                 }
                 this.className += " active";
+                scrollToTop();
             });
         }
         links[0].click();
+        scrollToTop();
     }
     }
 }
@@ -89,6 +98,7 @@ function reactivateElements() {
     activateExternalLinks();
     activatePaginationLinks();
     resetDisqusPlugin();
+    scrollToTop();
 }
 window.addEventListener("load", () => {
     reactivateElements();

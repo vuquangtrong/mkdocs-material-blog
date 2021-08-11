@@ -1,6 +1,11 @@
 {% extends "main.html" %}
 
 {% block page_content %}
+    <style>
+        .tag-cloud-toc {
+            display: none;
+        }
+    </style>
     {% include "partials/tag-cloud.html" %}
     {% include "partials/tag-page-list.html" %}
 {% endblock %}
