@@ -59,6 +59,16 @@ below html code works together with the `copyright` field in mkdocs.yml #}
 {% endblock %}
 
 {% block site_nav %}
+    {% block site_nav_style %}
+    <style>
+        .md-sidebar {
+            opacity: 0.2;
+        }
+        .md-sidebar:hover {
+            opacity: 1;
+        }
+    </style>
+    {% endblock %}
     {% if nav %}
         {% if page and page.meta and page.meta.hide %}
             {% set hidden = "hidden" if "navigation" in page.meta.hide %}

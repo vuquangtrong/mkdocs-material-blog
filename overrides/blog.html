@@ -2,6 +2,9 @@
 
 {% extends "main.html" %}
 
+{% block site_nav_style %}
+{% endblock %}
+
 {% block page_content %}
     <style>
         .md-typeset .post:first-of-type h3 {
@@ -117,5 +120,6 @@
         {% endfor %}
         <a href="#">&raquo;</a>
       </div>
+      <div>Total <b>{{ blog_pages|count }}</b> posts.</div>
     </div>
 {% endblock %}

@@ -29,6 +29,9 @@
 .md-typeset .noem {
     color: unset;
 }
+.md-grid {
+  max-width: 71rem;
+}
 .md-footer {
     color: unset;
     background-color: unset;
@@ -191,6 +194,9 @@
     box-shadow: none;
     display: table;
     border-collapse: collapse;
+}
+.md-typeset table:not([class]) th {
+    background-color: rgba(0,184,212,.1);
 }
 .md-typeset table:not([class]) th,
 .md-typeset table:not([class]) td {

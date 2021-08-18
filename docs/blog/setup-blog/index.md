@@ -125,13 +125,16 @@ Download and install [Visual Studio Code](https://code.visualstudio.com/) — a 
 
 Useful extensions for writing in Markdown format and editing HTML template:
 
--   [**Markdown All in One**](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): add keyboard shortcuts, auto-completion, edit and format list and table
--   [**Markdown Paste**](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image): paste images, links from the clipboard
--   [**Draw.io Integration**](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio): edit diagrams and SVG images
--   [**Jinja**](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja): highlight Jinja syntax in HTML templates
--   [**Sublime Text Key map and Settings Importer**](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings): import keybindings and settings
--   [**Code Spell Checker**](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): catch common spelling errors
--   [**Prettier — Code formatter**](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): a formatter which supports a lot of languages
+-   [**Markdown All in One**](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): add keyboard shortcuts, auto-completion, edit and format list and table.
+-   [**Markdown Paste**](https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image): paste images, links from the clipboard.
+-   [**Prettier — Code formatter**](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): a formatter which supports a lot of languages.
+-   [**Draw.io Integration**](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio): edit diagrams and SVG images.
+-   [**LTeX**](https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex): Grammar/spell checker using LanguageTool with support for LaTeX, Markdown, and others.
+
+Additional extensions:
+
+-   [**Jinja**](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja): highlight Jinja syntax in HTML templates.
+-   [**Sublime Text Key map and Settings Importer**](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings): import keybindings and settings.
 
 ## 2. Configuration
 
