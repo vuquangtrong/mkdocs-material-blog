@@ -1,17 +1,4 @@
-{# a workaround as I don't want to replace the template partials\footer.html,
-below html code works together with the `copyright` field in mkdocs.yml #}
-{% set extracopyright %}
-</div>
-<div>
-    using
-    <a href="https://github.com/vuquangtrong/mkdocs-material-blog">
-        MkDocs Material Blog
-    </a>
-    theme
-</div>
-</div>
-{% endset %}
-
+<!-- get site information -->
 {% set title = config.site_name %}
 {% if page and page.meta and page.meta.title_full %}
     {% set title = page.meta.title_full %}
@@ -34,12 +21,15 @@ below html code works together with the `copyright` field in mkdocs.yml #}
     {% set tags = page.meta.tags %}
 {% endif %}
 
+<!-- base -->
 {% extends "base.html" %}
 
+<!-- add site name in title -->
 {% block htmltitle %}
     <title>{{ title | striptags }} - {{ config.site_name }}</title>
 {% endblock %}
 
+<!-- create social graphic banner -->
 {% block extrahead %}
     <meta property="og:type" content="website" />
     <meta property="og:title" content="
@@ -58,17 +48,8 @@ below html code works together with the `copyright` field in mkdocs.yml #}
     <meta name="twitter:card" content="summary" />
 {% endblock %}
 
+<!-- add tag cloud to site nav -->
 {% block site_nav %}
-    {% block site_nav_style %}
-    <style>
-        .md-sidebar {
-            opacity: 0.2;
-        }
-        .md-sidebar:hover {
-            opacity: 1;
-        }
-    </style>
-    {% endblock %}
     {% if nav %}
         {% if page and page.meta and page.meta.hide %}
             {% set hidden = "hidden" if "navigation" in page.meta.hide %}
@@ -79,16 +60,19 @@ below html code works together with the `copyright` field in mkdocs.yml #}
             <div class="md-sidebar__scrollwrap">
                 <div class="md-sidebar__inner">
                     {% include "partials/nav.html" %}
-                    {#
-                    <div class="tag-cloud-nav">
-                        {% include "partials/tag-cloud.html" %}
-                    </div>
-                    #}
+
+                    {# show tags on the left side if the right side has toc #}
+                    {% if page.toc %}
+                        <br>
+                        <div class="tag-cloud-nav">
+                            {% include "partials/tag-cloud.html" %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     {% endif %}
-    {% if page.toc and not "toc.integrate" in features %}
+    {% if not "toc.integrate" in features %}
         {% if page and page.meta and page.meta.hide %}
             {% set hidden = "hidden" if "toc" in page.meta.hide %}
         {% endif %}
@@ -98,22 +82,32 @@ below html code works together with the `copyright` field in mkdocs.yml #}
             <div class="md-sidebar__scrollwrap">
                 <div class="md-sidebar__inner">
                     {% include "partials/toc.html" %}
-                    <div class="tag-cloud-toc">
-                        {% include "partials/tag-cloud.html" %}
-                    </div>
+                    
+                    {# show tags on the right side if there is no toc there #}
+                    {% if page.is_homepage or not page.toc %}
+                        {% if page.is_homepage%}<br>{% endif %}
+                        <div class="tag-cloud-toc">
+                            {% include "partials/tag-cloud.html" %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     {% endif %}
 {% endblock %}
 
+<!-- format content -->
 {% block content %}
     {% block page_content %}
-        {% if not page.is_homepage %}
+        {# the cover page #}
         <style>
             .md-typeset .cover {
                 margin-bottom: 1em;
             }
+            .md-typeset .page-description {
+                font-weight: bold;
+            }
+
             @media print {
                 .md-typeset .cover {
                     height: 100vh;
@@ -123,19 +117,20 @@ below html code works together with the `copyright` field in mkdocs.yml #}
                 }
             }
         </style>
+
         <div class="cover">
             <h1 class="page-title">{{ title | d(config.site_name, true) }}</h1>
             <p class="page-description">{{ description }}</p>
             {% if tags is defined %}
-            <p class="page-tags">
-                {% for tag in tags %}
-                <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
-                    <span class="tag-name">
-                        #{{ tag }}
-                    </span>
-                </a>
-                {% endfor %}
-            </p>
+                <p class="page-tags">
+                    {% for tag in tags %}
+                        <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
+                            <span class="tag-name">
+                                #{{ tag }}
+                            </span>
+                        </a>
+                    {% endfor %}
+                </p>
             {% endif %}
             {% if page.meta.git_revision_date_localized %}
                 {% import "partials/language.html" as lang with context %}
@@ -148,6 +143,8 @@ below html code works together with the `copyright` field in mkdocs.yml #}
                     </p>
             {% endif %}
         </div>
+        
+        {# the table of content page #}
         <style>
             .md-typeset .toc {
                 display: none;
@@ -168,6 +165,7 @@ below html code works together with the `copyright` field in mkdocs.yml #}
             .md-typeset .toc ul {
                 list-style: none;
             }
+
             @media print {
                 .md-typeset .toc {
                     display: block;
@@ -181,11 +179,13 @@ below html code works together with the `copyright` field in mkdocs.yml #}
                 }
             }
         </style>
+
         <div class="toc">
             <h2>Table of Content</h2>
             {% include "partials/toc.html" %}
         </div>
-        {% endif %}
+
+        {# show the children pages if no content #}
         {% if page.is_section and page.markdown == '' %}
             <h2>Posts in this sections:</h2>
             <ol>
@@ -204,24 +204,8 @@ below html code works together with the `copyright` field in mkdocs.yml #}
             {% endfor %}
             </ol>
         {% else %}
-        {{ page.content }}
+            {{ page.content }}
         {% endif %}
-    {% endblock %}
-    <div id="page_url" data-value="{{page.canonical_url }}"></div>
-    <div id="page_identifier" data-value="{{ page.canonical_url | replace(config.site_url, '') }}"></div>
-    {% set disqus = config.extra.disqus %}
-    {% if disqus %}
-        {% if page and page.meta and page.meta.hide %}
-            {% set hidden = "hidden" if "disqus" in page.meta.hide %}
-        {% endif %}
-        <div {{ hidden }}>
-            {% set disqus = config.extra.disqus %}
-            <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
-            <div id="disqus_thread"></div>
-            <script>var disqus_config = function () { this.page.url = "{{ page.canonical_url }}", this.page.identifier = "{{ page.canonical_url | replace(config.site_url, '') }}" }; window.addEventListener("load", function () { var e = document, i = e.createElement("script"); i.src = "//{{ disqus }}.disqus.com/embed.js", i.setAttribute("data-timestamp", +new Date), (e.head || e.body).appendChild(i) })</script>
-        </div>
-    {% endif %}
-{% endblock %}
 
-{% block disqus %}
+    {% endblock %}
 {% endblock %}

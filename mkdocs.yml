@@ -1,106 +1,179 @@
+#
+# site information
+#
 site_name: Code Inside Out
-site_url: https://www.codeinsideout.com/ # must have the trailing slash
-site_author: vqtrong
+site_url: https://www.codeinsideout.com/ # must have the trailing slash, and be a sub-directory e.g. https://www.codeinsideout.com/my-project/
+site_author: Vũ Quang Trọng
 site_email: vuquangtrong@gmail.com
 site_description: >-
-    Interesting stuff in Embedded Systems and IoT Applications.
-    From hardwares to cloud applications. Step by step.
+    Embedded Systems and IoT Applications. Step by step.
 site_keywords: embedded systems application programming
-# a workaround as I don't want to replace the template partials\footer.html,
-# below html code works together with `extracopyright` variable in overrides\main.html
-copyright: >-
-    © 2021 Code Inside Out <div style="display:none"><div>
+copyright: >
+    &copy; 2021 Code Inside Out, using <a href="https://github.com/vuquangtrong/mkdocs-material-blog">MkDocs Material Blog</a>
+#
+# if this site is built for a repo
+#
+# repo_url: https://github.com/vuquangtrong/vuquangtrong.github.io
+# repo_name: CodeInsideOut # change the display name
+# edit_uri: edit/master/docs/ # set url of editable source files
+# edit_uri: "" # hide edit button
+#
+# theme settings
+#
 theme:
     name: material
     custom_dir: overrides
     palette:
         primary: white
         accent: deep orange
+    # palette: # need more css styles in the dark mode
+    # - scheme: default
+    #   toggle:
+    #       icon: material/weather-sunny
+    #       name: Switch to dark mode
+    #   primary: white
+    #   accent: deep orange
+    # - scheme: slate
+    #   toggle:
+    #       icon: material/weather-night
+    #       name: Switch to light mode
+    #   primary: black
+    #   accent: orange
     font:
         text: Noto Serif
         code: Roboto Mono
     icon:
         logo: fontawesome/solid/code
+    # logo: assets/logo.png # use icon/logo
     favicon: favicon.png
     features:
-        - navigation.instant
+        # - navigation.instant # some issues happen to AJAX content if instant loading is enabled
+        - navigation.tracking
         - navigation.tabs
+        # - navigation.tabs.sticky # do not stick to get more space
+        # - navigation.sections
+        # - navigation.indexes
+        # - navigation.expand
         - navigation.top
+        # - toc.integrate
         - header.autohide
         - search.suggest
         - search.highlight
+        - search.share
+        - content.tabs.link
+        - content.code.annotate
+#
+# custom styles and scripts
+#
 extra_css:
     - assets/view-bigimg.css
     - assets/extra.css
 extra_javascript:
     - assets/view-bigimg.js
     - assets/extra.js
+#
+# externsions
+#
 markdown_extensions:
-    - meta
-    - pymdownx.superfences
-    - pymdownx.highlight:
-          linenums_style: pymdownx-inline
-    - pymdownx.inlinehilite
+    #
+    # native
+    #
+    - abbr
     - admonition
     - attr_list
-    - pymdownx.tasklist:
-          custom_checkbox: true
     - def_list
     - sane_lists
-    - markdown_captions
-    - pymdownx.tabbed
+    - footnotes
+    - meta
+    - md_in_html
+    - toc:
+          permalink: ⚓︎
+          toc_depth: 4
+          slugify: !!python/name:pymdownx.slugs.uslugify
     - tables
+    - smarty:
+          smart_angled_quotes: true
+    #
+    # pymarkdown
+    #
+    # - pymdownx.betterem:
+    #   smart_enable: all
     - pymdownx.caret
     - pymdownx.mark
     - pymdownx.tilde
     - pymdownx.critic
-    - md_in_html
+    - pymdownx.details
     - pymdownx.emoji:
           emoji_index: !!python/name:materialx.emoji.twemoji
           emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.highlight:
+          linenums_style: pymdownx-inline
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    # - pymdownx.keys
+    - pymdownx.smartsymbols
+    - pymdownx.snippets
+    - pymdownx.tabbed:
+          alternate_style: true
+    - pymdownx.tasklist:
+          custom_checkbox: true
     - pymdownx.escapeall:
           hardbreak: true
           nbsp: true
+    - pymdownx.progressbar
     - pymdownx.saneheaders
-    - smarty:
-          smart_angled_quotes: true
-    - pymdownx.smartsymbols
-    - pymdownx.snippets
+    #
+    # additional
+    #
+    - markdown_captions
     - customblocks
-    - footnotes
-    - toc:
-          permalink: ⚓︎
-          slugify: !!python/name:pymdownx.slugs.uslugify
-          toc_depth: 4
     - cell_row_span
+#
+# plugins
+#
 plugins:
     - search # built-in search must be always activated
+    # - social # need install Cairo Graphics lib
+    # - tags:
+    #       tags_file: tags.md
     - awesome-pages:
           collapse_single_pages: true
     - section-index # must be after awesome-pages
-    - git-revision-date-localized:
-          enable_creation_date: true
-          type: iso_datetime
+    - redirects:
+          redirect_maps:
+              lidar-mapping-poc/index.md: "projects/lidar-mapping-poc/index.md"
+    # - git-revision-date-localized:
+    #       enable_creation_date: true
+    #       type: iso_datetime
     - pdf-with-js:
           enable: false
+          add_download_button: false
+          filename_use_full_title: true
           display_header_footer: true
           header_template: >-
               <div style="font-size:8px; margin:auto; color:lightgray;">
-                  <span class=title></span>
+                  <span class="title"></span>
               </div>
           footer_template: >-
               <div style="font-size:8px; margin:auto; color:lightgray;">
                   Page <span class="pageNumber"></span> of 
                   <span class="totalPages"></span>
               </div>
-# google_analytics:
-# - UA-42618265-2
-# - auto
+#
+# extras
+#
 extra:
-    # analytics:
-        # provider: google
-        # property: UA-42618265-2
-    # disqus: "vuquangtrong-github-io"
+    # alternate:
+    #     - name: English
+    #       link: /en/
+    #       lang: en
+    #     - name: Vietnamese
+    #       link: /vi/
+    #       lang: vi
+    analytics:
+        provider: google
+        property: !ENV GOOGLE_ANALYTICS_KEY
+    disqus: !ENV DISQUS_NAME
     social:
         - icon: fontawesome/brands/github-alt
           link: https://github.com/vuquangtrong
@@ -111,3 +184,11 @@ extra:
         - icon: fontawesome/brands/linkedin-in
           link: https://www.linkedin.com/in/vqtrong
           name: vqtrong
+    consent:
+        title: Cookie consent
+        description: >
+            We use cookies to recognize your repeated visits and preferences, as well
+            as to measure the effectiveness of our documentation and whether users
+            find what they're searching for. With your consent, you're helping us to
+            make our documentation better.
+    generator: false

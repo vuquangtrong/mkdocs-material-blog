@@ -1,7 +1,7 @@
 ---
 title: MkDocs plugins
 title_full: MkDocs plugins with additional features
-description: New features can be added to MkDocs engine by installing additional plugins. These packages can modify the navigation behavior, or render new content types, or export the site to PDF documents. Plugins also can be modified easily as they are written in Python.
+description: New features can be added to MkDocs engine by installing additional plugins. These packages can modify the navigation behavior, or render new content types, or export the site to PDF documents.
 tags:
     - mkdocs
 ---
@@ -18,10 +18,14 @@ pip install -U mkdocs-awesome-pages-plugin
 
 Enable it in the config file:
 
+::: file
+mkdocs.yml
+
 ```yaml
 plugins:
     - search # built-in search must be always activated
-    - awesome-pages
+    - awesome-pages:
+          collapse_single_pages: true
 ```
 
 It overrides the `nav` sections in the site config file `mkdocs.yml`, and provides some more extra configs:
@@ -40,7 +44,7 @@ It overrides the `nav` sections in the site config file `mkdocs.yml`, and provid
         - summary.md
     ```
 
-    !!! Attention no-title "\ "
+    !!! attention no-title "\ "
 
         The pattern is checked against the basename of remaining items - not their whole path, so it can be used to filter files in sub-folders.
 
@@ -73,10 +77,14 @@ pip install -U mkdocs-section-index
 
 Enable it in the config file:
 
+::: file
+mkdocs.yml
+
 ```yaml
 plugins:
     - search # built-in search must be always activated
-    - awesome-pages
+    - awesome-pages:
+          collapse_single_pages: true
     - section-index # must be after awesome-pages
 ```
 
@@ -118,7 +126,7 @@ More detail of installation and configuration the [MkDocs PDF with JS](https://g
 
 ## 5. Macros
 
-!!! Attention "This plugin is no longer used in this site!"
+!!! attention "This plugin is no longer used in this site!"
 
 [MkDocs Macros](https://mkdocs-macros-plugin.readthedocs.io/en/latest/) is a plugin/framework that makes it easy to produce richer and more beautiful pages. It can do two things:
 
@@ -140,7 +148,7 @@ plugins:
     - macros
 ```
 
-!!! Bug "Incomplete data in macro"
+!!! bug "Incomplete data in macro"
 
     The macro `#!md {{ navigation.pages }}` contains a list of all pages, but the data of each page maybe not complete, such as title or meta-data.
 
@@ -148,7 +156,7 @@ plugins:
 
 ## 6. DrawIO Exporter
 
-!!! Attention "This plugin is no longer used in this site!"
+!!! attention "This plugin is no longer used in this site!"
 
 [DrawIO Exporter](https://github.com/LukeCarrier/mkdocs-drawio-exporter) is a great plugin that exports the `.drawio` diagrams to images at build time and insert them to the document. This plugin can replace the [Mermaid](https://github.com/fralau/mkdocs-mermaid2-plugin) plugin, and it is faster thanks to no JavaScript needed at runtime. It also helps to enable instant navigation mode of the Material theme.
 
@@ -176,7 +184,7 @@ To import a diagram, just use the syntax for inserting an image:
 
 The plugin will generate an SVG image to a cache folder (default in `docs\drawio-exporter`), and then modify the image source attribute to the generated image.
 
-If the diagram is a multi-page documents, append the index of the page as an anchor in the URL:
+If the diagram is a multipage document, append the index of the page as an anchor in the URL:
 
 ```md
 ![Page 1](my-diagram.drawio#0)
@@ -184,7 +192,7 @@ If the diagram is a multi-page documents, append the index of the page as an anc
 
 ![A draw.io diagram](example.drawio.svg)
 
-!!! Attention "A limitation"
+!!! attention "A limitation"
 
     Using [Draw.io Integration](../index.md#12-visual-studio-code) extension in Visual Studio Code, I can save a DrawIO diagram as a `.drawio.svg` file, then use that file directly in the page as an usual image. However this method will not support multiple pages in the drawing:
 
@@ -195,7 +203,7 @@ If the diagram is a multi-page documents, append the index of the page as an anc
 
 ## 7. Mermaid
 
-!!! Attention "This plugin is no longer used in this site!"
+!!! attention "This plugin is no longer used in this site!"
 
 [MkDocs Mermaid2](https://github.com/fralau/mkdocs-mermaid2-plugin) is a plugin to render textual graph description into [Mermaid](https://mermaid-js.github.io/mermaid) graphs (flow charts, sequence diagrams, pie charts, etc.).
 

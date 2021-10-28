@@ -31,7 +31,7 @@
   {% endif %}
 {% endfor %}
 
-<p class="md-nav" style="margin-bottom: 0.5em;">
+<p class="md-nav" style="margin-top:0; margin-bottom: 0.5em;">
   <label class="md-nav__title">Tag cloud</label>
 </p>
 <div class="tag-cloud-content">
@@ -42,7 +42,7 @@
       {# font size is based on the page count #}
       <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
         <span class="tag-name" style="
-          font-size:{{ 0.5+ps|count*0.05}}rem;
+          font-size:{{ 0.5+ps|count*0.025}}rem;
           color:{{ random_color() }};
         ">
           {{- tag -}}

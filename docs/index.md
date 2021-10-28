@@ -1,21 +1,61 @@
 ---
-template: home.html
+title: Home
+title_full: Code Inside Out
+description: Embedded Systems and IoT Applications. Step by step. (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧.
+disqus: ""
 hide:
-    - disqus
+    - navigation
 ---
+
+<style>
+    .cover {
+        display: none;
+    }
+    .md-typeset .cards .card {
+        border-radius: 1em;
+        padding: 1em;
+    }
+    .md-typeset .cards .col:first-of-type {
+        margin-left: -1em;
+    }
+    .md-typeset .cards .col:last-of-type {
+        margin-right: -1em;
+    }
+    .md-typeset .cards .card h2 {
+        margin-top: 0;
+    }
+</style>
 
 Welcome to
 
 # Code Inside Out
 
 Interesting stuff in Embedded Systems and IoT Applications.\
-From hardwares to cloud applications. Step by step.
+From hardware to cloud applications. Step by step.
 (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧
 
----
+::: row cards
 
-There is a huge amount of information on the internet and it will take time to search and find out which is usable. This blog comes to host what I've read and marked as useful to faster look them up again. I also discovered that I learn better when I write about the things that I am learning, and of course, sharing is always better than holding.
+    ::: col
 
-I hope you can find something interesting here, and feel free to leave a comment or feedback to help me improve this blog.
+        ::: card
 
-Happy coding!
+            ## :material-book: Blog
+
+            Each post is what I've learned, and I wrote them down to share.\
+            Hope you'll find something interesting there.
+
+            [Read more](blog/index.md){.md-button}
+
+    ::: col
+
+        ::: card
+
+            ## :material-file-code: Projects
+
+            A list of my projects which are done for learning and practicing in free time.
+            Wanna give me a hand ?! Let's do it together.
+
+            [See projects](blog/index.md){.md-button}
+
+

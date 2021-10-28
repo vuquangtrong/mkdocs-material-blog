@@ -1,8 +1,7 @@
 nav:
     - index.md
-    - markdown-syntax
+    - set-up-a-blog
     - mkdocs-plugins
     - customize-theme
+    - markdown-syntax
     - print-to-pdf
-    - fix-ajax-issue
-    - ...

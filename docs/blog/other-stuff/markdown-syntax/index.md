@@ -1,12 +1,12 @@
 ---
 title: Markdown syntax
 title_full: Markdown syntax for writing documents
-description: Markdown comes with a simple syntax to create headers, links, images, and paragraphs with formatted text, lists. However, that's not enough. Some Markdown extensions bring more syntaxes to create complex elements or new layouts that help writing documents easier, faster, and look professional.
+description: Markdown has a set of simple syntaxes to create headers, formatted paragraphs, links, images. Some Markdown extensions bring more syntaxes to create complex elements or new layouts that help to write documents faster, and make them look more professional.
 tags:
     - markdown
 ---
 
-!!! Info no-title "\ "
+!!! info no-title "\ "
 
     For basic markdown syntax, refer to [Markdown Guide](https://www.markdownguide.org/basic-syntax/).
 
@@ -16,40 +16,46 @@ The [Meta-Data extension](https://python-markdown.github.io/extensions/meta_data
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - meta
 ```
 
-Meta-data consists of a series of keywords and values defined at the beginning of a Markdown document like this:
+Meta-data consists of a series of keywords and values defined at the beginning of a Markdown document, or in YAML style, using two triple-dash `---` tags to mark the start and the end of the meta-data section:
 
-```yaml
-title: The page title
-description: The summary of the page content
-```
+=== "Markdown"
 
-Alternatively, meta-data can be written in YAML style, using two triple-dash `---` tags to mark the start and the end of the meta-data section:
+    ```yaml
+    title: The page title
+    description: The summary of the page content
+    ```
 
-```yaml
----
-title: The page title
-description: The summary of the page content
----
-```
+=== "YAML"
+
+    ```yaml
+    ---
+    title: The page title
+    description: The summary of the page content
+    ---
+    ```
 
 The metadata can be used in the template and the page content[^macros]. In Jinja syntax, each page is represented as a _page_ object, then the meta-data field `{{ page.meta.title }}` will be replaced by the string `The page title`.
 
 [^macros]: Use [mkdocs-macros](https://mkdocs-macros-plugin.readthedocs.io/en/latest/) plugin to use Jinja template directly in the Markdown content.
 
-MkDocs uses the title of each post to show in the navigation sidebar. In case the title is long, it can make the side look a bit messy. A solution is to use a short title on navigation, and a long title on the post. Read more in [Customize theme](../customize-theme/index.md).
+> MkDocs uses the title of each post to show in the navigation sidebar. In case the title is long, it can make the navigation panel look a bit messy. A solution is to use a short title on navigation, and a long title on the post. Read more in [Customize theme](../customize-theme/index.md).
 
 ## 2. Code blocks
 
 The [SuperFences extension](https://facelessuser.github.io/pymdown-extensions/extensions/superfences/) provides a number of features including allowing the nesting of fences, and ability to specify custom fences to provide features like flowcharts, sequence diagrams, or other custom blocks. Highlighting can be further controlled via the [Highlight extension](https://facelessuser.github.io/pymdown-extensions/extensions/highlight/).
 
-::: new-page
-
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -59,7 +65,7 @@ markdown_extensions:
 
 The standard format which supports to add _id_, _class_ or custom _key=value_ is as below:
 
-````md
+````css
 ```{ .language  #id .class key="value" linenums="n" hl_lines="x y-z"}
 codeblock content
 ```
@@ -67,7 +73,7 @@ codeblock content
 
 or in a simple syntax:
 
-````md
+````css
 ```language linenums="n" hl_lines="x y-z"
 codeblock content
 ```
@@ -75,11 +81,11 @@ codeblock content
 
 Option `#!css linenums="n"` creates line numbers starting from _n_.
 
-Option `#!css hl_lines="x y-z"` highlights the _x-th_ line and lines in the range from _y-th_ to _z-th_. Line numbers are always referenced starting at 1 ignoring what the line number is started labeling at the number set by the option `#!css linenums="n"`.
+Option `#!css hl_lines="x y-z"` highlights the **_x-th_** line and lines in the range from **_y-th_** to **_z-th_**. Line numbers are always referenced starting at 1 ignoring what the line number is started labeling at the number set by the option `#!css linenums="n"`.
 
 Example:
 
-````md
+````
 ```cpp linenums="2" hl_lines="1 4-5"
 #include <stdio.h>
 
@@ -101,13 +107,14 @@ int main(void) {
 
 Some styles will be added to the code blocks to make it look a bit bigger and wrap long lines. Read more in [Customize theme](../customize-theme/index.md).
 
-::: new-page
-
 ## 3. Inline code
 
 The [InlineHilite extension](https://facelessuser.github.io/pymdown-extensions/extensions/inlinehilite/) is an inline code highlighter inspired by [CodeHilite](https://python-markdown.github.io/extensions/code_hilite/).
 
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -124,39 +131,37 @@ The [Admonition extension](https://python-markdown.github.io/extensions/admoniti
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - admonition
 ```
 
-Admonitions are created using the following syntax. The title is optional, use an empty string to remove the title:
-
-<style>
-    .md-typeset .admonition.type,
-    .md-typeset details.type {
-        background-color: rgba(68, 138, 255, 0.05);
-    }
-</style>
+Admonitions are created using the following syntax. The title is optional, use `no-title` class with an empty string to remove the title:
 
 ```md
-!!! type "Title"
+!!! info "Title"
 
-    Content of the admonition is indented
-
-!!! type ""
-
-    There is no title
+    Content of the admonition is indented.
 ```
 
-!!! Type "Title"
+!!! info "Title"
 
-    Content of the admonition is indented
+    Content of the admonition is indented.
 
-!!! Type ""
+With some additional styles, it is possible to create an admonition without title but still has icon, by using `.no-title` class and an empty title (use `"&nbsp;"`, or `"\ "` if [Escape All](#13-escape-all) extension is used). Read more in [Customize theme](../customize-theme/index.md).
 
-    There is no title
+```
+!!! info "\ "
 
-::: new-page
+    There is no title. The icon is inline with the content.
+```
+
+!!! info no-title "\ "
+
+    There is no title. The icon is inline with the content.
 
 **Other types**
 
@@ -168,41 +173,25 @@ Admonitions are created using the following syntax. The title is optional, use a
 
             Content of the admonition is indented
 
-    ::: col
-
         !!! abstract "abstract, summary, tldr"
 
             Content of the admonition is indented
-
-::: row
-
-    ::: col
 
         !!! info "info, todo"
 
             Content of the admonition is indented
 
-    ::: col
-
         !!! tip "tip, hint, important"
 
             Content of the admonition is indented
-
-::: row
-
-    ::: col
 
         !!! success "success, check, done"
 
             Content of the admonition is indented
 
-    ::: col
-
         !!! question "question, help, faq"
 
             Content of the admonition is indented
-
-::: row
 
     ::: col
 
@@ -210,57 +199,34 @@ Admonitions are created using the following syntax. The title is optional, use a
 
             Content of the admonition is indented
 
-    ::: col
-
         !!! failure "failure, fail, missing"
 
             Content of the admonition is indented
-
-::: row
-
-    ::: col
 
         !!! danger "danger, error"
 
             Content of the admonition is indented
 
-    ::: col
-
         !!! bug "bug"
 
             Content of the admonition is indented
-
-::: row
-
-    ::: col
 
         !!! example "example"
 
             Content of the admonition is indented
 
-    ::: col
-
         !!! quote "quote, cite"
 
             Content of the admonition is indented
-
-With some additional styles, it is possible to create an admonition without title but still has icon, by using `.no-title` class and an empty title (use `"&nbsp;"`, or `"\ "` if [Escape All](#13-escape-all) extension is used). Read more in [Customize theme](../customize-theme/index.md).
-
-```
-!!! info no-title "&nbsp;"
-
-    This admonition has icon as an inline element with the content
-```
-
-!!! Info no-title "&nbsp;"
-
-    This admonition has icon as an inline element with the content
 
 ## 5. Attribute list
 
 The [Attribute Lists extension](https://python-markdown.github.io/extensions/attr_list/) adds a syntax to add attributes on the various HTML elements in Markdown’s output.
 
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -303,6 +269,9 @@ Markdown supports Ordered and Unordered lists. Extensions provide 2 more kinds o
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - pymdownx.tasklist:
@@ -325,9 +294,10 @@ Some styles need to be added to show lists in a better view. Read more in [Custo
             2. Child 2
         2. Ordered item 2
         ```
+
     ::: col
 
-        <div markdown="1" style="font-size: 0.85em">
+        <div markdown style="font-size: 0.85em">
 
         1. Ordered item 1
             1. Child 1
@@ -351,7 +321,7 @@ Some styles need to be added to show lists in a better view. Read more in [Custo
 
     ::: col
 
-        <div markdown="1" style="font-size: 0.85em">
+        <div markdown style="font-size: 0.85em">
 
         -   Unordered item 1
             -   Child 1
@@ -375,7 +345,7 @@ Some styles need to be added to show lists in a better view. Read more in [Custo
 
     ::: col
 
-        <div markdown="1" style="font-size: 0.85em">
+        <div markdown style="font-size: 0.85em">
 
         -   [x] item 1
             -   [x] item a
@@ -400,7 +370,7 @@ Some styles need to be added to show lists in a better view. Read more in [Custo
 
     ::: col
 
-        <div markdown="1" style="font-size: 0.85em">
+        <div markdown style="font-size: 0.85em">
 
         Roses
         : are red
@@ -426,7 +396,7 @@ Some styles need to be added to show lists in a better view. Read more in [Custo
 
     ::: col
 
-        <div markdown="1" style="font-size: 0.85em">
+        <div markdown style="font-size: 0.85em">
 
         1. Ordered item 1
         2. Ordered item 2
@@ -448,6 +418,9 @@ pip install -U markdown-captions
 
 then enable it in the config file:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - markdown_captions
@@ -466,6 +439,9 @@ Some images have big size that does not show the detail, therefore, it's better 
 [Tabbed extension](https://facelessuser.github.io/pymdown-extensions/extensions/tabbed/) provides a syntax to easily add tabbed Markdown content.
 
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -522,6 +498,9 @@ The [Tables extension](https://python-markdown.github.io/extensions/tables/) add
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - tables
@@ -551,6 +530,9 @@ Some texts may have special formats, and here are extensions that can help to ad
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - pymdownx.caret
@@ -575,6 +557,9 @@ The double carets `^^` inserts `<ins></ins>` tags, and the single caret `^` inse
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - pymdownx.mark
@@ -598,9 +583,10 @@ The syntax requires the text to be surrounded by double equal signs `==`.
 
 [Tildes](https://facelessuser.github.io/pymdown-extensions/extensions/tilde/) optionally adds two different features which are syntactically built around the `~` character: delete using double tildes `~~` which inserts `<del></del>` tags and subscript using single tilde `~` which inserts `<sub></sub>` tags.
 
-::: new-page
-
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -626,6 +612,9 @@ For example:
 [Critic](https://facelessuser.github.io/pymdown-extensions/extensions/critic/) is an extension that adds handling and support of [Critic Markup](http://criticmarkup.com/) which uses a special syntax to represent edits to a Markdown document. This extension runs before all other extensions to parse the critic edits.
 
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -654,6 +643,9 @@ The [Markdown in HTML](https://python-markdown.github.io/extensions/md_in_html/)
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - md_in_html
@@ -665,7 +657,7 @@ By default, Markdown ignores any content within a raw HTML block-level element. 
 <div>
 This is __not parsed word__ by Markdown.
 </div>
-<div markdown="1">
+<div markdown>
 This is a __bold__ word parsed by Markdown.
 </div>
 ```
@@ -673,7 +665,7 @@ This is a __bold__ word parsed by Markdown.
 <div>
 This is __not parsed word__ by Markdown.
 </div>
-<div markdown="1">
+<div markdown>
 This is a __bold__ word parsed by Markdown.
 </div>
 
@@ -682,6 +674,9 @@ This is a __bold__ word parsed by Markdown.
 The [Emoji extension](https://facelessuser.github.io/pymdown-extensions/extensions/emoji/) adds support for inserting emoji via simple short names enclosed within colons `:short_name:`. This is accomplished by using a short name index to map easy-to-remember names to the corresponding emoji characters.
 
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -723,6 +718,9 @@ The [Escape All](https://facelessuser.github.io/pymdown-extensions/extensions/es
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - pymdownx.escapeall:
@@ -753,6 +751,9 @@ The [Sane Headers](https://facelessuser.github.io/pymdown-extensions/extensions/
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - pymdownx.saneheaders
@@ -782,6 +783,9 @@ The [Smart Symbols](https://facelessuser.github.io/pymdown-extensions/extensions
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - smarty:
@@ -806,12 +810,16 @@ markdown_extensions:
 
     ::: col
 
+        <div markdown style="font-size:small">
+
         -   'single quote'
         -   "double quote"
         -   <<angle quote>>
         -   ellipses ...
         -   N-dash --
         -   M-dash ---
+
+        </div>
 
 ### 15.2. Smart Symbols
 
@@ -833,6 +841,8 @@ markdown_extensions:
 
     ::: col
 
+        <div markdown style="font-size:small">
+
         -   trademark (tm)
         -   copyright (c)
         -   registered (r)
@@ -843,15 +853,20 @@ markdown_extensions:
         -   fractions 1/4 1/2 3/4
         -   ordinal numbers 1st 2nd 3rd 4th 5th
 
+        </div>
+
 ## 16. Snippets
 
 The [Snippets](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/) insert the content of a file into the Markdown document. It is great for situations where there is a content that needs to be inserted into multiple documents.
 
-!!! Warning no-title "\ "
+!!! warning no-title "\ "
 
     Snippets is run as a preprocessor, so if a snippet is found in a fenced code block etc., it will still get processed.
 
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -898,6 +913,9 @@ pip install -U markdown-customblocks
 ```
 
 Enable the extension:
+
+::: file
+mkdocs.yml
 
 ```yaml
 markdown_extensions:
@@ -959,6 +977,9 @@ The [Footnotes extension](https://python-markdown.github.io/extensions/footnotes
 
 Enable the extension:
 
+::: file
+mkdocs.yml
+
 ```yaml
 markdown_extensions:
     - footnotes
@@ -982,16 +1003,7 @@ Footnotes[^1] have a label[^fn] and the footnote's content.
 
 There are some tips when writing document in Markdown which help to format the content in a good layout.
 
-### 19.1. Small headers
-
-At small header levels `<h5>` and `<h6>`, the header text is smaller than the body text, and the header is transformed to all capitalized characters. Use a hard break and a bold text instead. This make text clear to be read, and have a good space to the previous paragraph.
-
-```md
-\
-**Item**
-```
-
-### 19.2. Ignore formatting
+### 19.1. Ignore formatting
 
 When using [Prettier extension](../index.md#12-visual-studio-code) to format the documents, some block can be ignored from formatting by adding directives. Refer to the [Prettier — Ignore Code](https://prettier.io/docs/en/ignore.html). Note the extension only format the markdown file, and when it is rendered to HTML, it will be displayed in HTML rendered visual.
 
@@ -1006,12 +1018,12 @@ In case of a big block or multiple blocks, use the range directive:
 
 ```md hl_lines="1 5"
 <!-- prettier-ignore-start -->
-| MY | AWESOME | AUTO-GENERATED | TABLE |
-|-|-|-|-|
-| a | b | c | d |
+| MY  | AWESOME | AUTO-GENERATED | TABLE |
+| --- | ------- | -------------- | ----- |
+| a   | b       | c              | d     |
 <!-- prettier-ignore-end -->
 ```
 
-### 19.3. Look up an icon or emoji
+### 19.2. Look up an icon or emoji
 
-Material for MkDocs provides a tool to look up an icon or an emoji by searching a name. It has fast copy to clipboard when selecting on the wanted icon. Please go there <https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/>.
+_Material for MkDocs_ provides a tool to look up an icon or an emoji by searching a name. It has a fast method to copy the selected icon to clipboard. Please go there <https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/>.

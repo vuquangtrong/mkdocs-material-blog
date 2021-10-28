@@ -1,9 +1,6 @@
 ---
 title: Recent updated posts
-description: Latest news and recent posts
+description: Latest news and recent posts.
 template: blog.html
-hide:
-    - disqus
+disqus: ""
 ---
-
-# Blog

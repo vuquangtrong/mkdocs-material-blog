@@ -1,11 +1,9 @@
 ---
 title: Print to PDF
 title_full: Print pages to PDF files
-description: For offline reading or printing, the document should be exported to PDF format. A manual method is to print each post by the user browsers. This post guides to configure a plugin to automatically export all site's posts to PDF during the build time, and add a download button to download generated PDF files.
+description: For offline reading or printing, the document should be exported to PDF format. Here is a plugin to automatically export all site's posts to PDF during the build time.
 tags:
     - python
-    - mkdocs
-    - pdf
 ---
 
 ## 1. The cover page
@@ -54,8 +52,6 @@ overrides\\main.html
     {% endif %}
 </div>
 ```
-
-::: new-page
 
 ## 2. The Table of Content page
 
@@ -217,6 +213,8 @@ Admonition can be printed on multiple pages:
 
 ## 4. Print to PDF plugin
 
+!!! warning "This feature is disabled by default !!!"
+
 The [MkDocs PDF with JS Plugin][pdfjs][^o] exports documentation in PDF format with rendered JavaScript content. This is very useful if documents have mermaid diagrams. A download button will be added to the top of the page, and it is hidden in the PDF files.
 
 [pdfjs]: https://github.com/vuquangtrong/mkdocs-pdf-with-js-plugin
@@ -236,7 +234,7 @@ After that, install the plugin:
 pip install -U git+https://github.com/vuquangtrong/mkdocs-pdf-with-js-plugin.git
 ```
 
-!!! Warning no-title "\ "
+!!! warning no-title "\ "
 
     Install the original plugin with `:::bat pip install mkdocs-pdf-with-js-plugin` if don't need a customized version. The following features are not implemented in the original version.
 
@@ -250,47 +248,7 @@ plugins:
 
 While building `mkdocs build` or serving `mkdocs serve` the documentation, the PDF files will be generated. They are stored in the `site\pdfs` folder.
 
-### 4.1. Add the download button
-
-Create an element to contain the download button at the beginning of the document content in the `base.html` template. This element should be hidden in printing mode.
-
-The plugin will find the `#!html <div class="btn-actions">` element to insert a button. If there is no such existing element, the plugin will create a new element and insert to the page content.
-
-```python
-def _add_link(self, soup, page_paths):
-
-    icon = BeautifulSoup(''
-        '<span class="twemoji">'
-            '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
-                '<path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z"></path>'
-            '</svg>'
-        '</span>',
-        'html.parser')
-    text = "PDF"
-
-    btn = soup.new_tag("a", href=page_paths["relpath"])
-    btn.append(icon)
-    btn.append(text)
-    btn['class'] = 'md-button'
-
-    bar = soup.find("div", {"class" : "btn-actions"})
-    if bar:
-        bar.p.insert(0, btn)
-    else:
-        toc = soup.find("div", {"class" : "toc"})
-        if toc:
-            div = BeautifulSoup(''
-                '<div class="btn-actions screen-only">'
-                    '<p></p>'
-                '</div>',
-                'html.parser')
-            div.p.insert(0, btn)
-            toc.insert_after(div)
-
-    return soup
-```
-
-### 4.2. Add header and footer
+### 4.1. Add header and footer
 
 The command sent to ChromeDriver to print a page is `Page.printToPDF`, read more at [Chrome DevTools Protocol — `printToPDF`](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF).
 
@@ -358,7 +316,7 @@ def print_to_pdf(self, driver, page):
     self._write_file(result['data'], page["pdf_file"])
 ```
 
-### 4.3. Add plugin config options
+### 4.2. Add plugin config options
 
 To allow user to change the print options in the project config file `mkdocs.yml`, add the config fields into the `plugin.py` file.
 
@@ -391,7 +349,7 @@ By doing this, users can add their parameters to the `pdf-with-js` entry under t
 plugins:
     - search # built-in search must be always activated
     - pdf-with-js:
-          enable: true
+          enable: false # disabled by default
           display_header_footer: true
           header_template: >-
               <div style="font-size:8px; margin:auto; color:lightgray;">
@@ -402,6 +360,46 @@ plugins:
                   Page <span class="pageNumber"></span> of 
                   <span class="totalPages"></span>
               </div>
+```
+
+### 4.3. Add a download button
+
+Create an element to contain the download button at the beginning of the document content in the `base.html` template. This element should be hidden in printing mode.
+
+The plugin will find the `#!html <div class="btn-actions">` element to insert a button. If there is no such existing element, the plugin will create a new element and insert to the page content.
+
+```python
+def _add_link(self, soup, page_paths):
+
+    icon = BeautifulSoup(''
+        '<span class="twemoji">'
+            '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
+                '<path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z"></path>'
+            '</svg>'
+        '</span>',
+        'html.parser')
+    text = "PDF"
+
+    btn = soup.new_tag("a", href=page_paths["relpath"])
+    btn.append(icon)
+    btn.append(text)
+    btn['class'] = 'md-button'
+
+    bar = soup.find("div", {"class" : "btn-actions"})
+    if bar:
+        bar.p.insert(0, btn)
+    else:
+        toc = soup.find("div", {"class" : "toc"})
+        if toc:
+            div = BeautifulSoup(''
+                '<div class="btn-actions screen-only">'
+                    '<p></p>'
+                '</div>',
+                'html.parser')
+            div.p.insert(0, btn)
+            toc.insert_after(div)
+
+    return soup
 ```
 
 That's it. When all blog posts now have a download button for users to get a PDF version.

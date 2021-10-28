@@ -2,10 +2,18 @@
 
 {% block page_content %}
     <style>
-        .tag-cloud-toc {
-            display: none;
+        .tags {
+            max-width: 30rem; 
+            margin: 0 auto;
+        }
+        .tags details {
+            background-color: aliceblue;
+            border-radius: 2em;
+            padding: 0 2em;
         }
     </style>
-    {% include "partials/tag-cloud.html" %}
-    {% include "partials/tag-page-list.html" %}
+    <div class="tags">
+        {% include "partials/tag-cloud.html" %}
+        {% include "partials/tag-page-list.html" %}
+    </div>
 {% endblock %}
