@@ -1,4 +1,5 @@
 ---
+category: Documentation
 title: Set up a blog
 title_full: Set up a personal blog site
 description: Start a personal blog based on Material for MkDocs - a well-known theme for a popular Python-based static site generator. Before going to customize a theme, base packages and configurations should be done firstly.

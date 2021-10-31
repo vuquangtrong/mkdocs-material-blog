@@ -45,7 +45,7 @@ From hardware to cloud applications. Step by step.
             Each post is what I've learned, and I wrote them down to share.\
             Hope you'll find something interesting there.
 
-            [Read more](blog/index.md){.md-button}
+            [Read news](blog/index.md){.md-button}
 
     ::: col
 
@@ -56,6 +56,6 @@ From hardware to cloud applications. Step by step.
             A list of my projects which are done for learning and practicing in free time.
             Wanna give me a hand ?! Let's do it together.
 
-            [See projects](blog/index.md){.md-button}
+            [See projects](projects/index.md){.md-button}
 
 

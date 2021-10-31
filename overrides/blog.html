@@ -8,17 +8,32 @@
         .md-typeset .post {
             font-size: 0.9em;
         }
-        .md-typeset .post h3,
         .md-typeset .post hr,
         .md-typeset .post .post-title,
         .md-typeset .post .post-description {
             margin: 0.5em 0;
         }
+        .md-typeset .post .post-title {
+            margin-top: 1em;
+        }
+        .md-typeset .page > .post:first-of-type > .post-title {
+            margin-top: 0;
+        }
+        .md-typeset .post .post-description {
+            margin-bottom: 1em;
+        }
         .md-typeset .post .post-extra {
             color: gray;
+            font-size: small;
         }
         .md-typeset .post .post-tags {
             float: right;
+        }
+        .md-typeset .twemoji,
+        .md-typeset .icon-text,
+        .md-typeset .git-revision-date-localized-plugin {
+            vertical-align: middle;
+            display: inline-block;
         }
         
         /* page */
@@ -78,7 +93,7 @@
     {% if page_num == 0 %}
         {% set page_num = 1 %}
     {% endif %}
-
+    
     <div class="pages">
         {% for pg_group in blog_pages|slice(page_num) %}
             <div class="page" id="page{{ loop.index }}">
@@ -103,8 +118,21 @@
                             <span class="post-timestamp">
                                 {% if pg.meta and pg.meta.git_revision_date_localized %}
                                     <span class="post-timestamp-update">
-                                        Updated: {{ pg.meta.git_revision_date_localized -}}
+                                        <span class="twemoji">
+                                            {% include ".icons/material/calendar.svg" %}
+                                        </span> 
+                                        {{ pg.meta.git_revision_date_localized -}}
                                     </span>
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+
+                                {% if pg.meta and pg.meta.category %}
+                                    &nbsp;&nbsp;
+                                    <span class="twemoji">
+                                        {% include ".icons/material/folder-outline.svg" %}
+                                    </span>
+                                    <span class="icon-text">{{ pg.meta.category }}</span>
                                 {% else %}
                                     &nbsp;
                                 {% endif %}
@@ -151,25 +179,23 @@
         function activatePaginationLinks() {
             var pagination = document.getElementById("pagination");
             if (pagination) {
-            var links = pagination.getElementsByClassName("page-number");
-            if (links.length) {
-                for (var i = 0; i < links.length; i++) {
-                    links[i].addEventListener("click", function() {
-                        var current = pagination.getElementsByClassName("active");
-                        console.log(current);
-                        if (current.length) {
-                            current[0].className = current[0].className.replace(
-                                " active",
-                                ""
-                            );
-                        }
-                        this.className += " active";
-                        scrollToTop();
-                    });
+                var links = pagination.getElementsByClassName("page-number");
+                if (links.length) {
+                    for (var i = 0; i < links.length; i++) {
+                        links[i].addEventListener("click", function() {
+                            var current = pagination.getElementsByClassName("active");
+                            console.log(current);
+                            if (current.length) {
+                                current[0].className = current[0].className.replace(
+                                    " active",
+                                    ""
+                                );
+                            }
+                            this.className += " active";
+                            scrollToTop();
+                        });
+                    }
                 }
-                links[0].click();
-                scrollToTop();
-            }
             }
         }
 

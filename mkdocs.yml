@@ -3,8 +3,7 @@
 #
 site_name: Code Inside Out
 site_url: https://www.codeinsideout.com/ # must have the trailing slash, and be a sub-directory e.g. https://www.codeinsideout.com/my-project/
-site_author: Vũ Quang Trọng
-site_email: vuquangtrong@gmail.com
+site_author: Vũ Quang Trọng (vuquangtrong@gmail.com)
 site_description: >-
     Embedded Systems and IoT Applications. Step by step.
 site_keywords: embedded systems application programming
@@ -51,10 +50,10 @@ theme:
         - navigation.tracking
         - navigation.tabs
         # - navigation.tabs.sticky # do not stick to get more space
-        # - navigation.sections
-        # - navigation.indexes
+        # - navigation.sections # still not work properly, use section-index instead
+        # - navigation.indexes # still not work properly, use awesome_pages instead
         # - navigation.expand
-        - navigation.top
+        - navigation.top # show back-to-top button
         # - toc.integrate
         - header.autohide
         - search.suggest
@@ -142,13 +141,14 @@ plugins:
     - redirects:
           redirect_maps:
               lidar-mapping-poc/index.md: "projects/lidar-mapping-poc/index.md"
-    # - git-revision-date-localized:
-    #       enable_creation_date: true
-    #       type: iso_datetime
+    # - git-revision-date
+    - git-revision-date-localized:
+          enable_creation_date: true
+          fallback_to_build_date: true
+          type: iso_date
     - pdf-with-js:
           enable: false
           add_download_button: false
-          filename_use_full_title: true
           display_header_footer: true
           header_template: >-
               <div style="font-size:8px; margin:auto; color:lightgray;">
@@ -172,8 +172,8 @@ extra:
     #       lang: vi
     analytics:
         provider: google
-        property: !ENV GOOGLE_ANALYTICS_KEY
-    disqus: !ENV DISQUS_NAME
+        property: UA-42618265-2
+    disqus: "vuquangtrong-github-io"
     social:
         - icon: fontawesome/brands/github-alt
           link: https://github.com/vuquangtrong
@@ -191,4 +191,4 @@ extra:
             as to measure the effectiveness of our documentation and whether users
             find what they're searching for. With your consent, you're helping us to
             make our documentation better.
-    generator: false
+    generator: false # hide the line showing Material for MkDocs

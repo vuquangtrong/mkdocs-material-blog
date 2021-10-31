@@ -1,4 +1,5 @@
 ---
+category: Documentation
 title: Markdown syntax
 title_full: Markdown syntax for writing documents
 description: Markdown has a set of simple syntaxes to create headers, formatted paragraphs, links, images. Some Markdown extensions bring more syntaxes to create complex elements or new layouts that help to write documents faster, and make them look more professional.

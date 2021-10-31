@@ -1,6 +1,7 @@
 ---
+category: Documentation
 title: Customize theme
-title_full: Customize the theme with personal styles
+title_full: Customize a theme with personal styles
 description: A personal website should look different to others to make it unique or standout. Some must-have elements of a blog, such as tag cloud, tag page, list of posts, will also be added.
 tags:
     - jinja

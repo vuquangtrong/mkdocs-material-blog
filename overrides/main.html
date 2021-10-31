@@ -13,6 +13,10 @@
     {% set description = page.meta.description %}
 {% endif %}
 
+{% if page and page.meta and page.meta.category %}
+    {% set category = page.meta.category %}
+{% endif %}
+
 {% if page and page.meta and page.meta.banner %}
     {% set image = page.meta.banner %}
 {% endif %}
@@ -25,8 +29,8 @@
 {% extends "base.html" %}
 
 <!-- add site name in title -->
-{% block htmltitle %}
-    <title>{{ title | striptags }} - {{ config.site_name }}</title>
+{% block htmltitle %}   
+    <title>{{ title | striptags }} - {% if category is defined %} {{ category | striptags }} {% endif %} - {{ config.site_name }}</title>
 {% endblock %}
 
 <!-- create social graphic banner -->
@@ -81,8 +85,9 @@
              data-md-type="toc" {{ hidden }}>
             <div class="md-sidebar__scrollwrap">
                 <div class="md-sidebar__inner">
-                    {% include "partials/toc.html" %}
-                    
+                    {% if not page.is_homepage %}
+                        {% include "partials/toc.html" %}
+                    {% endif %}
                     {# show tags on the right side if there is no toc there #}
                     {% if page.is_homepage or not page.toc %}
                         {% if page.is_homepage%}<br>{% endif %}
@@ -104,6 +109,9 @@
             .md-typeset .cover {
                 margin-bottom: 1em;
             }
+            .md-typeset .page-category {
+                font-size: large;
+            }
             .md-typeset .page-description {
                 font-weight: bold;
             }
@@ -119,6 +127,9 @@
         </style>
 
         <div class="cover">
+            {% if category is defined %}
+            <p class="page-category print-only">{{ category }}</p>
+            {% endif %}
             <h1 class="page-title">{{ title | d(config.site_name, true) }}</h1>
             <p class="page-description">{{ description }}</p>
             {% if tags is defined %}

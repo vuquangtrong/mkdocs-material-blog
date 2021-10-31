@@ -1,4 +1,5 @@
 ---
+category: Documentation
 title: MkDocs plugins
 title_full: MkDocs plugins with additional features
 description: New features can be added to MkDocs engine by installing additional plugins. These packages can modify the navigation behavior, or render new content types, or export the site to PDF documents.
