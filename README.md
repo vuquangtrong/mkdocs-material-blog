@@ -4,7 +4,7 @@ Based on a popular theme [Material for MkDocs](https://squidfunk.github.io/mkdoc
 
 Please visit my blog at [vuquangtrong.github.io](https://vuquangtrong.github.io) to see this theme in live.
 
-![Preview](preview_all.png)
+![Preview](preview.png)
 
 # Prepare
 
