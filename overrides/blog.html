@@ -37,11 +37,9 @@
         }
         
         /* page */
-        .md-typeset .pages > .page:target ~ .page:last-child,
         .md-typeset .pages > .page {
             display: none;
         }
-        .md-typeset .pages > :last-child,
         .md-typeset .pages > .page:target {
             display: block;
         }
@@ -184,7 +182,6 @@
                     for (var i = 0; i < links.length; i++) {
                         links[i].addEventListener("click", function() {
                             var current = pagination.getElementsByClassName("active");
-                            console.log(current);
                             if (current.length) {
                                 current[0].className = current[0].className.replace(
                                     " active",
@@ -193,12 +190,20 @@
                             }
                             this.className += " active";
                             scrollToTop();
+
+                            var p1 = document.getElementById("page1");
+                            p1.removeAttribute("style");
                         });
                     }
                 }
             }
         }
 
+        // show page 1 as default
+        var p1 = document.getElementById("page1");
+        p1.style.display="block";
+
+        // active the script
         activatePaginationLinks();
     </script>
 {% endblock %}
