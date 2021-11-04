@@ -201,17 +201,19 @@
             <h2>Posts in this sections:</h2>
             <ol>
             {% for p in page.children %}
-                <li>
-                    <a href="{{ p.canonical_url }}">
-                        {%- if p.meta and p.meta.title_full -%}
-                            {{- p.meta.title_full -}}
-                        {%- elif p.meta and p.meta.title -%}
-                            {{- p.meta.title -}}
-                        {%- else -%}
-                            {{- p.title -}}
-                        {%- endif -%}
-                    </a>
-                </li>
+                {% if not p.meta.hidden %}
+                    <li>
+                        <a href="{{ p.canonical_url }}">
+                            {%- if p.meta and p.meta.title_full -%}
+                                {{- p.meta.title_full -}}
+                            {%- elif p.meta and p.meta.title -%}
+                                {{- p.meta.title -}}
+                            {%- else -%}
+                                {{- p.title -}}
+                            {%- endif -%}
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
             </ol>
         {% else %}

@@ -70,16 +70,17 @@
     </style>
     {% set blog_pages=[] %}
 
+    {# page.meta.git_creation_date_localized #}
     {% for p in
-        pages|sort(
-            attribute='page.meta.git_creation_date_localized',
+        pages|sort(     
+            attribute='page.meta.git_revision_date_localized',
             reverse=True
         )
     %}
         {% set pg = p.page %}
 
-        {# do not list empty section pages #}
-        {% if not pg.markdown == '' and (pg.meta and not pg.meta.hidden) %}
+        {# do not list empty pages or hidden pages #}
+        {% if (not pg.is_homepage) and (not pg.markdown == '') and (pg.meta and not pg.meta.hidden) %}
             {{ blog_pages.append(pg) or "" }}
         {% endif %}
 
