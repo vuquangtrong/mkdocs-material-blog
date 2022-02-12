@@ -1,7 +1,0 @@
-nav:
-    - index.md
-    - set-up-a-blog
-    - mkdocs-plugins
-    - customize-theme
-    - markdown-syntax
-    - print-to-pdf

@@ -4,6 +4,7 @@ document.addEventListener("mousedown", () => (dragged = false));
 document.addEventListener("mousemove", () => (dragged = true));
 
 /* add actions on images */
+const viewer = new ViewBigimg();
 function activateBigImg() {
     /* enable zoom-in */
     var figures = document.querySelectorAll(".md-typeset img");
@@ -25,10 +26,6 @@ function activateBigImg() {
     }
 }
 
-/* activate zoom feature on images */
-const viewer = new ViewBigimg();
-activateBigImg();
-
 /* add class for external links in new tab */
 function activateExternalLinks() {
     var links = document.links;
@@ -43,5 +40,32 @@ function activateExternalLinks() {
     }
 }
 
-/* activate external links */
-activateExternalLinks();
+/* dynamic styles */
+function styleAdmonitions() {
+    var admonition_titles = document.querySelectorAll(".admonition-title");
+    for (var i = 0; i < admonition_titles.length; i++) {
+        if (admonition_titles[i].textContent.trim() === "") {
+            admonition_titles[i].nextElementSibling.style.marginTop = "0";
+        }
+    }
+}
+
+/* run all */
+function run() {
+    activateBigImg();
+    activateExternalLinks();
+    styleAdmonitions();
+}
+
+window.onload = run;
+
+/* subscribe encrypted content */
+var decrypted_content = document.getElementById('mkdocs-decrypted-content');
+if (decrypted_content) {
+    decrypted_content.onchange = function() {
+        setTimeout(() => {
+            run();
+            MathJax.typesetPromise();
+        }, 1000);
+    };
+}

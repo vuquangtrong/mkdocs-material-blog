@@ -15,7 +15,8 @@
           {% set t, ps = item %}
           {% if tag == t %}
             {% set ns.found = True %}
-            {{ ps.append(p.page) or "" }} {# use (or "") to not print} #}
+            {# use "" to not add spaces in content #}
+            {{ ps.append(p.page) or "" }}
           {% endif %}
         {% endfor %}
         {# if tag doesn't exist, create new page list#}
@@ -29,10 +30,17 @@
   {% endif %}
 {% endfor %}
 
+<style>
+    .md-typeset .tag summary::before {
+        height: 1rem;
+        width: 1rem;
+        margin-top: 0.25em;
+    }
+</style>
 <div class="tag-page-list">
   {% for item in tags %}
     {% set tag, ps = item %}
-    <details class="note" id={{ tag }}>
+    <details class="tag" id={{ tag }}>
       <summary>
         {{- tag }} ({{- ps|count -}})
         <a class="headerlink" href="#{{ tag }}">⚓︎</a>

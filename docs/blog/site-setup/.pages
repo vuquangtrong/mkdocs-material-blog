@@ -1,0 +1,8 @@
+nav:
+  - create-site-project
+  - mkdocs-plugins
+  - markdown-syntax
+  - handle-missing-page
+  - add-new-features
+  - Print to PDF: print-to-pdf
+  - protected-page

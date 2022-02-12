@@ -1,194 +1,208 @@
 #
-# site information
+# Code Inside Out
+# vuquangtrong.github.io (aka codeinsideout.com)
 #
 site_name: Code Inside Out
-site_url: https://www.codeinsideout.com/ # must have the trailing slash, and be a sub-directory e.g. https://www.codeinsideout.com/my-project/
+site_url: https://www.codeinsideout.com/ # must have the trailing slash
 site_author: Vũ Quang Trọng (vuquangtrong@gmail.com)
-site_description: >-
-    Embedded Systems and IoT Applications. Step by step.
-site_keywords: embedded systems application programming
-copyright: >
-    &copy; 2021 Code Inside Out, using <a href="https://github.com/vuquangtrong/mkdocs-material-blog">MkDocs Material Blog</a>
+site_description: Guides, notes and useful stuff for learning embedded systems.
+copyright: > # should remain a link to the original theme
+  &copy; 2021 Code Inside Out<br>
+  <a href="https://github.com/vuquangtrong/mkdocs-material-blog">Blog Theme</a> /
+  <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+
 #
-# if this site is built for a repo
-#
-# repo_url: https://github.com/vuquangtrong/vuquangtrong.github.io
-# repo_name: CodeInsideOut # change the display name
-# edit_uri: edit/master/docs/ # set url of editable source files
-# edit_uri: "" # hide edit button
-#
-# theme settings
+# Theme settings
 #
 theme:
-    name: material
-    custom_dir: overrides
-    palette:
-        primary: white
-        accent: deep orange
-    # palette: # need more css styles in the dark mode
-    # - scheme: default
-    #   toggle:
-    #       icon: material/weather-sunny
-    #       name: Switch to dark mode
-    #   primary: white
-    #   accent: deep orange
-    # - scheme: slate
-    #   toggle:
-    #       icon: material/weather-night
-    #       name: Switch to light mode
-    #   primary: black
-    #   accent: orange
-    font:
-        text: Noto Serif
-        code: Roboto Mono
-    icon:
-        logo: fontawesome/solid/code
-    # logo: assets/logo.png # use icon/logo
-    favicon: favicon.png
-    features:
-        # - navigation.instant # some issues happen to AJAX content if instant loading is enabled
-        - navigation.tracking
-        - navigation.tabs
-        # - navigation.tabs.sticky # do not stick to get more space
-        # - navigation.sections # still not work properly, use section-index instead
-        # - navigation.indexes # still not work properly, use awesome_pages instead
-        # - navigation.expand
-        - navigation.top # show back-to-top button
-        # - toc.integrate
-        - header.autohide
-        - search.suggest
-        - search.highlight
-        - search.share
-        - content.tabs.link
-        - content.code.annotate
+  # https://squidfunk.github.io/mkdocs-material/creating-your-site/#configuration
+  name: material
+
+  # https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme
+  custom_dir: overrides
+
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+  palette:
+    primary: white
+    accent: deep orange
+
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
+  font:
+    text: Noto Serif
+    code: Roboto Mono
+
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-logo-and-icons/
+  icon:
+    logo: fontawesome/solid/code
+  favicon: favicon.png
+
+  features:
+    # Navigation
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+    # - navigation.instant # some features may not work properly with XHR
+    - navigation.tracking # the URL changes with the active anchor
+    - navigation.tabs # first top-level folders are shown as tabs
+    # - navigation.tabs.sticky # tabs always show
+    # - navigation.sections # second-level folders are expanded
+    # - navigation.expand # all folders are expanded
+    - navigation.indexes # link an index page to its parent folder
+    - navigation.top # show the back-to-top button
+    # - toc.integrate # show the table of contents in the navigation panel
+    
+    # Search
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search
+    - search.suggest # display the likeliest completion for the last word
+    - search.highlight # highlight all occurrences
+    - search.share # show a share button of the current search
+
+    # Header
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-header/
+    # - header.autohide # hide the post title when scroll down
+
+    # Content
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations
+    - content.code.annotate # add comment to code blocks
+
 #
-# custom styles and scripts
-#
-extra_css:
-    - assets/view-bigimg.css
-    - assets/extra.css
-extra_javascript:
-    - assets/view-bigimg.js
-    - assets/extra.js
-#
-# externsions
-#
-markdown_extensions:
-    #
-    # native
-    #
-    - abbr
-    - admonition
-    - attr_list
-    - def_list
-    - sane_lists
-    - footnotes
-    - meta
-    - md_in_html
-    - toc:
-          permalink: ⚓︎
-          toc_depth: 4
-          slugify: !!python/name:pymdownx.slugs.uslugify
-    - tables
-    - smarty:
-          smart_angled_quotes: true
-    #
-    # pymarkdown
-    #
-    # - pymdownx.betterem:
-    #   smart_enable: all
-    - pymdownx.caret
-    - pymdownx.mark
-    - pymdownx.tilde
-    - pymdownx.critic
-    - pymdownx.details
-    - pymdownx.emoji:
-          emoji_index: !!python/name:materialx.emoji.twemoji
-          emoji_generator: !!python/name:materialx.emoji.to_svg
-    - pymdownx.highlight:
-          linenums_style: pymdownx-inline
-    - pymdownx.inlinehilite
-    - pymdownx.superfences
-    # - pymdownx.keys
-    - pymdownx.smartsymbols
-    - pymdownx.snippets
-    - pymdownx.tabbed:
-          alternate_style: true
-    - pymdownx.tasklist:
-          custom_checkbox: true
-    - pymdownx.escapeall:
-          hardbreak: true
-          nbsp: true
-    - pymdownx.progressbar
-    - pymdownx.saneheaders
-    #
-    # additional
-    #
-    - markdown_captions
-    - customblocks
-    - cell_row_span
-#
-# plugins
+# Plugins
 #
 plugins:
-    - search # built-in search must be always activated
-    # - social # need install Cairo Graphics lib
-    # - tags:
-    #       tags_file: tags.md
-    - awesome-pages:
-          collapse_single_pages: true
-    - section-index # must be after awesome-pages
-    - redirects:
-          redirect_maps:
-              lidar-mapping-poc/index.md: "projects/lidar-mapping-poc/index.md"
-    # - git-revision-date
-    - git-revision-date-localized:
-          enable_creation_date: true
-          fallback_to_build_date: true
-          type: iso_date
-    - pdf-with-js:
-          enable: false
-          add_download_button: false
-          display_header_footer: true
-          header_template: >-
-              <div style="font-size:8px; margin:auto; color:lightgray;">
-                  <span class="title"></span>
-              </div>
-          footer_template: >-
-              <div style="font-size:8px; margin:auto; color:lightgray;">
-                  Page <span class="pageNumber"></span> of 
-                  <span class="totalPages"></span>
-              </div>
+  - search # must be included at the first place
+  - awesome-pages:
+      # collapse_single_pages: true # replaced by navigation.indexes
+  # - section-index # must be after awesome-pages, replaced by navigation.indexes
+  - git-revision-date-localized:
+        enable_creation_date: true
+        fallback_to_build_date: true
+        type: iso_date
+  - encryptcontent:
+        hljs: false
+        arithmatex: false
+        password_button: true
+        remember_password: true
+        default_expire_dalay: 24
+        # reload_scripts:
+            # - "./assets/extra.js"
+  # - pdf-with-js:
+        # enable: false # should enable only when need PDF files
+        # add_download_button: false
+        # display_header_footer: true
+        # header_template: >-
+            # <div style="font-size:8px; margin:auto; color:lightgray;">
+                # <span class="title"></span>
+            # </div>
+        # footer_template: >-
+            # <div style="font-size:8px; margin:auto; color:lightgray;">
+                # Page <span class="pageNumber"></span> of 
+                # <span class="totalPages"></span>
+            # </div>
+
 #
-# extras
+# Extensions
+#
+markdown_extensions:
+  #
+  # Python Markdown
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+  #
+  - abbr # add a small tooltip to elements
+  - admonition # add call-out blocks
+  - attr_list # allow to add HTML attributes and CSS classes
+  - def_list # add description lists
+  - footnotes # define inline footnotes
+  - meta # attach arbitrary key-value pairs to a document
+  - md_in_html # allow to write Markdown inside HTML elements
+  - tables # create tables in Markdown
+  - toc: # generate a table of contents from documents
+      permalink: '#' # anchor
+      toc_depth: 4 # header 1 to header 4
+      slugify: !!python/name:pymdownx.slugs.uslugify # convert title to html-compatible text
+  - sane_lists # make better lists
+  - smarty: # convert some special characters
+      smart_angled_quotes: true
+
+  #
+  # Python Markdown Extensions
+  # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/
+  #
+  - pymdownx.arithmatex: # render math equations
+      generic: true
+  # - pymdownx.betterem: # improve the detection of Markup to emphasize text in Markdown
+      # smart_enable: all
+  - pymdownx.caret # define superscript
+  - pymdownx.mark # highlight text
+  - pymdownx.tilde # define subscript
+  - pymdownx.critic # track changes
+  - pymdownx.details # add collapsible call-outs
+  - pymdownx.emoji: # add inlines bundled and custom icons and emojis 
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences # define code blocks and nesting of code
+  - pymdownx.highlight: # highlight of code blocks
+      linenums_style: pymdownx-inline
+      # anchor_linenums: true # create anchor link on each line of code
+  - pymdownx.inlinehilite # highlight inline code blocks
+  - pymdownx.smartsymbols # convert some sequences of characters into their corresponding symbols
+  - pymdownx.snippets #  embed content from arbitrary files into a document
+  - pymdownx.tabbed: # group related content and code blocks under accessible tabs
+      alternate_style: true
+  - pymdownx.tasklist: # define list of task with checkbox
+      custom_checkbox: true
+  - pymdownx.escapeall:
+      hardbreak: true # use \ to create new line
+      nbsp: true # use \<space> to create &nbsp;
+  # - pymdownx.keys # syntax ++ctrl+c++ does not look clear in MD document
+  
+  #
+  # Extra extensions
+  #
+  - markdown_captions # add caption to figures
+  - customblocks # use ::: to create a new <div>
+  - cell_row_span # merge cells in a table
+  # - kbdextension # syntax [[ctrl]][[c]] does not look clear in MD document
+
+#
+# Extras
 #
 extra:
-    # alternate:
-    #     - name: English
-    #       link: /en/
-    #       lang: en
-    #     - name: Vietnamese
-    #       link: /vi/
-    #       lang: vi
-    analytics:
-        provider: google
-        property: UA-42618265-2
-    disqus: "vuquangtrong-github-io"
-    social:
-        - icon: fontawesome/brands/github-alt
-          link: https://github.com/vuquangtrong
-          name: vuquangtrong
-        - icon: fontawesome/brands/facebook-f
-          link: https://facebook.com/trongvq
-          name: trongvq
-        - icon: fontawesome/brands/linkedin-in
-          link: https://www.linkedin.com/in/vqtrong
-          name: vqtrong
-    consent:
-        title: Cookie consent
-        description: >
-            We use cookies to recognize your repeated visits and preferences, as well
-            as to measure the effectiveness of our documentation and whether users
-            find what they're searching for. With your consent, you're helping us to
-            make our documentation better.
-    generator: false # hide the line showing Material for MkDocs
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/
+  analytics:
+    provider: google
+    property: UA-42618265-2 # or G-XXXXXXXXXX
+  
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/#cookie-consent
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  
+  disqus: "vuquangtrong-github-io"
+  
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/vuquangtrong
+      name: vuquangtrong
+    - icon: fontawesome/brands/facebook-f
+      link: https://facebook.com/trongvq
+      name: trongvq
+    - icon: fontawesome/brands/linkedin-in
+      link: https://www.linkedin.com/in/vqtrong
+      name: vqtrong
+  generator: false # hide the line "Made with Material for MkDocs"
+
+#
+# Custom styles and scripts
+#
+extra_css:
+  - assets/view-bigimg.css
+  - assets/extra.css
+extra_javascript:
+  - assets/mathjax.js # must be before mathjax
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/view-bigimg.js
+  - assets/extra.js

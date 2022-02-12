@@ -3,8 +3,19 @@
 {% block site_nav %}
 {% endblock %}
 
-{% block page_content %}
-<div style="text-align: center;">
+{% block content %}
+
+{# styles #}
+<style>
+    .md-typeset .caution * {
+        text-align: center;
+    }
+    .md-typeset .caution h3 {
+        border-bottom: none;
+    }
+</style>
+
+<div class="caution">
     <h1>
         Oops! Something went wrong!
     </h1>
@@ -12,7 +23,63 @@
         Please go back to the <a href="{{ config.site_url }}">{{ config.site_name }}</a> homepage,<br>
         or press <kbd>S</kbd> to search on this site.
     </h3>
+
+    <p id="info"> We will open a search for your in <span id="counter">5</span> second(s)!</p>
+
 </div>
+
+<!-- Open search -->
+<script>
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function countdown() {
+        var i = 4;
+        var x = setInterval(function () {
+            document.getElementById("counter").textContent = i;
+            i--;
+            if (i < 0) {
+                clearInterval(x);
+                document.getElementById("info").style.display = "none";
+                searchForUserRequest();
+            }
+        }, 1000);
+    }
+
+    async function searchForUserRequest() {
+        document.querySelector("label.md-search__icon.md-icon").click();
+
+        pathname = window.location.pathname;
+        requests = pathname.split("/");
+
+        for (var i = requests.length - 1; i > 0; i--) {
+            if (await haveSearchResult(requests[i])) {
+                break;
+            }
+        }
+    }
+
+    async function haveSearchResult(request) {
+        console.log(request);
+
+        document.forms.search.query.value = request;
+        var ev = new Event('change');
+        document.forms.search.query.dispatchEvent(ev);
+        var ev2 = new Event('focus');
+        document.forms.search.query.dispatchEvent(ev2);
+
+        await sleep(1000);
+        result = document.querySelector("div.md-search-result__meta").textContent;
+        if (result == 'No matching documents') {
+            return false;
+        }
+        return true;
+    }
+
+    window.onload = countdown;
+
+</script>
 {% endblock %}
 
 {% block disqus %}

@@ -17,7 +17,8 @@
           {% set t, ps = item %}
           {% if tag == t %}
             {% set ns.found = True %}
-            {{ ps.append(p.page) or "" }} {# use (or "") to not print} #}
+            {# use "" to not add spaces in content #}
+            {{ ps.append(p.page) or "" }}
           {% endif %}
         {% endfor %}
         {# if tag doesn't exist, create new page list#}
@@ -31,28 +32,42 @@
   {% endif %}
 {% endfor %}
 
-<p class="md-nav" style="margin-top:0; margin-bottom: 0.5em;">
+<style>
+    .tag-cloud {
+        margin-top:0;
+        margin-bottom: 0.5em;
+    }
+    .tag-cloud-content {
+        padding: 0 0.6rem;
+    }
+</style>
+
+<p class="md-nav tag-cloud">
   <label class="md-nav__title">Tag cloud</label>
 </p>
 <div class="tag-cloud-content">
-  {% if tags|count %}
-    {% for item in tags|shuffle %}
-      {% set tag, ps = item %}
-      {# create a link with tag name #}
-      {# font size is based on the page count #}
-      <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
-        <span class="tag-name" style="
-          font-size:{{ 0.5+ps|count*0.025}}rem;
-          color:{{ random_color() }};
-        ">
-          {{- tag -}}
-        </span>
-        <!--<sup class="tag-count">{{- ps|count -}}</sup>-->
-      </a>
-    {% endfor %}
-  {% else %}
-    <div>
-      <h3>No tag found!</h3>
-    </div>
-  {% endif %}
+    {% if tags|count %}
+        {% for item in tags %}
+            {% set tag, ps = item %}
+            {# create a link with tag name #}
+            {# font size is based on the page count #}
+            <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
+                <span class="tag-name" style="
+                    {% if page.url == 'tags/' %}
+                        font-size:{{ 1+ps|count*0.1}}rem;
+                    {% else %}
+                        font-size:{{ 0.5+ps|count*0.1}}rem;
+                    {% endif %}
+                    color:{{ random_color() }};
+                ">
+                    {{- tag -}} &nbsp;
+                </span>
+                <!--<sup class="tag-count">{{- ps|count -}}</sup>-->
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>
+            No tag found!
+        </p>
+    {% endif %}
 </div>

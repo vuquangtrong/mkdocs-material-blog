@@ -1,15 +1,21 @@
 ---
 title: Home
-title_full: Code Inside Out
-description: Embedded Systems and IoT Applications. Step by step. (ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧.
+description: ""
 disqus: ""
 hide:
     - navigation
 ---
 
 <style>
-    .cover {
+    .md-typeset .cover {
         display: none;
+    }
+    .md-typeset .cover + hr {
+        display: none;
+    }
+    .md-typeset h1,
+    .md-typeset h2 {
+        color: orangered;
     }
     .md-typeset .cards .card {
         border-radius: 1em;
@@ -26,8 +32,6 @@ hide:
     }
 </style>
 
-Welcome to
-
 # Code Inside Out
 
 Interesting stuff in Embedded Systems and IoT Applications.\
@@ -42,8 +46,7 @@ From hardware to cloud applications. Step by step.
 
             ## :material-book: Blog
 
-            Each post is what I've learned, and I wrote them down to share.\
-            Hope you'll find something interesting there.
+            Each post is what I've learned, and I wrote them down to share. Hope you'll find something interesting there.
 
             [Read news](blog/index.md){.md-button}
 
@@ -53,9 +56,7 @@ From hardware to cloud applications. Step by step.
 
             ## :material-file-code: Projects
 
-            A list of my projects which are done for learning and practicing in free time.
-            Wanna give me a hand ?! Let's do it together.
+            A list of my projects which are done for learning and practicing in free time. Wanna give me a hand ?! Let's do it together.
 
             [See projects](projects/index.md){.md-button}
-
 

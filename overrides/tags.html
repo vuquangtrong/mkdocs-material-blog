@@ -1,19 +1,24 @@
 {% extends "main.html" %}
 
-{% block page_content %}
+{% block site_nav %}
+{% endblock %}
+
+{% block content %}
     <style>
-        .tags {
-            max-width: 30rem; 
+        .md-typeset .tags {
+            max-width: 35rem; 
             margin: 0 auto;
         }
-        .tags details {
-            background-color: aliceblue;
-            border-radius: 2em;
-            padding: 0 2em;
+        .md-typeset .tags details {
+            background-color: aliceblue !important;
+            border-radius: 1em;
+            padding: 0.5em 1em;
         }
+    
     </style>
     <div class="tags">
         {% include "partials/tag-cloud.html" %}
+        <hr>
         {% include "partials/tag-page-list.html" %}
     </div>
 {% endblock %}

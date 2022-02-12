@@ -1,76 +1,34 @@
 ---
-category: Documentation
-title: Print to PDF
-title_full: Print pages to PDF files
+title: Print Pages to PDF files
 description: For offline reading or printing, the document should be exported to PDF format. Here is a plugin to automatically export all site's posts to PDF during the build time.
+banner: md2pdf.jpg
+date: 2021-11-05
 tags:
     - python
 ---
 
-## 1. The cover page
+
+
+## The cover page
 
 When printing to a PDF file, the first page should show the post title and its short description. This page is called the cover page which will be created only in printing mode.
 
-Create an element with class `cover` in the `main.html` template to wrap the cover section. In print mode, this element should cover the full height (100%) of the first paper and align its content vertically. After the line of tags, the updated date will be shown to easily check the latest version of the document:
+Create an element with class `cover` in the `post-cover.html` template to wrap the cover section. In print mode, this element should cover the full height (100%) of the first paper and align its content vertically. After the line of tags, the updated date will be shown to easily check the latest version of the document:
 
-::: file
-overrides\\main.html
-
-```jinja
-<style>
-@media print {
-    .md-typeset .cover {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    }
-}
-</style>
-<div class="cover">
-    <h1 class="page-title">{{ title | d(config.site_name, true) }}</h1>
-    <p class="page-description">{{ description }}</p>
-    {% if tags is defined %}
-    <p class="page-tags">
-        {% for tag in tags %}
-        <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
-            <span class="tag-name">
-                #{{ tag }}
-            </span>
-        </a>
-        {% endfor %}
-    </p>
-    {% endif %}
-    {% if page.meta.git_revision_date_localized %}
-        {% import "partials/language.html" as lang with context %}
-            <p class="md-source-date">
-                <hr style="margin-bottom: .5em;">
-                <small>
-                    {{ lang.t("source.revision.date") }}:
-                    {{ page.meta.git_revision_date_localized }}
-                </small>
-            </p>
-    {% endif %}
-</div>
+``` html title="overrides\partials\post-cover.html"
+--8<-- "overrides\partials\post-cover.html"
 ```
 
-## 2. The Table of Content page
+
+
+## The Table of Content page
 
 When displaying on a screen, the Table of Content is displayed in the right sidebar. In printed pages, there should be a page to display the table of content too. This page is also only visible in printing.
 
-The base Material for MkDocs theme has a partial block for Table of Content section, so I just need to include it in the modified `main.html` template, between the cover page and the main content.
+The base Material for MkDocs theme has a partial block for Table of Content section, so I just need to delacre it in `post-toc.html` and include it in the `main.html` template, between the cover page and the main content.
 
-```jinja
-{% block content %}
-    <div class="cover">
-        ...
-    </div>
-    <div class="toc">
-        <h2>Table of Content</h2>
-        {% include "partials/toc.html" %}
-    </div>
-    {{ page.content }}
-{% endblock%}
+``` html title="overrides\partials\post-toc.html"
+--8<-- "overrides\partials\post-toc.html"
 ```
 
 There are some styles applied for this section:
@@ -79,49 +37,18 @@ There are some styles applied for this section:
 -   Remove list-style to make a clear list
 -   When printing, remove color effect on link items
 
-```css
-.md-typeset .toc {
-    display: none;
-}
-.md-typeset .toc label {
-    display: none;
-}
-.md-typeset .toc .md-nav {
-    font-size: unset;
-    line-height: 1.6;
-}
-.md-typeset .toc .md-nav--secondary {
-    margin-left: -2em;
-}
-.md-typeset .toc .md-nav__list {
-    margin: 0;
-}
-.md-typeset .toc ul {
-    list-style: none;
-}
-@media print {
-    .md-typeset .toc {
-        display: block;
-        page-break-after: always;
-    }
-    .md-typeset .toc .md-nav__link {
-        color: var(--md-typeset-a-color);
-    }
-    .md-typeset .toc .md-nav__link.md-nav__link--active {
-        font-weight: unset;
-    }
-}
-```
 
-![Preview of the printed document](print_preview.png)
+![Preview of the printing document](print_preview.png)
 
-## 3. Printing styles
+
+
+## Printing styles
 
 There are some more additional styles need to be applied on the page when printing. I preview the printed version using **Save to PDF** option in the Chrome browser.
 
 Set the paper size and printing margins:
 
-```css
+``` css
 @page {
     size: a4 portrait;
     margin: 25mm 15mm 25mm 20mm;
@@ -130,7 +57,7 @@ Set the paper size and printing margins:
 
 Some elements only show in printing version, add media query type to display them:
 
-```css
+``` css
 .md-typeset .print-only {
     display: none;
 }
@@ -146,7 +73,7 @@ Some elements only show in printing version, add media query type to display the
 
 Tabs labels should be marked in printing as they are selected:
 
-```css
+``` css
 .md-typeset .tabbed-set > label {
     border-color: var(--md-accent-fg-color);
     color: var(--md-accent-fg-color);
@@ -155,7 +82,7 @@ Tabs labels should be marked in printing as they are selected:
 
 The Disqus section also needs to be hidden in printing:
 
-```css
+``` css
 @media print {
     .md-typeset #__comments,
     .md-typeset #disqus_recommendations,
@@ -167,25 +94,12 @@ The Disqus section also needs to be hidden in printing:
 
 Class `.new-page` is used for force break page in printing:
 
-```css
-.md-typeset .new-page {
-    page-break-after: always;
-}
-```
-
-it is good to used with a custom block:
-
-```md
-::: new-page
-```
-
-Some elements do not keep the top margin in printing:
-
-```css
+``` css
 @media print {
-    .md-typeset .new-page + *,
-    .md-typeset .toc + *,
-    .md-typeset .btn-actions + * {
+    .md-typeset .new-page {
+        page-break-after: always;
+    }
+    .md-typeset .new-page + * {
         margin-top: 0;
     }
 }
@@ -193,7 +107,7 @@ Some elements do not keep the top margin in printing:
 
 Image and its caption should be displayed in the same page:
 
-```css
+``` css
 @media print {
     .md-typeset figure {
         page-break-inside: avoid;
@@ -203,7 +117,7 @@ Image and its caption should be displayed in the same page:
 
 Admonition can be printed on multiple pages:
 
-```css
+``` css
 @media print {
     .md-typeset .admonition,
     .md-typeset details {
@@ -212,9 +126,11 @@ Admonition can be printed on multiple pages:
 }
 ```
 
-## 4. Print to PDF plugin
+## Print to PDF plugin
 
 !!! warning "This feature is disabled by default !!!"
+
+    The plugin depends on Chrome and Chrome Driver, and it also consumes quite long time to finish rederning. It is recommended to manually print pages that you need.
 
 The [MkDocs PDF with JS Plugin][pdfjs][^o] exports documentation in PDF format with rendered JavaScript content. This is very useful if documents have mermaid diagrams. A download button will be added to the top of the page, and it is hidden in the PDF files.
 
@@ -224,24 +140,24 @@ The [MkDocs PDF with JS Plugin][pdfjs][^o] exports documentation in PDF format w
 
 For executing the JavaScript code, ChromeDriver is used, so it is necessary to:
 
-1. Install [Chrome](https://www.google.com/chrome/)
-2. Download [ChromeDriver](https://chromedriver.chromium.org/downloads)
-3. Add the ChromeDriver to OS user's `PATH` environment
+1. Install [Chrome](https://www.google.com/chrome/), find the Chrome version in _About_ section.
+2. Download [ChromeDriver](https://chromedriver.chromium.org/downloads), note to choose correct version of driver based on your installed Chrome version.
+3. Add the ChromeDriver to OS user's `PATH` environment.
 
 \
 After that, install the plugin:
 
-```bat
+``` bat
 pip install -U git+https://github.com/vuquangtrong/mkdocs-pdf-with-js-plugin.git
 ```
 
-!!! warning no-title "\ "
+!!! warning " "
 
     Install the original plugin with `:::bat pip install mkdocs-pdf-with-js-plugin` if don't need a customized version. The following features are not implemented in the original version.
 
 Enable the plugin:
 
-```yaml
+``` yaml
 plugins:
     - search # built-in search must be always activated
     - pdf-with-js
@@ -249,7 +165,7 @@ plugins:
 
 While building `mkdocs build` or serving `mkdocs serve` the documentation, the PDF files will be generated. They are stored in the `site\pdfs` folder.
 
-### 4.1. Add header and footer
+### Add header and footer
 
 The command sent to ChromeDriver to print a page is `Page.printToPDF`, read more at [Chrome DevTools Protocol — `printToPDF`](https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-printToPDF).
 
@@ -277,7 +193,7 @@ _footerTemplate_ : string
 
 Those parameters are initialized in the `__init__` function:
 
-```python
+``` python
 def __init__(self):
     self.displayHeaderFooter = True
     self.headerTemplate = \
@@ -293,7 +209,7 @@ def __init__(self):
 
 and they are used to creating print options in a dictionary variable:
 
-```python
+``` python
 def _get_print_options(self):
     return {
         'landscape': False,
@@ -307,7 +223,7 @@ def _get_print_options(self):
 
 Finally, the print options are used in the print command:
 
-```python
+``` python
 def print_to_pdf(self, driver, page):
     driver.get(page["url"])
     result = self._send_devtools_command(
@@ -317,11 +233,11 @@ def print_to_pdf(self, driver, page):
     self._write_file(result['data'], page["pdf_file"])
 ```
 
-### 4.2. Add plugin config options
+### Add plugin config options
 
 To allow user to change the print options in the project config file `mkdocs.yml`, add the config fields into the `plugin.py` file.
 
-```python
+``` python
 class PdfWithJS(BasePlugin):
     config_scheme = (
         ('enable', config_options.Type(bool, default=True)),
@@ -333,7 +249,7 @@ class PdfWithJS(BasePlugin):
 
 When the MkDocs engine calls to `on_config()` function in this plugin, save the user's configs as below:
 
-```python
+``` python
 def on_config(self, config, **kwargs):
     self.enabled = self.config['enable']
     self.printer.set_config (
@@ -346,30 +262,31 @@ def on_config(self, config, **kwargs):
 
 By doing this, users can add their parameters to the `pdf-with-js` entry under the `plugins` field in the config file `mkdocs.yml`:
 
-```yaml
+``` yaml
 plugins:
     - search # built-in search must be always activated
     - pdf-with-js:
-          enable: false # disabled by default
-          display_header_footer: true
-          header_template: >-
-              <div style="font-size:8px; margin:auto; color:lightgray;">
-                  <span class=title></span>
-              </div>
-          footer_template: >-
-              <div style="font-size:8px; margin:auto; color:lightgray;">
-                  Page <span class="pageNumber"></span> of 
-                  <span class="totalPages"></span>
-              </div>
+        enable: false # should enable only when need PDF files
+        add_download_button: false
+        display_header_footer: true
+        header_template: >-
+            <div style="font-size:8px; margin:auto; color:lightgray;">
+                <span class="title"></span>
+            </div>
+        footer_template: >-
+            <div style="font-size:8px; margin:auto; color:lightgray;">
+                Page <span class="pageNumber"></span> of 
+                <span class="totalPages"></span>
+            </div>
 ```
 
-### 4.3. Add a download button
+### Add a download button
 
 Create an element to contain the download button at the beginning of the document content in the `base.html` template. This element should be hidden in printing mode.
 
 The plugin will find the `#!html <div class="btn-actions">` element to insert a button. If there is no such existing element, the plugin will create a new element and insert to the page content.
 
-```python
+``` python
 def _add_link(self, soup, page_paths):
 
     icon = BeautifulSoup(''
@@ -403,4 +320,4 @@ def _add_link(self, soup, page_paths):
     return soup
 ```
 
-That's it. When all blog posts now have a download button for users to get a PDF version.
+That's it. All blog posts now have a download button for users to get the PDF version.
