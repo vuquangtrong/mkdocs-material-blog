@@ -1,7 +1,7 @@
 ---
 title: Add Tags and Recent Post and new features to blog
 description: Some must-have features in a blog are Tags and List of recent posts. Tags help to list related posts, and Post List shows recently updated activities. This post decribes a method to add these features based on parsed data.
-date: "2021-11-04"
+date: 2021-05-04
 banner: tag_cloud.jpg
 tags:
     - jinja
@@ -87,7 +87,7 @@ To override it, add the `main.html` file in the `overrides` folder. Here are thi
 
 2. Add block to use the [Open Graph protocol](https://ogp.me/) to show the page's information when a user shares a page on a social network.
 
-3. Include mofified __Navigation__ section to show __Tag cloud__ in either left or right panel.
+3. Include modified __Navigation__ section to show __Tag cloud__ in either left or right panel.
 
 4. Include modified __Page Content__ which renders the content with additional sections (cover, table of content, main content, comments.).
 
@@ -97,7 +97,7 @@ To override it, add the `main.html` file in the `overrides` folder. Here are thi
 
 #### Navigation
 
-The sidebar will display the **_tag cloud_** based in the page's table of content.
+The sidebar will display the __tag cloud__ based in the page's table of content.
 
 ``` jinja title="overrides\partials\navigation.html"
 ---8<--- "overrides\partials\navigation.html"
@@ -121,7 +121,7 @@ Create an element with class `cover` in the `post-cover.html` template to wrap t
 
 When displaying on a screen, the Table of Content is displayed in the right sidebar. In printed pages, there should be a page to display the table of content too. This page is also only visible in printing.
 
-The base Material for MkDocs theme has a partial block for Table of Content section, so I just need to delacre it in `post-toc.html` and include it in the `main.html` template, between the cover page and the main content.
+The base Material for MkDocs theme has a partial block for Table of Content section, so I just need to declare it in `post-toc.html` and include it in the `main.html` template, between the cover page and the main content.
 
 ``` jinja title="overrides\partials\post-toc.html"
 ---8<--- "overrides\partials\post-toc.html"
@@ -219,8 +219,8 @@ Each post is wrapped inside a `#!html <div class="post">` and its elements are m
     <h4 class="post-title">
         <a href="{{ pg.canonical_url }}">{{ pg.title }}</a>
     </h4>
-    <span class="post-info">
-        <span>
+    <div class="post-info">
+        <div>
             <p class="post-description">
                 {% if pg.meta and pg.meta.description %}
                 {{ pg.meta.description | truncate(200) }}
@@ -250,11 +250,11 @@ Each post is wrapped inside a `#!html <div class="post">` and its elements are m
                     {% endif %}
                 </div>
             </div>
-        </span>
+        </div>
         {% if pg_image %}
         <img class="post-banner "src='{{ pg_image }}'/>
         {% endif %}
-    </span>
+    </div>
 </div>
 ```
 
@@ -338,7 +338,7 @@ To show the current active page, I use pure CSS and JavaScript. The idea is to u
 Then add some styles to the pagination block and its children links:
 
 \
-**CSS Styles**:
+__CSS Styles__:
 
 Use `target` keyword to select the selected _page ID_, then show only the target element.
 
@@ -354,7 +354,7 @@ Use `target` keyword to select the selected _page ID_, then show only the target
 ```
 
 \
-**JavaScript**
+__JavaScript__
 
 When the page is loaded, a script will run to get all pagination's links, and then add a callback function for click event, that remove `active` class from last activated element and then assign `active` class to the event's source element. Note that the first page is activated by default when the page is loaded. After a page is selected, function `scrollToTop()` will navigate to the top view.
 

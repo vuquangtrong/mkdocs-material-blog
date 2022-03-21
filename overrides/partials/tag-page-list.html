@@ -2,9 +2,11 @@
 
 {# scan all pages #}
 {% for p in pages %}
-  {% if p.page.meta.tags %}
+  {% set pg = p.page %}
+  {% set hidden = true if (pg.meta and pg.meta.hide and ('in_recent_list' in pg.meta.hide)) %}
+  {% if pg.meta.tags and not hidden %}
     {# extract tags if available #}
-    {% for tag in p.page.meta.tags %}
+    {% for tag in pg.meta.tags %}
       {% if tags|length %}
         {% set ns = namespace(found=False) %} 
         {# read more about scope at
@@ -16,15 +18,15 @@
           {% if tag == t %}
             {% set ns.found = True %}
             {# use "" to not add spaces in content #}
-            {{ ps.append(p.page) or "" }}
+            {{ ps.append(pg) or "" }}
           {% endif %}
         {% endfor %}
         {# if tag doesn't exist, create new page list#}
         {% if not ns.found %}
-          {{ tags.append((tag, [p.page])) or "" }}
+          {{ tags.append((tag, [pg])) or "" }}
         {% endif %}
       {% else %}
-        {{ tags.append((tag, [p.page])) or "" }}
+        {{ tags.append((tag, [pg])) or "" }}
       {% endif %}
     {% endfor %}
   {% endif %}

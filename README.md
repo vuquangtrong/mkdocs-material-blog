@@ -1,6 +1,6 @@
 # 1. MkDocs Material Blog theme
 
-Based on a popular theme [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) for [MkDocs](https://www.mkdocs.org/) static site generator, I added new layouts and customized some styles to show this site in a blog-like theme.
+Based on a popular [Material theme](https://squidfunk.github.io/mkdocs-material/) for [MkDocs](https://www.mkdocs.org/) static site generator, I added new layouts and customized some styles to show this site in a blog-like theme.
 
 Please visit my blog at [vuquangtrong.github.io](https://www.codeinsideout.com) to see this theme in live.
 
@@ -50,5 +50,5 @@ This function only work when you have Chrome and ChromeDrive installed and confi
 
 # 10. License
 
-**MIT License**
+__MIT License__
 Copyright (c) 2020-2021 Vu Quang Trong

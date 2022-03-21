@@ -1,8 +1,8 @@
 ---
 title: A Guide to Create a Personal Site
 description: Personal site is a good place to keep notes of leanrt things, to share knowledge with readers, or to briefly introduce yourself. Creating your own site is quite easy, as you can choose to use a ready-to-go platform. This article is the way I used to bring up my site, so let's check it out.
-banner: site.jpg
-date: 2021-10-31
+banner: writting.png
+date: 2021-04-30
 tags:
     - mkdocs
 ---
@@ -134,11 +134,11 @@ Additional extensions:
 
 -   [Sublime Text Key map and Settings Importer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings): import keybindings and settings.
 
-
+![Writing a post using Visual Studio Code](writting.png)
 
 ## Basic Configuration
 
-All configurations are declared in the config file `mkdocs.yml` at the root of the project folder. Here are some main settings to quicly customize your site:
+All configurations are declared in the config file `mkdocs.yml` at the root of the project folder. Here are some main settings to quickly customize your site:
 
 
 ### Site Information
@@ -305,11 +305,11 @@ extra:
 
 ### Customization
 
-Below are ways to customize the theme in term of adding some extra lines of code. However, this method is quite easy even for beginners who have known some of CSS and JS.
+Below are ways to customize the theme in terms of adding some extra lines of code. However, this method is quite easy even for beginners who have known some of CSS and JS.
 
 #### Extra assets
 
-[Additional assets](https://squidfunk.github.io/mkdocs-material/customization/#adding-assets) can be used to add user's stylesheets and javascript files. Those file should be added to the `docs` directory as below structure:
+[Additional assets](https://squidfunk.github.io/mkdocs-material/customization/#adding-assets) can be used to add user's stylesheets and JavaScript files. Those file should be added to the `docs` directory as below structure:
 
 ``` md hl_lines="4 5"
 .
@@ -380,7 +380,7 @@ The structure in the `overrides` directory must mirror the directory structure o
 ```
 
 \
-**Overriding partials**
+__Overriding partials__
 
 In order to override a partial, we can replace it with a file of the same name and location in the `overrides` directory. For example, to replace the original `footer.html` partial, create a new `footer.html` partial in the `overrides` directory:
 
@@ -395,7 +395,7 @@ In order to override a partial, we can replace it with a file of the same name a
 MkDocs will now use the new partial when rendering the theme. This can be done with any file.
 
 \
-**Overriding blocks** _(recommended)_
+__Overriding blocks__ _(recommended)_
 
 Besides overriding partials, it's also possible to override (and extend) template blocks, which are defined inside the templates and wrap specific features. In order to set up block overrides, create a `main.html` file inside the `overrides` directory:
 

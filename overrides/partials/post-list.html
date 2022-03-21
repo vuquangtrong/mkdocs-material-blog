@@ -69,39 +69,39 @@
         .md-typeset .post {
             margin-bottom: 1rem;
         }
-
+        .md-typeset .post .post-category {
+            color: gray;
+            font-size: small;
+        }
         .md-typeset .post .post-title {
             margin: 0.25rem 0;
             text-decoration: none;
             font-size: 1.3em;
         }
-
-        .md-typeset .post .post-info {
+        .md-typeset .post .post-info-wrap{
             display: flex;
         }
-
+        .md-typeset .post .post-info {
+            width: 100%;
+        }
         .md-typeset .post .post-banner {
             margin-top: -1rem;
             max-height: 6rem;
             max-width: 10rem;
             border: 1px solid lightgray;
         }
-
         .md-typeset .post .post-description {
             margin: 0 1rem 0 0;
         }
-
         .md-typeset .post .post-extra {
             margin: 0.5rem 1rem 0 0;
             font-size: small;
             color: darkgray;
         }
-
         .md-typeset .post .post-tags {
             margin: 0;
             text-align: end;
         }
-
         .md-typeset .post .post-date {
             margin: 0;
         }
@@ -115,7 +115,6 @@
         .md-typeset .pages>.page {
             display: none;
         }
-
         .md-typeset .pages>.page:target {
             display: block;
         }
@@ -124,12 +123,10 @@
         .md-typeset .center {
             text-align: center;
         }
-
         .md-typeset .pagination {
             display: inline-block;
             margin-top: 0.5em;
         }
-
         .md-typeset .pagination a {
             color: black;
             float: left;
@@ -138,13 +135,11 @@
             text-decoration: none;
             border-radius: 2em;
         }
-
         .md-typeset .pagination a.active {
             background-color: #4CAF50;
             color: white;
             font-weight: bold;
         }
-
         .md-typeset .pagination a:hover:not(.active) {
             background-color: #ddd;
         }
@@ -175,10 +170,15 @@
                 {% endif %}
                 <div class="post">
                     <h4 class="post-title">
-                        <a href="{{ pg.canonical_url }}">{{ pg.title }}</a>
+                        <a href="{{ pg.canonical_url }}">{{ pg.title }}</a> 
+                        {% if pg.meta and pg.meta.category %}
+                        <span class="post-category">
+                            « {{ pg.meta.category }} »
+                        </span>
+                    {% endif %}
                     </h4>
-                    <span class="post-info">
-                        <span>
+                    <div class="post-info-wrap">
+                        <div class="post-info">
                             <p class="post-description">
                                 {% if pg.meta and pg.meta.description %}
                                     {{ pg.meta.description | truncate(200) }}
@@ -209,11 +209,11 @@
                                     {% endif %}
                                 </div>
                             </div>
-                        </span>
+                        </div>
                         {% if pg_image %}
                             <img class="post-banner " src='{{ pg_image }}' />
                         {% endif %}
-                    </span>
+                    </div>
                 </div>
             {% endfor %}
         </div>

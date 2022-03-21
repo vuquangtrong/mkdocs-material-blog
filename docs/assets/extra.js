@@ -57,7 +57,11 @@ function run() {
     styleAdmonitions();
 }
 
-window.onload = run;
+var other_run = window.onload;
+window.onload = function () {
+    if(other_run) other_run();
+    run();
+};  
 
 /* subscribe encrypted content */
 var decrypted_content = document.getElementById('mkdocs-decrypted-content');

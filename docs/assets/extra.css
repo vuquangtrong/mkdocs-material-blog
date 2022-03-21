@@ -45,9 +45,7 @@
 }  
 /* navigation */
 .md-tabs__link.md-tabs__link--active,
-.md-tabs__link:is(:focus,:hover),
-.md-nav__link.md-nav__link--active,
-.md-nav__link:is(:focus,:hover) {
+.md-nav__link.md-nav__link--active {
     font-weight: 700;
 }
 /* footer */
@@ -80,10 +78,10 @@
     border-bottom: 2px solid navy;
 }
 .md-typeset h3 {
-    color: black;
-    font-size: 1.2em;
+    color: navy;
+    font-size: 1.25em;
     margin: 1.6em 0 0.5em 0;
-    border-bottom: 1px solid navy;
+    border-bottom: 1px dashed navy;
 }
 .md-typeset h4 {
     color: black;
@@ -100,6 +98,7 @@
 .md-typeset :is(ol,ul) li {
     margin-top: 1em;
 }
+.md-typeset :is(ol,ul) li:first-of-type,
 .md-typeset .packed :is(ol, ul),
 .md-typeset .packed :is(ol, ul) li {
     margin-top: 0;
@@ -119,9 +118,14 @@
     margin-bottom: 0.25em;
 }
 /* code */
+.md-typeset strong code {
+    color: orangered;
+    font-weight: normal;
+}
 .md-typeset pre code {
     white-space: pre-wrap;
     word-break: break-word;
+    font-size: 0.95em;
 }
 .md-typeset .highlight span.filename {
     font-weight: initial;
@@ -133,7 +137,7 @@
 }
 .md-typeset :not(pre)>code {
     background-color: initial;
-    font-size: 0.95em;
+    font-size: 1em;
     padding: 0;
 }
 .md-typeset .md-annotation__index:after {
@@ -145,6 +149,16 @@
 .md-typeset :focus-within > .md-annotation__index > ::before {
     transform: none;
 }
+.md-typeset .highlight.log {
+    margin-top: -1em;
+    font-size: small;
+}
+.md-typeset .highlight.log :is(pre,code) {
+    color: unset;
+}
+.md-typeset .highlight.log .md-clipboard.md-icon {
+    display: none;
+}
 /* admonitions */
 .md-typeset :is(.admonition, details) {
     border: none !important;
@@ -153,7 +167,6 @@
     font-size: unset;
     margin: 0 0 0.25em 0;
     padding: 0.5em 1em;
-    border-radius: 1em;
 }
 .md-typeset :is(.admonition-title, summary) {
     border: none;
@@ -183,9 +196,10 @@
 .md-typeset details:not([open]) summary {
     font-weight: normal;
 }
-
+html .md-typeset :is(.admonition,details)>:last-child {
+    margin-bottom: 0;
+}
 .md-typeset .tag > :is(.admonition-title, summary)::before {
-  /* background-color: rgb(43, 155, 70); */
   background-color: teal;
   -webkit-mask-image: var(--md-admonition-icon--tag);
           mask-image: var(--md-admonition-icon--tag);
@@ -240,7 +254,7 @@
     display: block;
 }
 .md-typeset table:not([class]) {
-    font-size: 0.9em;
+    font-size: 0.95em;
     box-shadow: none;
     display: table;
     border-collapse: collapse;
@@ -277,13 +291,10 @@
 /* button */
 .md-typeset .md-button {
     font-weight: unset;
-    /* padding: 0.5em 1em; */
     padding: 0.25em 0.5em;
     background-color: white;
     color: mediumblue;
-    /* margin: 1em 0.625em; */
     border-width: 1px;
-    /* border-radius: 0.625em; */
 }
 /* progress bar */
 .progress-label {

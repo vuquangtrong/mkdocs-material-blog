@@ -18,7 +18,6 @@ hide:
         color: orangered;
     }
     .md-typeset .cards .card {
-        border-radius: 1em;
         padding: 1em;
     }
     .md-typeset .cards .col:first-of-type {

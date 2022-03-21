@@ -83,6 +83,11 @@ plugins:
         default_expire_dalay: 24
         # reload_scripts:
             # - "./assets/extra.js"
+  - exclude:
+        glob:
+          - '*/exclude/*'
+        regex:
+          - '.*\[exclude\].*'
   # - pdf-with-js:
         # enable: false # should enable only when need PDF files
         # add_download_button: false

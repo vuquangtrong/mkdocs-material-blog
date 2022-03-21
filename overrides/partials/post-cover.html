@@ -3,6 +3,13 @@
     .md-typeset .cover {
         margin-bottom: 1em;
     }
+    .md-typeset .page-category {
+        color: gray;
+        font-size: large;
+    }
+    .md-typeset .page-title {
+        margin-left: -0.0625em;
+    }
     .md-typeset .page-extra {
         color: gray;
         font-size: small;
@@ -28,16 +35,24 @@
 </style>
 
 <div class="cover">
+    {# category #}
+    {% if page.meta and page.meta.category %}
+    <span class="page-category">
+        {{ page.meta.category }} »
+    </span>
+    <br>
+    {% endif %}
+
     {# title #}
     {% if page.markdown == '' and page.parent.children %}
-        <h1> {{ page_title }} </h1>
+        <h1 class="page-title"> {{ page_title }} </h1>
     {% else %}
-        <h1> {{ page.title | d(config.site_name, true) }} </h1>
+        <h1 class="page-title"> {{ page.title | d(config.site_name, true) }} </h1>
     {% endif %}
 
     {# description #}
     {% if page.meta and page.meta.description %}
-        <p class="post-description">
+        <p class="page-description">
             {{ page.meta.description }}
         </p>
     {% endif %}

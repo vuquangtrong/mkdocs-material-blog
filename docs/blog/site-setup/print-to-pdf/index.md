@@ -2,7 +2,7 @@
 title: Print Pages to PDF files
 description: For offline reading or printing, the document should be exported to PDF format. Here is a plugin to automatically export all site's posts to PDF during the build time.
 banner: md2pdf.jpg
-date: 2021-11-05
+date: 2021-05-05
 tags:
     - python
 ---
@@ -25,7 +25,7 @@ Create an element with class `cover` in the `post-cover.html` template to wrap t
 
 When displaying on a screen, the Table of Content is displayed in the right sidebar. In printed pages, there should be a page to display the table of content too. This page is also only visible in printing.
 
-The base Material for MkDocs theme has a partial block for Table of Content section, so I just need to delacre it in `post-toc.html` and include it in the `main.html` template, between the cover page and the main content.
+The base Material for MkDocs theme has a partial block for Table of Content section, so I just need to declare it in `post-toc.html` and include it in the `main.html` template, between the cover page and the main content.
 
 ``` html title="overrides\partials\post-toc.html"
 --8<-- "overrides\partials\post-toc.html"
@@ -44,7 +44,7 @@ There are some styles applied for this section:
 
 ## Printing styles
 
-There are some more additional styles need to be applied on the page when printing. I preview the printed version using **Save to PDF** option in the Chrome browser.
+There are some more additional styles need to be applied on the page when printing. I preview the printed version using __Save to PDF__ option in the Chrome browser.
 
 Set the paper size and printing margins:
 

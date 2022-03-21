@@ -20,6 +20,8 @@ pip install -U mkdocs-git-revision-date-localized-plugin
 
 pip install -U mkdocs-encryptcontent-plugin
 
+pip install -U mkdocs-exclude
+
 ::
 :: Markdown extensions
 ::

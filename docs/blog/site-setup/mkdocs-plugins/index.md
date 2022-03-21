@@ -1,7 +1,7 @@
 ---
 title: Additional Features using MkDocs Plugins
 description: Plugins are used to add new features into the MkDocs engine. Those plugins can change the way you manage and write your documents, or even can change the rendered content. This post showes the pluguns used in this site for reference.
-date: 2021-11-01
+date: 2021-05-01
 banner: plugin.png
 tags:
     - mkdocs
@@ -58,7 +58,7 @@ hide: false
 collapse_single_pages: false
 ```
 
-![Using Awesome Pages plugin with `collapse_single_pages` enabled,<br>before and after applying](nav_collapse_single_pages.png)
+![Using Awesome Pages plugin with `collapse_single_pages` enabled,<br> before and after applying](nav_collapse_single_pages.png)
 
 
 
@@ -87,7 +87,7 @@ plugins:
 
 1. Note that the feature `navigation.indexes` comes with Material theme already to the work of this plugin.
 
-The merged section page show the section’s title from the _directory name_, not the attached page’s title.
+The merged section page shows the section’s title from the _directory name_, not the attached page’s title.
 
 ![Using the Section Index plugin, before and after applying](nav_section_index.png)
 
@@ -113,7 +113,7 @@ plugins:
           type: iso_date
 ```
 
-This plugin creates new field in the post's meta-data which content the creation and update date. This information is used to sort the posts by revision date to get recently updated items, as shown in the [Customized Theme](../customized-theme/index.md) page.
+This plugin creates new field in the post's meta-data which content the creation and update date. This information is used to sort the posts by revision date to get recently updated items, as shown in the [Recent blog posts](../add-new-features/index.md#the-recent-blog-posts) page.
 
 
 
@@ -205,7 +205,7 @@ If the diagram is a multipage document, append the index of the page as an ancho
 
 !!! info "Alternative method"
 
-    Using [Draw.io Integration](../create-a-personal-site/index.md#visual-studio-code) extension in Visual Studio Code, I can save a DrawIO diagram as a `.drawio.svg` file, then use that file directly in the page as an usual image. However this method will not support multiple pages in the drawing:
+    Using [Draw.io Integration](../create-site-project/index.md#visual-studio-code) extension in Visual Studio Code, I can save a DrawIO diagram as a `.drawio.svg` file, then use that file directly in the page as an usual image. However this method will not support multiple pages in the drawing:
 
     ``` md
     ![My alt text](my-diagram.drawio.svg)   // work

@@ -1,13 +1,15 @@
 ---
 title: Syntaxes for Writing Markdown Documents
 description: There are some useful Markdown extensions that brings more convenience for you while working with writing, especially in editing technical documents. Let's take a look at all extensions and new syntaxes which are being used in this site.
-date: 2021-11-02
+date: 2021-05-02
 banner: markdown.jpg
 tags:
     - markdown
 ---
 
+!!! info " "
 
+    For basic markdown syntax, refer to [Markdown Guide](https://www.markdownguide.org/basic-syntax/.)
 
 ## Meta-data
 
@@ -28,7 +30,7 @@ The meta-data can be used in the template and the page content[^macros]. In Jinj
 
 ## Code highlighting
 
-Below extensions are extremly useful for showing code blocks by adding colors, and decoration.
+Below extensions are extremely useful for showing code blocks by adding colors, and decoration.
 
 
 ### Inline code
@@ -42,7 +44,7 @@ This will render this line <code>\`#!python [x for x in range(1, 10) if x % 2]\`
 
 ### Code blocks
 
-The [Code blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) provides a number of features including allowing the nesting of fences, and ability to specify custom fences to provide features like flowcharts, sequence diagrams, or other custom blocks. Highlighting can be further controlled via the [Highlight extension](https://facelessuser.github.io/pymdown-extensions/extensions/highlight/).
+The [Code blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) plugin provides a number of features including allowing the nesting of fences, and ability to specify custom fences to provide features like flowcharts, sequence diagrams, or other custom blocks. Highlighting can be further controlled via the [Highlight extension](https://facelessuser.github.io/pymdown-extensions/extensions/highlight/).
 
 The standard format which supports to add `id`, `class`, or custom attribute `key=value` is as below:
 
@@ -84,7 +86,7 @@ int main(void) {
 
 #### Code annotations
 
-[Code annotation](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-annotations) is a uniqe feature of Meterial theme which offers a comfortable and friendly way to attach arbitrary content to specific sections of code blocks by adding numeric markers in block and inline comments in the language of the code block.
+[Code annotation](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-annotations) is a unique feature of Material theme which offers a comfortable and friendly way to attach arbitrary content to specific sections of code blocks by adding numeric markers in block and inline comments in the language of the code block.
 
 Code annotations can be placed anywhere in a code block where a comment for the language of the block can be placed, e.g. for JavaScript in `// ...` and `/* ... */`, for YAML in `# ...`, etc.
 
