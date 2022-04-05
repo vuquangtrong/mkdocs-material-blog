@@ -53,10 +53,14 @@
             {# font size is based on the page count #}
             <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
                 <span class="tag-name" style="
+                    {% set sz = ps|count %}
+                        {% if sz > 10 %}
+                            {% set sz = 10 %}
+                        {% endif %}
                     {% if page.url == 'tags/' %}
-                        font-size:{{ 1+ps|count*0.1}}rem;
+                        font-size:{{ 1+sz*0.05}}rem;
                     {% else %}
-                        font-size:{{ 0.5+ps|count*0.1}}rem;
+                        font-size:{{ 0.5+sz*0.05}}rem;
                     {% endif %}
                     color:{{ random_color() }};
                 ">

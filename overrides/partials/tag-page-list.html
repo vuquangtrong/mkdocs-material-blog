@@ -51,9 +51,7 @@
         {% for p in ps %}
         <li>
           <a href="{{ p.canonical_url }}">
-            {%- if p.meta and p.meta.title_full -%}
-              {{- p.meta.title_full -}}
-            {%- elif p.meta and p.meta.title -%}
+            {%- if p.meta and p.meta.title -%}
               {{- p.meta.title -}}
             {%- else -%}
               {{- p.title -}}

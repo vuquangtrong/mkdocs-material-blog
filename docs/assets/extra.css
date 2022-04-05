@@ -60,6 +60,10 @@
     padding-top: 1em;
     padding-bottom: 0;
 }
+/* tags */
+.md-tag {
+    font-weight: unset;
+}
 /* paragraph */
 .md-typeset {
     font-size: 0.75rem;
@@ -95,13 +99,15 @@
 .md-typeset p {
     text-align: justify;
 }
-.md-typeset :is(ol,ul) li {
-    margin-top: 1em;
+/* lists */
+.md-typeset :is(ol,ul) li:last-child {
+    margin-bottom: 0.5em;
 }
-.md-typeset :is(ol,ul) li:first-of-type,
-.md-typeset .packed :is(ol, ul),
-.md-typeset .packed :is(ol, ul) li {
+.md-typeset .packed :is(ol, ul) li,
+.md-typeset .packed :is(ol, ul) :is(ol, ul),
+.md-typeset .packed :is(ol, ul) :is(ol, ul) li {
     margin-top: 0;
+    margin-bottom: 0;
 }
 .md-typeset li::marker {
     font-weight: 700;
@@ -149,8 +155,10 @@
 .md-typeset :focus-within > .md-annotation__index > ::before {
     transform: none;
 }
-.md-typeset .highlight.log {
+.md-typeset .highlight+.highlight.log {
     margin-top: -1em;
+}
+.md-typeset .highlight.log {
     font-size: small;
 }
 .md-typeset .highlight.log :is(pre,code) {
@@ -220,7 +228,7 @@ html .md-typeset :is(.admonition,details)>:last-child {
 /* captions */
 .md-typeset figcaption {
     max-width: unset;
-    margin: 1em auto;
+    margin: 0.5em auto;
 }
 .md-typeset figure img {
     margin: auto;
@@ -287,14 +295,6 @@ html .md-typeset :is(.admonition,details)>:last-child {
 }
 .md-typeset .row .col:last-of-type {
     margin-right: 0;
-}
-/* button */
-.md-typeset .md-button {
-    font-weight: unset;
-    padding: 0.25em 0.5em;
-    background-color: white;
-    color: mediumblue;
-    border-width: 1px;
 }
 /* progress bar */
 .progress-label {
@@ -412,6 +412,10 @@ html .md-typeset :is(.admonition,details)>:last-child {
     width: 5% !important;
 }
 /* form */
+#mkdocs-decrypt-form h1 {
+    font-size: 1.5em;
+    color: orangered;
+}
 #mkdocs-decrypt-form :is(input, button) {
     border: 1px solid orangered;
     padding: 0.25em 0.5em;
@@ -420,6 +424,22 @@ html .md-typeset :is(.admonition,details)>:last-child {
 #mkdocs-decrypt-form button {
     background-color: orangered;
     color: white;
+}
+/* button */
+.md-typeset .md-button {
+    /* background-color: orangered; */
+    color: orangered;
+    border: 1px solid orangered;
+    padding: 0.125em 0.5em;
+    font-weight: unset;
+    font-size: revert;
+}
+.md-typeset .md-button:hover {
+    background-color: orangered;
+    color: white;
+}
+.md-typeset .md-button :is(.emojione,.twemoji,.gemoji) {
+    vertical-align: sub;
 }
 /* printing */
 .md-typeset .print-only {

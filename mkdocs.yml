@@ -68,6 +68,8 @@ theme:
 #
 plugins:
   - search # must be included at the first place
+  # - tags: # we have our own internal tag feature
+        # tags_file: tags.md # generated links do not work
   - awesome-pages:
       # collapse_single_pages: true # replaced by navigation.indexes
   # - section-index # must be after awesome-pages, replaced by navigation.indexes
@@ -78,6 +80,7 @@ plugins:
   - encryptcontent:
         hljs: false
         arithmatex: false
+        mermaid2: false
         password_button: true
         remember_password: true
         default_expire_dalay: 24

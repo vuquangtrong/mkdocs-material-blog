@@ -1,5 +1,5 @@
 ---
-title: Add Tags and Recent Post and new features to blog
+title: Add Tags, Recent Post and new Features to my Blog site
 description: Some must-have features in a blog are Tags and List of recent posts. Tags help to list related posts, and Post List shows recently updated activities. This post decribes a method to add these features based on parsed data.
 date: 2021-05-04
 banner: tag_cloud.jpg
@@ -83,7 +83,7 @@ The `main.html` file, extending the `base.html` template, will be used for all m
 
 To override it, add the `main.html` file in the `overrides` folder. Here are things I'm going to do to add more content into a blog post:
 
-1. Extract metadata to get `title`, `title_full`, `description`, `tags`, and other information.
+1. Extract metadata to get `title`, `description`, `tags`, and other information.
 
 2. Add block to use the [Open Graph protocol](https://ogp.me/) to show the page's information when a user shares a page on a social network.
 

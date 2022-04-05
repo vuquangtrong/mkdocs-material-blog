@@ -1,5 +1,5 @@
 ---
-title: Set password to a page to make it private
+title: A Password-proteted private page!
 description: To make a page private, we can hide the content to general readers. The content is encrypted, and needs a password to show the original content. This feature is useful but still not totally secured. This post demonstrates how the feature works, its limitations and a soluton for that. Use <code>secret_password</code> to unlock this page.
 password: secret_password
 date: 2021-05-06
