@@ -172,24 +172,28 @@ The command sent to ChromeDriver to print a page is `Page.printToPDF`, read more
 This command needs some parameters to control the printing, which include:
 
 _landscape_ : boolean
-: Paper orientation. Defaults to false.
+:   
+    Paper orientation. Defaults to false.
 
 _displayHeaderFooter_ : boolean
-: Display header and footer. Defaults to false.
+:   
+    Display header and footer. Defaults to false.
 
 _headerTemplate_: string
-: HTML template for the print header. Should be valid HTML markup with following classes used to inject printing values into them:
+:   
+    HTML template for the print header. Should be valid HTML markup with following classes used to inject printing values into them:
 
-      - _date_: formatted print date
-      - _title_: document title
-      - _url_: document location
-      - _pageNumber_: current page number
-      - _totalPages_: total pages in the document
+    - _date_: formatted print date
+    - _title_: document title
+    - _url_: document location
+    - _pageNumber_: current page number
+    - _totalPages_: total pages in the document
 
     For example, `#!html <span class=title></span>` would generate a span containing the _title_.
 
 _footerTemplate_ : string
-: HTML template for the print footer. Should use the same format as the _headerTemplate_.
+:   
+    HTML template for the print footer. Should use the same format as the _headerTemplate_.
 
 Those parameters are initialized in the `__init__` function:
 

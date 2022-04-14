@@ -421,19 +421,19 @@ This element allows to group a set of related items in lists. Children items can
 
         ``` md
         Roses
-        : are red
+        :   are red
 
         Violets
-        : are blue
+        :   are blue
         ```
 
     ::: col
         ::: packed
             Roses
-            : are red
+            :   are red
 
             Violets
-            : are blue
+            :   are blue
 
 
 

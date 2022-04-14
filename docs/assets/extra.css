@@ -103,6 +103,9 @@
 .md-typeset :is(ol,ul) li:last-child {
     margin-bottom: 0.5em;
 }
+.md-typeset :is(ol,ul) li:not(:last-child) > *:last-child {
+    margin-bottom: 1em;
+}
 .md-typeset .packed :is(ol, ul) li,
 .md-typeset .packed :is(ol, ul) :is(ol, ul),
 .md-typeset .packed :is(ol, ul) :is(ol, ul) li {
@@ -173,13 +176,13 @@
     background-color: aliceblue !important;
     box-shadow: none;
     font-size: unset;
-    margin: 0 0 0.25em 0;
+    margin: 1em 0;
     padding: 0.5em 1em;
 }
 .md-typeset :is(.admonition-title, summary) {
     border: none;
     background-color: unset !important;
-    margin: 0;
+    margin: 0.25em 0;
     padding: 0;
 }
 .md-typeset :is(.admonition-title, summary):before {
@@ -193,7 +196,10 @@
     top: 0;
 }
 .md-typeset :is(.admonition, details) > *:not(.admonition-title, summary) {
-    padding-left: 1.2rem;
+    padding-left: 1.8rem;
+}
+[dir=ltr] .md-typeset :is(.admonition-title,summary) {
+    padding-left: 2.6rem;
 }
 .md-typeset details {
     margin-bottom: 0.5em !important;
@@ -204,8 +210,9 @@
 .md-typeset details:not([open]) summary {
     font-weight: normal;
 }
-html .md-typeset :is(.admonition,details)>:last-child {
-    margin-bottom: 0;
+html .md-typeset :is(.admonition,details)>:last-child,
+html .md-typeset :is(.admonition-title,summary):last-child {
+    margin-bottom: 0.25em;
 }
 .md-typeset .tag > :is(.admonition-title, summary)::before {
   background-color: teal;
@@ -219,8 +226,8 @@ html .md-typeset :is(.admonition,details)>:last-child {
 .md-typeset [type="checkbox"]:checked + .task-list-indicator:before {
     background-color: green;
 }
-.md-typeset dd {
-    margin-top: 0;
+.md-typeset dt {
+    margin-top: 2em;
 }
 .md-typeset li > .highlight pre {
     margin-top: 0;
