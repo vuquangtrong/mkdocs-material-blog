@@ -128,7 +128,7 @@
 }
 /* code */
 .md-typeset strong code {
-    color: orangered;
+    color: darkmagenta;
     font-weight: normal;
 }
 .md-typeset pre code {
@@ -304,40 +304,40 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     margin-right: 0;
 }
 /* progress bar */
-.progress-label {
-    position: absolute;
-    width: 100%;
-    margin: 0;
-    line-height: 1.2rem;
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 0 1em;
-}
-.progress-bar {
-    height: 1.2rem;
-    float: left;
-    background-color: #2979ff57;
-}
-.progress-bar * {
-    margin: 0 !important;
+.md-typeset .progress a {
+    color: black !important;
 }
 .progress {
     display: block;
     width: 100%;
     margin: 0.5rem 0;
-    height: 1.2rem;
-    background-color: #eeeeee;
+    height: 1.4rem;
+    background-color: whitesmoke;
     position: relative;
+}
+.progress-bar {
+    height: 1.4rem;
+    float: left;
+}
+.progress-label {
+    position: absolute;
+    width: 100%;
+    margin: 0 !important;
+    line-height: 1.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 1em;
+    color: black;
 }
 .progress.thin {
     margin-top: 0.9rem;
     height: 0.4rem;
 }
-.progress.thin .progress-label {
-    margin-top: -0.4rem;
-}
 .progress.thin .progress-bar {
     height: 0.4rem;
+}
+.progress.thin .progress-label {
+    margin-top: -0.4rem;
 }
 .progress-100plus .progress-bar {
     background-color: #00e67757;
@@ -424,25 +424,26 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     color: orangered;
 }
 #mkdocs-decrypt-form :is(input, button) {
-    border: 1px solid orangered;
+    border: 1px solid navy;
     padding: 0.25em 0.5em;
     font-size: revert;
 }
 #mkdocs-decrypt-form button {
-    background-color: orangered;
+    background-color: navy;
     color: white;
 }
 /* button */
 .md-typeset .md-button {
     /* background-color: orangered; */
-    color: orangered;
-    border: 1px solid orangered;
+    color: navy;
+    border: 1px solid navy;
     padding: 0.125em 0.5em;
     font-weight: unset;
     font-size: revert;
 }
 .md-typeset .md-button:hover {
-    background-color: orangered;
+    background-color: navy;
+    border: 1px solid navy;
     color: white;
 }
 .md-typeset .md-button :is(.emojione,.twemoji,.gemoji) {

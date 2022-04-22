@@ -160,6 +160,7 @@ markdown_extensions:
       hardbreak: true # use \ to create new line
       nbsp: true # use \<space> to create &nbsp;
   # - pymdownx.keys # syntax ++ctrl+c++ does not look clear in MD document
+  - pymdownx.progressbar
   
   #
   # Extra extensions

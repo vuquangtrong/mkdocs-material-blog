@@ -7,6 +7,15 @@ hide:
 ---
 
 <style>
+    body {
+        background-image: url('/assets/background.png');
+        background-blend-mode: difference;
+        background-size: contain;
+    }
+    .md-header, 
+    .md-tabs {
+        background-color: unset;
+    }
     .md-typeset .cover {
         display: none;
     }
@@ -15,7 +24,7 @@ hide:
     }
     .md-typeset h1,
     .md-typeset h2 {
-        color: orangered;
+        color: navy;
     }
     .md-typeset .cards .card {
         padding: 1em;

@@ -161,7 +161,7 @@ _Result:_
     }
     ```
 
-To remove the title, use an empty one:
+To remove the title but keep the icon, use a space:
 
 ``` md hl_lines="1"
 !!! hint " "
