@@ -53,9 +53,6 @@ It has been tested in _Python 3.5+_.
     }
     ```
 
-
-
-
 <style>
     h1.header {
         margin: 2em 0 1em 0;
@@ -74,9 +71,11 @@ It has been tested in _Python 3.5+_.
     }
 </style>
 
+
+
 # Decrypted Content {.header}
 
-The below content is from the page [Markdown Syntax](../markdown-syntax/index.md), it is used to check how markdown elements are re-rendered after decryption.
+The below content is from the page [Markdown Syntax](../markdown-syntax/), it is used to check how markdown elements are re-rendered after decryption.
 There are issues causing some elements are not fully rendered. Those issues may disappear after reloading the page if `#!yaml remember_password: true` option is set for the `encryptcontent` plugin.
 <div 
     markdown="1"

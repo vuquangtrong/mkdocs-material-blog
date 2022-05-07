@@ -113,7 +113,7 @@ plugins:
           type: iso_date
 ```
 
-This plugin creates new field in the post's meta-data which content the creation and update date. This information is used to sort the posts by revision date to get recently updated items, as shown in the [Recent blog posts](../add-new-features/index.md#the-recent-blog-posts) page.
+This plugin creates new field in the post's meta-data which content the creation and update date. This information is used to sort the posts by revision date to get recently updated items, as shown in the [Recent blog posts](../add-new-features/#the-recent-blog-posts) page.
 
 
 
@@ -125,7 +125,7 @@ This plugin creates new field in the post's meta-data which content the creation
 
 To export the posts on this blog, there are some plugins which can do it. However, most of them depend on [Weasy Print](http://weasyprint.org/) which in turn depends on many other packages. There is one plugin that prints in an easy and simple way: use browser to print page by sending print command (like press `Ctrl + S`).
 
-More detail of installation and configuration the [MkDocs PDF with JS](https://github.com/vuquangtrong/mkdocs-pdf-with-js-plugin) plugin for printing to PDF can be read in [Print to PDF](../print-to-pdf/index.md).
+More detail of installation and configuration the [MkDocs PDF with JS](https://github.com/vuquangtrong/mkdocs-pdf-with-js-plugin) plugin for printing to PDF can be read in [Print to PDF](../print-to-pdf/).
 
 
 
@@ -205,7 +205,7 @@ If the diagram is a multipage document, append the index of the page as an ancho
 
 !!! info "Alternative method"
 
-    Using [Draw.io Integration](../create-site-project/index.md#visual-studio-code) extension in Visual Studio Code, I can save a DrawIO diagram as a `.drawio.svg` file, then use that file directly in the page as an usual image. However this method will not support multiple pages in the drawing:
+    Using [Draw.io Integration](../create-site-project/#visual-studio-code) extension in Visual Studio Code, I can save a DrawIO diagram as a `.drawio.svg` file, then use that file directly in the page as an usual image. However this method will not support multiple pages in the drawing:
 
     ``` md
     ![My alt text](my-diagram.drawio.svg)   // work

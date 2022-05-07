@@ -297,6 +297,14 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     width: 100%;
     margin: 0 0.25em;
 }
+.md-typeset .row.bordered .col {
+    border: 1px solid lightgray;
+    padding: 0 1em;
+    margin: 0 !important;
+}
+.md-typeset .row.bordered .col dt {
+    margin-top: 0 !important;
+}
 .md-typeset .row .col:first-of-type {
     margin-left: 0;
 }

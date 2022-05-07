@@ -92,19 +92,6 @@ The Disqus section also needs to be hidden in printing:
 }
 ```
 
-Class `.new-page` is used for force break page in printing:
-
-``` css
-@media print {
-    .md-typeset .new-page {
-        page-break-after: always;
-    }
-    .md-typeset .new-page + * {
-        margin-top: 0;
-    }
-}
-```
-
 Image and its caption should be displayed in the same page:
 
 ``` css
@@ -125,6 +112,8 @@ Admonition can be printed on multiple pages:
     }
 }
 ```
+
+
 
 ## Print to PDF plugin
 

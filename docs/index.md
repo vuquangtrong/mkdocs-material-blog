@@ -44,7 +44,7 @@ hide:
 
 Interesting stuff in Embedded Systems and IoT Applications.\
 From hardware to cloud applications. Step by step.
-(ﾉ ◕ ヮ ◕)ﾉ\*:・ﾟ ✧
+(ﾉ ◕ ヮ ◕)ﾉ*:・ﾟ ✧
 
 ::: row cards
 
@@ -56,7 +56,7 @@ From hardware to cloud applications. Step by step.
 
             Each post is what I've learned, and I wrote them down to share. Hope you'll find something interesting there.
 
-            [Read news](blog/index.md){.md-button}
+            [Read news](blog/){.md-button}
 
     ::: col
 
@@ -66,5 +66,5 @@ From hardware to cloud applications. Step by step.
 
             A list of my projects which are done for learning and practicing in free time. Wanna give me a hand ?! Let's do it together.
 
-            [See projects](projects/index.md){.md-button}
+            [See projects](projects/){.md-button}
 

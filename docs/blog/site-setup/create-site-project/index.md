@@ -8,6 +8,7 @@ tags:
 ---
 
 
+
 ## Material for MkDocs
 
 A personal site is usually a static site which has pre-built contents. A static site generator is a tool that generates a full static HTML website based on raw data and a set of templates. Visit [the list of Site Generators](https://jamstack.org/generators/) to see available tools.
@@ -15,6 +16,7 @@ A personal site is usually a static site which has pre-built contents. A static 
 [MkDocs](https://www.mkdocs.org/) is a fast and simple engine to build a site for project documentation. Content source files are written in [Markdown](https://daringfireball.net/projects/markdown/) format, and the site is configured with a single [YAML](https://yaml.org/) config file.
 
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is a popular theme for MkDocs. It has a simple and clear layout with a bunch of useful features, such as better navigation behaviors, strongly integrated Markdown extensions, and some additional tweaks. This project has a paid version called [Insiders](https://squidfunk.github.io/mkdocs-material/insiders/), but the free version is perfectly enough for a personal use.
+
 
 ### Installation
 
@@ -135,6 +137,8 @@ Additional extensions:
 -   [Sublime Text Key map and Settings Importer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings): import keybindings and settings.
 
 ![Writing a post using Visual Studio Code](writting.png)
+
+
 
 ## Basic Configuration
 
@@ -279,7 +283,7 @@ theme:
     - content.code.annotate
 ```
 
-When [Metadata](../markdown-syntax/index.md#metadata) is enabled, the navigation and/or table of contents sidebars can be hidden for a document with custom front matter.
+When [Metadata](../markdown-syntax/#metadata) is enabled, the navigation and/or table of contents sidebars can be hidden for a document with custom front matter.
 
 ``` yaml
 ---
@@ -331,7 +335,6 @@ extra_javascript:
 ```
 
 Use the __Developer mode__ in your browser to inspect elements and changes their styles as your taste in `extra.css`. Add extra scripts to `extra.js` to interact with elements also.
-
 
 #### Extend the theme
 

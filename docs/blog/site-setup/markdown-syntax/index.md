@@ -11,6 +11,8 @@ tags:
 
     For basic markdown syntax, refer to [Markdown Guide](https://www.markdownguide.org/basic-syntax/.)
 
+
+
 ## Meta-data
 
 The [Meta-Data extension](https://squidfunk.github.io/mkdocs-material/reference/meta-tags/) adds a syntax for defining meta-data of a document. It is inspired by and follows the syntax of [MultiMarkdown](https://fletcherpenney.net/multimarkdown/#metadata). Meta-data is the additional information that can be used to briefly describe the content of a post, such as the title, the short description, tags, and sometimes the banner image. _I prefer YAML format_:
@@ -125,6 +127,7 @@ int main(void) {
 
 [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/), also known as call-outs, are an excellent choice for including side content without significantly interrupting the document flow.
 
+
 ### Marked blocks
 
 These types of blocks show an icon to help readers notice the kind of content, such as _additional information_, _caution_, or _error_.
@@ -209,8 +212,6 @@ _Result:_
         !!! quote "quote, cite"
         
 
-
-
 ### Collapsible blocks
 
 When Details is enabled and an admonition block is started with `???` instead of `!!!,` the admonition is rendered as a collapsible block with a small toggle on the right side. Use plus (`+`) sign to make it expanded by default.
@@ -228,6 +229,8 @@ _Result:_
 ???+ quote "Expandable"
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.
+
+
 
 ## MathJax
 
@@ -579,6 +582,8 @@ The [Smart Symbols](https://facelessuser.github.io/pymdown-extensions/extensions
 !!! hint " "
 
     Not all fractions can be displayed. To render fractions in a better format, use [MathJax](#mathjax) with inline format. Such as `$1 \over 4$` --> $1 \over 4$, or `$2 \over 3$` --> $2 \over 3$.
+
+
 
 ## Footnotes
 

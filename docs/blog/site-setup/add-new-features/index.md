@@ -12,9 +12,9 @@ tags:
 
 ## Tags page
 
-The tag page is the place to list all tags, and list all pages that have a common tag. A new page will be created at `docs\tags\index.md`. There is a method to use [MkDocs Macros](../mkdocs-plugins/index.md#macros) in Markdown template, but it is quite complicated.
+The tag page is the place to list all tags, and list all pages that have a common tag. A new page will be created at `docs\tags\index.md`. There is a method to use [MkDocs Macros](../mkdocs-plugins/#macros) in Markdown template, but it is quite complicated.
 
-!!! info "Visit the [Tags](../../../tags/index.md) page to see the result."
+!!! info "Visit the [Tags](../../../tags/) page to see the result."
 
 I use Jinja syntax to create the content of the Tags page, therefore, create a new file at `overrides\tags.html` and use it as the template for the Tags page:
 
@@ -44,7 +44,6 @@ Then it can be imported and used:
 
 <span style="color:{{ random_color() }};">tag</span>
 ```
-
 
 
 ### Tag cloud
@@ -77,6 +76,7 @@ This section is simple as it just needs to loop through the list of pairs `(tag,
 ``` 
 
 
+
 ## Main template
 
 The `main.html` file, extending the `base.html` template, will be used for all markdown pages, and it is the starting point to add custom template.
@@ -95,6 +95,7 @@ To override it, add the `main.html` file in the `overrides` folder. Here are thi
 ---8<--- "overrides\main.html"
 ```
 
+
 #### Navigation
 
 The sidebar will display the __tag cloud__ based in the page's table of content.
@@ -102,6 +103,7 @@ The sidebar will display the __tag cloud__ based in the page's table of content.
 ``` jinja title="overrides\partials\navigation.html"
 ---8<--- "overrides\partials\navigation.html"
 ``` 
+
 
 #### Page content
 
@@ -147,9 +149,9 @@ The base Material for MkDocs theme has a partial block for Table of Content sect
 
 ## The recent blog posts
 
-There should be a page showing the recent posts to help users see what is new and updated. With the [Revision Date](../mkdocs-plugins/index.md#revision-date) plugin, it is able to use two new meta-data fields: `git_revision_date_localized`, and `git_creation_date_localized` if the option `enable_creation_date` is `true`.
+There should be a page showing the recent posts to help users see what is new and updated. With the [Revision Date](../mkdocs-plugins/#revision-date) plugin, it is able to use two new meta-data fields: `git_revision_date_localized`, and `git_creation_date_localized` if the option `enable_creation_date` is `true`.
 
-Create new `index.md` file inside the `blog` folder. When using the [Section Index](../mkdocs-plugins/index.md#section-index) plugin, this index file will be merged to the Blog section, therefore, when user selects the Blog label, there is a list of recent posts will be shown.
+Create new `index.md` file inside the `blog` folder. When using the [Section Index](../mkdocs-plugins/#section-index) plugin, this index file will be merged to the Blog section, therefore, when user selects the Blog label, there is a list of recent posts will be shown.
 
 ``` yaml title="docs\blog\index.md" hl_lines="4"
 ---8<--- "docs\blog\index.md"
@@ -407,9 +409,10 @@ When the page is loaded, a script will run to get all pagination's links, and th
 ```
 
 
+
 ## Zoom-in Images
 
-As mentioned in the [Images](../markdown-syntax/index.md#images) section, [view-bigimg](https://github.com/newming/view-bigimg) library helps to zoom and pan images. It's useful when the image is in high resolution and resized to fit site's width.
+As mentioned in the [Images](../markdown-syntax/#images) section, [view-bigimg](https://github.com/newming/view-bigimg) library helps to zoom and pan images. It's useful when the image is in high resolution and resized to fit site's width.
 
 Download `view-bigimg.css` and `view-bigimg.js` files from the [view-bigimg](https://github.com/newming/view-bigimg/tree/master/src) repo, then add them into the addition assets configs in `mkdocs.yml`:
 
