@@ -454,8 +454,10 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     border: 1px solid navy;
     color: white;
 }
-.md-typeset .md-button :is(.emojione,.twemoji,.gemoji) {
+.md-typeset :is(.emojione,.twemoji,.gemoji) {
     vertical-align: sub;
+    height: 1.25em;
+    width: 1.25em;
 }
 /* printing */
 .md-typeset .print-only {
