@@ -76,25 +76,24 @@
 }
 .md-typeset h2 {
     color: navy;
-    font-size: 1.4em;
+    font-size: 1.6em;
     margin: 1.6em 0 0.5em 0;
     padding-bottom: 0.125em;
     border-bottom: 2px solid navy;
 }
 .md-typeset h3 {
     color: navy;
-    font-size: 1.25em;
+    font-size: 1.4em;
     margin: 1.6em 0 0.5em 0;
     border-bottom: 1px dashed navy;
 }
 .md-typeset h4 {
     color: black;
-    font-size: 1.1em;
-    font-weight: normal;
+    font-size: 1.2em;
+    /* font-weight: normal; */
     margin: 1.6em 0 0.5em 0;
-    letter-spacing: -.01em;
     text-decoration: underline;
-    text-underline-offset: 0.125em;
+    text-underline-offset: 0.25em;
 }
 .md-typeset p {
     text-align: justify;
@@ -136,6 +135,9 @@
     word-break: break-word;
     font-size: 0.95em;
 }
+.md-typeset .highlight pre {
+    margin-bottom: 2em;
+}
 .md-typeset .highlight span.filename {
     font-weight: initial;
 }
@@ -159,7 +161,7 @@
     transform: none;
 }
 .md-typeset .highlight+.highlight.log {
-    margin-top: -1em;
+    margin-top: -2em;
 }
 .md-typeset .highlight.log {
     font-size: small;
@@ -310,6 +312,50 @@ html .md-typeset :is(.admonition-title,summary):last-child {
 }
 .md-typeset .row .col:last-of-type {
     margin-right: 0;
+}
+/* tree view */
+.md-typeset .small {
+    font-size: small;
+}
+.md-typeset .xsmall {
+    font-size: x-small;
+}
+.md-typeset .tree-view ul {
+    margin: 0 !important;
+}
+.md-typeset .tree-view li ul {
+    margin: 0 !important;
+}
+.md-typeset .tree-view ul li {
+    margin-top: 0.5em;
+    margin-bottom: 0 !important;
+}
+.md-typeset .tree-view li::marker {
+    content: "▶ ";
+    font-size: small;
+}
+.md-typeset .tree-view li.item::marker {
+    content: unset;
+}
+.md-typeset .tree-view li.active::marker {
+    content: "▼ ";
+}
+.md-typeset .tree-view li:not(.active) :is(ul, *:not(:first-child)) {
+    display: none !important;
+}
+.md-typeset .tree-view li pre {
+    margin-bottom: 0;;
+    font-size: small;
+}
+.md-typeset .tree-view li em {
+    color: navy;
+}
+.md-typeset .tree-view li p {
+    margin-top: 0.5em;
+    margin-bottom: 0 !important;
+}
+.md-typeset .tree-view li .highlight {
+    margin: 0 !important;
 }
 /* progress bar */
 .md-typeset .progress a {

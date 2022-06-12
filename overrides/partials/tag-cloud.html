@@ -39,6 +39,9 @@
     }
     .tag-cloud-content {
         padding: 0 0.6rem;
+        {% if page.url == 'tags/' %}
+        text-align: center;
+        {% endif %}
     }
 </style>
 

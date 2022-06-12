@@ -7,11 +7,13 @@ hide:
 ---
 
 <style>
+    /*
     body {
         background-image: url('/assets/background.png');
         background-blend-mode: difference;
         background-size: contain;
     }
+    */
     .md-header, 
     .md-tabs {
         background-color: unset;

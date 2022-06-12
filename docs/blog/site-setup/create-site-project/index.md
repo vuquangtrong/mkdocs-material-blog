@@ -382,7 +382,7 @@ The structure in the `overrides` directory must mirror the directory structure o
 └─ main.html                           # Default page
 ```
 
-\
+
 __Overriding partials__
 
 In order to override a partial, we can replace it with a file of the same name and location in the `overrides` directory. For example, to replace the original `footer.html` partial, create a new `footer.html` partial in the `overrides` directory:

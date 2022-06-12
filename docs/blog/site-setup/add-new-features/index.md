@@ -355,7 +355,7 @@ Use `target` keyword to select the selected _page ID_, then show only the target
 }
 ```
 
-\
+
 __JavaScript__
 
 When the page is loaded, a script will run to get all pagination's links, and then add a callback function for click event, that remove `active` class from last activated element and then assign `active` class to the event's source element. Note that the first page is activated by default when the page is loaded. After a page is selected, function `scrollToTop()` will navigate to the top view.

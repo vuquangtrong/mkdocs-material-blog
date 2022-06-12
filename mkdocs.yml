@@ -7,7 +7,7 @@ site_url: https://www.codeinsideout.com/ # must have the trailing slash
 site_author: Vũ Quang Trọng (vuquangtrong@gmail.com)
 site_description: Guides, notes and useful stuff for learning embedded systems.
 copyright: > # should remain a link to the original theme
-  &copy; 2021 Code Inside Out<br>
+  &copy; 2020-2022 Code Inside Out<br>
   <a href="https://github.com/vuquangtrong/mkdocs-material-blog">Blog Theme</a> /
   <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
 

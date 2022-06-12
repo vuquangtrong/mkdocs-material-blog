@@ -50,18 +50,37 @@ function styleAdmonitions() {
     }
 }
 
+/* create tree view */
+function createTreeView() {
+    var _li = document.body.querySelectorAll(".tree-view li");
+    for(var i=0; i<_li.length; i++) {
+        if(_li[i].children.length) {
+            _li[i].classList.add("active");
+        } else {
+            _li[i].classList.add("item");
+        }
+        _li[i].onclick = function() {
+            if(this.children.length) {
+                this.classList.toggle("active");
+            }
+            event.stopPropagation();
+        }
+    }
+}
+
 /* run all */
 function run() {
     activateBigImg();
     activateExternalLinks();
     styleAdmonitions();
+    createTreeView();
 }
 
 var other_run = window.onload;
 window.onload = function () {
     if(other_run) other_run();
     run();
-};  
+};
 
 /* subscribe encrypted content */
 var decrypted_content = document.getElementById('mkdocs-decrypted-content');
