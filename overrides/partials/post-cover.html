@@ -44,11 +44,7 @@
     {% endif %}
 
     {# title #}
-    {% if page.markdown == '' and page.parent.children %}
-        <h1 class="page-title"> {{ page_title }} </h1>
-    {% else %}
-        <h1 class="page-title"> {{ page.title | d(config.site_name, true) }} </h1>
-    {% endif %}
+    <h1 class="page-title"> {{ page_title | d(config.site_name, true) }} </h1>
 
     {# description #}
     {% if page.meta and page.meta.description %}

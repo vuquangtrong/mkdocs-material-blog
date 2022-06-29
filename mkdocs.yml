@@ -62,6 +62,7 @@ theme:
     # Content
     # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations
     - content.code.annotate # add comment to code blocks
+    - content.tabs.link # link tabs with the same label
 
 #
 # Plugins
@@ -151,7 +152,8 @@ markdown_extensions:
       # anchor_linenums: true # create anchor link on each line of code
   - pymdownx.inlinehilite # highlight inline code blocks
   - pymdownx.smartsymbols # convert some sequences of characters into their corresponding symbols
-  - pymdownx.snippets #  embed content from arbitrary files into a document
+  - pymdownx.snippets: #  embed content from arbitrary files into a document
+      check_paths: true
   - pymdownx.tabbed: # group related content and code blocks under accessible tabs
       alternate_style: true
   - pymdownx.tasklist: # define list of task with checkbox
@@ -177,7 +179,8 @@ extra:
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/
   analytics:
     provider: google
-    property: UA-42618265-2 # or G-XXXXXXXXXX
+    property: G-144Q0VJMBT
+    # property: UA-42618265-2
   
   # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/#cookie-consent
   consent:

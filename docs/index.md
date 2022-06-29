@@ -37,6 +37,12 @@ hide:
     .md-typeset .cards .col:last-of-type {
         margin-right: -1em;
     }
+    .md-typeset .cards .col.github:first-of-type {
+        margin-left: -1.5em;
+    }
+    .md-typeset .cards .col.github {
+        margin-left: -0.5em;
+    }
     .md-typeset .cards .card h2 {
         margin-top: 0;
     }
@@ -50,23 +56,30 @@ From hardware to cloud applications. Step by step.
 
 ::: row cards
 
-    ::: col
+    ::: col card
 
-        ::: card
+        ## :material-book: Blog
 
-            ## :material-book: Blog
+        Each post is what I've learned, and I wrote them down to share. Hope you'll find something interesting there.
 
-            Each post is what I've learned, and I wrote them down to share. Hope you'll find something interesting there.
+        [Read news](blog/){.md-button}
 
-            [Read news](blog/){.md-button}
+    ::: col card
 
-    ::: col
+        ## :material-file-code: Projects
 
-        ::: card
+        A list of my projects which are done for learning and practicing in free time. Wanna give me a hand ?! Let's do it together.
 
-            ## :material-file-code: Projects
+        [See projects](projects/){.md-button}
 
-            A list of my projects which are done for learning and practicing in free time. Wanna give me a hand ?! Let's do it together.
+::: row cards
 
-            [See projects](projects/){.md-button}
+    ::: col github
 
+        ![](https://github-readme-stats.vercel.app/api?username=vuquangtrong&count_private=true&show_icons=true&hide_border=true&custom_title=GitHub%20Stats&title_color=000080)
+
+    ::: col github
+
+        ![](https://github-readme-stats.vercel.app/api/top-langs/?username=vuquangtrong&layout=compact&hide=html,autoit&hide_border=true&langs_count=8&title_color=000080)
+
+> Using __GitHub Stats__ and __Top Langs__ by [:material-github: anuraghazra](https://github.com/anuraghazra/github-readme-stats)

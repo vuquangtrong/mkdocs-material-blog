@@ -66,6 +66,13 @@ function createTreeView() {
             event.stopPropagation();
         }
     }
+
+    var _hl = document.body.querySelectorAll(".tree-view li .highlight");
+    for(var i=0; i<_hl.length; i++) {
+        _hl[i].onclick = function() {
+            event.stopPropagation();
+        }
+    }
 }
 
 /* run all */
