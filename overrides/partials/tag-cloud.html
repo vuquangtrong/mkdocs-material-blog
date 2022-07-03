@@ -1,4 +1,4 @@
-{% from "partials/random-colors.html" import random_color %}
+{% from "partials/colors.html" import color %}
 
 {% set tags=[] %}
 
@@ -65,7 +65,7 @@
                     {% else %}
                         font-size:{{ 0.5+sz*0.05}}rem;
                     {% endif %}
-                    color:{{ random_color() }};
+                    color:{{ color( loop.index%12) }};
                 ">
                     {{- tag -}} &nbsp;
                 </span>

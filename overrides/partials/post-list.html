@@ -1,4 +1,4 @@
-{% from "partials/random-colors.html" import random_color %}
+{% from "partials/colors.html" import color %}
 
 {# title #}
 {% if not "\x3ch1" in page.content %}
@@ -90,6 +90,11 @@
             margin-top: -1rem;
             height: 100%;
             max-height: 4rem;
+        }
+        @media (max-width: 800px) {
+            .md-typeset .post .post-banner {
+                max-height: 2rem;
+            }
         }
         .md-typeset .post .post-description {
             margin: 0 1rem 0 0;
@@ -201,7 +206,7 @@
                                         <p class="post-tags">
                                             {% for tag in pg.meta.tags %}
                                             <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
-                                                <span class="tag-name" style="color:{{ random_color() }};">
+                                                <span class="tag-name" style="color:{{ color( loop.index%12) }};">
                                                     &nbsp; #{{ tag }}
                                                 </span>
                                             </a>

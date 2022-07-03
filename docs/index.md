@@ -7,17 +7,6 @@ hide:
 ---
 
 <style>
-    /*
-    body {
-        background-image: url('/assets/background.png');
-        background-blend-mode: difference;
-        background-size: contain;
-    }
-    */
-    .md-header, 
-    .md-tabs {
-        background-color: unset;
-    }
     .md-typeset .cover {
         display: none;
     }
@@ -28,24 +17,6 @@ hide:
     .md-typeset h2 {
         color: navy;
     }
-    .md-typeset .cards .card {
-        padding: 1em;
-    }
-    .md-typeset .cards .col:first-of-type {
-        margin-left: -1em;
-    }
-    .md-typeset .cards .col:last-of-type {
-        margin-right: -1em;
-    }
-    .md-typeset .cards .col.github:first-of-type {
-        margin-left: -1.5em;
-    }
-    .md-typeset .cards .col.github {
-        margin-left: -0.5em;
-    }
-    .md-typeset .cards .card h2 {
-        margin-top: 0;
-    }
 </style>
 
 # Code Inside Out
@@ -54,9 +25,9 @@ Interesting stuff in Embedded Systems and IoT Applications.\
 From hardware to cloud applications. Step by step.
 (ﾉ ◕ ヮ ◕)ﾉ*:・ﾟ ✧
 
-::: row cards
+::: row
 
-    ::: col card
+    ::: col
 
         ## :material-book: Blog
 
@@ -64,7 +35,7 @@ From hardware to cloud applications. Step by step.
 
         [Read news](blog/){.md-button}
 
-    ::: col card
+    ::: col
 
         ## :material-file-code: Projects
 
@@ -72,14 +43,18 @@ From hardware to cloud applications. Step by step.
 
         [See projects](projects/){.md-button}
 
-::: row cards
 
-    ::: col github
+## :material-github: GitHub Stats
 
-        ![](https://github-readme-stats.vercel.app/api?username=vuquangtrong&count_private=true&show_icons=true&hide_border=true&custom_title=GitHub%20Stats&title_color=000080)
+::: row
 
-    ::: col github
+    ::: col
 
-        ![](https://github-readme-stats.vercel.app/api/top-langs/?username=vuquangtrong&layout=compact&hide=html,autoit&hide_border=true&langs_count=8&title_color=000080)
+        ![](https://github-readme-stats.vercel.app/api?username=vuquangtrong&count_private=true&show_icons=true&hide_border=true&hide_title=true)
+
+    ::: col
+
+        ![](https://github-readme-stats.vercel.app/api/top-langs/?username=vuquangtrong&layout=compact&langs_count=8&hide=html,autoit&hide_border=true&hide_title=true)
+
 
 > Using __GitHub Stats__ and __Top Langs__ by [:material-github: anuraghazra](https://github.com/anuraghazra/github-readme-stats)

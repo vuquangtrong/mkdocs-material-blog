@@ -34,7 +34,20 @@ The `tags.html` template to include 2 parts:
 Tags will have random colors, to easily disguise them to each other. A helper `random_color()` macro that returns a random color looks like:
 
 ``` jinja title="overrides\partials\random-colors.html"
----8<--- "overrides\partials\random-colors.html"
+{%- macro random_color() -%}
+{{- ["DarkRed",
+"DarkGoldenrod",
+"DarkGreen",
+"DarkOliveGreen",
+"DarkCyan",
+"DarkTurquoise",
+"DarkBlue",
+"DarkMagenta",
+"DarkViolet",
+"DarkSlateBlue",
+"DarkOrchid",
+"DarkSlateGray"] | random -}}
+{%- endmacro -%}
 ```
 
 Then it can be imported and used:

@@ -291,24 +291,28 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     flex-direction: row;
 }
 .md-typeset .row .col {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    margin: 0 0.25em;
+    padding: 0 1em;
 }
 .md-typeset .row.bordered .col {
     border: 1px solid lightgray;
-    padding: 0 1em;
-    margin: 0 !important;
 }
-.md-typeset .row.bordered .col dt {
-    margin-top: 0 !important;
+.md-typeset .row.bordered .col {
+    border: 1px solid lightgray;
 }
 .md-typeset .row .col:first-of-type {
-    margin-left: 0;
+    padding-left: 0;
 }
 .md-typeset .row .col:last-of-type {
-    margin-right: 0;
+    padding-right: 0;
+}
+@media (max-width: 800px) {
+    .md-typeset .row {
+        flex-direction: column;
+    }
+    .md-typeset .row .col {
+        padding: 0;
+    }
 }
 /* tree view */
 .md-typeset .small {
